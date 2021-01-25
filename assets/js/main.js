@@ -3,6 +3,8 @@
 - 2, Navigation
 - 3, Happy Client Slider
 - 4, Box discover slider
+- 5, du-thuyen-desktop load more 
+- 6, Box partner slider
 */
 /* ============================= 1, init  ============================= */
 
@@ -11,6 +13,10 @@ $(document).ready(function() {
 	date.init();
 	happyClient.init()
 	boxDiscoverSlider.init();
+	customModal.init();
+	// boxpartnertslider.init();
+	loadMore.init();
+	animationService.init();
 });
 
 /* ============================= 2, Navigation  ============================= */
@@ -177,3 +183,174 @@ const date = {
 		});
 	},
 }
+
+/* ============================= 4, Custom modal  ============================= */
+const customModal = {
+	init:function(){
+		this.customModal();
+	},
+	customModal:function(){
+		$(".openPopup").on("click",function() {
+			var popup = $(this).data("popup")
+			$(popup).removeClass('hidden');
+			$("body").addClass("modal-open");
+		})
+		$(".closePopup").on("click",function() {
+			$('.full-screen').addClass('hidden');
+			$("body").removeClass("modal-open");
+		})
+	}
+}
+/* ============================= 5,du-thuyen-desktop load more  ============================= */
+const loadMore={
+	init:function(){
+		this.clickLoad()
+	},
+	clickLoad:function(){
+		var data=[
+			{img:'assets/images/box-yacht/lee-06355.png'},
+			{img:'assets/images/box-yacht/lee-06355.png'},
+			{img:'assets/images/box-yacht/lee-06355.png'},
+			{img:'assets/images/box-yacht/lee-06355.png'},
+			{img:'assets/images/box-yacht/lee-06355.png'},
+			{img:'assets/images/box-yacht/lee-06355.png'},
+			{img:'assets/images/box-yacht/lee-06355.png'},
+			{img:'assets/images/box-yacht/lee-06355.png'}
+		]
+		$(".box-yacht__wrap .row .col-lg-4.col-md-6").slice(0, 6).show();
+		var items='';
+		if(data){
+			for (let i = 0; i < data.length; i++) {
+				items+= `<div class="col-lg-4 col-md-6">
+							<div class="yacht__items">
+								<div class="yacht__items-img"><img src=${data[i].img} alt="">
+									<div class="endow">
+									<p>Ưu đãi -40%</p>
+									</div>
+								</div>
+								<div class="yacht__items-text"><a href="">
+									<h3 class="title">Serenity Cruise</h3></a>
+									<ul>
+										<li>
+											<div class="dots"></div>
+											<p>Cảng khởi hành: Tuần Châu</p>
+										</li>
+										<li>
+											<div class="dots"></div>
+											<p>Thời gian khởi hành: 08h15</p>
+										</li>
+										<li>
+											<div class="dots"></div>
+											<p>Các dịch vụ theo tàu</p>
+										</li>
+										<li>
+											<div class="dots"></div>
+											<p>HDV suốt hành trình</p>
+										</li>
+										<li>
+											<div class="dots"></div>
+											<p>Ăn trên tàu</p>
+										</li>
+									</ul>
+									<div class="price">
+										<h3>đ 399,000</h3><span>đ 599,000</span>
+									</div><a class="btn btn-booking" href="./booking-train-desktop.html">Đặt tàu</a>
+								</div>
+							</div>
+						</div>`
+			}
+		}
+		let $newrow = $(items);
+		var ajaxDelay = 1000,
+			animationDuration = 201;
+		$newrow.appendTo($(".box-yacht__wrap .row"));
+		$(".btn-more").on("click", function(e){
+			e.preventDefault();
+			let $self = $(e.currentTarget);
+			if($self.hasClass('loading')){
+				return;
+			}
+			$self.addClass('loading');
+			setTimeout(function() {
+				let numberItem=$(".btn-more span").html();
+				$(".box-yacht__wrap .row .col-lg-4.col-md-6:hidden").slice(0, 6).slideDown();
+				$(".btn-more span").html(parseInt(numberItem)-6)
+				if($(".box-yacht__wrap .row .col-lg-4.col-md-6:hidden").length == 0) {
+					$(".btn-more span").html("0");
+					$(".btn-more").css({'display':'none'});
+					$("#loader").css({'display':'none'});
+				}
+				setTimeout(function() {
+				  $self.removeClass('loading');
+				}, animationDuration);
+			}, ajaxDelay);
+		});
+		
+	}
+}
+
+/* ============================= 6, Box partner slider  ============================= */
+var owl = $('.box-partner__main');
+owl.owlCarousel({
+	loop:true,
+	nav:false,
+	autoplay:true,
+	responsive:{
+		0:{
+			items:2
+		},
+		600:{
+			items:3
+		},
+		1000:{
+			items:5
+		}
+	},
+	autoplayTimeout:3000,
+	autoplayHoverPause:true
+});
+/* ============================= 7, Animtation Service  ============================= */
+const animationService = {
+	init:function () {
+		this.aniService();
+	},
+	aniService:function () {
+		let widthBox = $(".service-section .service__main-content .box__service-content .content__detail").outerWidth();
+		if($(window).width() >= 993) {
+			$(window).scroll(function (event) {
+				let scroll = $(window).scrollTop();
+				let icon = $(".service-section .service__main-content .box__service-content .content__detail-right i");
+				let boxContent = $(".service-section .service__main-content .box__service-content .content__detail");
+				let content = $('.box__service-content');
+				let footer = $('.footer').position().top;
+				let y = 0;
+				($('.service__main-content').position() === 'undefined') ? y = $('.service__main-content').position().top : y =0;
+				if (scroll >= y - content.height()) {
+					icon.css({"-webkit-transform": "translateX(0%)"});
+				} else {
+					icon.css({"-webkit-transform": "translateX(-38%)"});
+				}
+				if (scroll < y + content.height() - 100 || scroll > footer - 840) {
+					boxContent.removeAttr('style');
+				}
+				if (scroll >= y + content.height() - 120 && scroll <= y + content.height() || scroll > footer - 920) {
+					icon.css({"-webkit-transform": "translateX(-38%)"});
+				}
+				if (scroll >= y + content.height() - 100 && scroll <= footer - 920) {
+					icon.css({"-webkit-transform": "translateX(0%)"});
+					boxContent.css({
+						"position": "fixed",
+						"bottom": "0",
+						"width": widthBox + "px",
+						"animation": "contentFadeIn 1s",
+						"border-top-right-radius": "10px",
+						"border-top-left-radius": "10px",
+						"border-bottom-left-radius": "0px",
+						"border-bottom-right-radius": "0px",
+					});
+				}
+			});
+		}
+	}
+}
+
