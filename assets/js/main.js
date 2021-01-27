@@ -5,6 +5,8 @@
 - 4, Box discover slider
 - 5, du-thuyen-desktop load more 
 - 6, Box partner slider
+- 7, Animtation Service
+- 8, Box partner slider mb
 */
 /* ============================= 1, init  ============================= */
 
@@ -14,9 +16,12 @@ $(document).ready(function() {
 	happyClient.init()
 	boxDiscoverSlider.init();
 	customModal.init();
-	// boxpartnertslider.init();
+	partnerSlider.init()
+	partnerSlidermb.init()
 	loadMore.init();
 	animationService.init();
+	menuMb.init();
+	loadMoreOther.init();
 });
 
 /* ============================= 2, Navigation  ============================= */
@@ -28,13 +33,16 @@ const navigation = {
 	navbarFixed: function () {
 		window.onscroll = function () {
 			var topBar = $(".nav__top-bar");
-			var nav = $('.nav')
-			if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+			var nav = $('.nav');
+			var nav = $('.header-mb')
+			if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
 				$(".nav").addClass("nav--fixed");
 				topBar.css({"display": "none"});
+				nav.addClass("header-mb--fixed");
 			} else {
 				$(".nav").removeClass("nav--fixed");
 				topBar.css({"display": "flex"});
+				nav.removeClass("header-mb--fixed");
 			}
 		}
 	},	
@@ -119,7 +127,7 @@ const boxDiscoverSlider = {
 		this.boxDiscoverSlider();
 	},
 	boxDiscoverSlider: function () {
-		$('.owl-carousel').owlCarousel({
+		$('.box-discover-section .owl-carousel').owlCarousel({
 			loop:true,
 			margin:10,
 			nav:false,
@@ -290,25 +298,35 @@ const loadMore={
 }
 
 /* ============================= 6, Box partner slider  ============================= */
-var owl = $('.box-partner__main');
-owl.owlCarousel({
-	loop:true,
-	nav:false,
-	autoplay:true,
-	responsive:{
-		0:{
-			items:2
-		},
-		600:{
-			items:3
-		},
-		1000:{
-			items:5
-		}
+const partnerSlider = {
+	init: function () {
+		this.partnerSlider();
 	},
-	autoplayTimeout:3000,
-	autoplayHoverPause:true
-});
+	partnerSlider: function () {
+		$('.partner-slider-section .owl-carousel').owlCarousel({
+			loop:true,
+			nav:false,
+			margin:50,
+			responsive:{
+				0:{
+					items:2
+				},
+				767:{
+					items:3
+				},
+				1024:{
+					items:4
+				},
+				1200:{
+					items:5
+				}
+			},
+			autoplay:false,
+			autoplayTimeout:4000,
+			autoplayHoverPause:true,
+		})
+	},
+}
 /* ============================= 7, Animtation Service  ============================= */
 const animationService = {
 	init:function () {
@@ -317,40 +335,144 @@ const animationService = {
 	aniService:function () {
 		let widthBox = $(".service-section .service__main-content .box__service-content .content__detail").outerWidth();
 		if($(window).width() >= 993) {
+			if($(".service-section .service__main-content .box__service-content .content__detail").length ===0) {
+				return;
+			}
+			const y = $(".service-section .service__main-content .box__service-content .content__detail").offset().top - 123;
 			$(window).scroll(function (event) {
 				let scroll = $(window).scrollTop();
-				let icon = $(".service-section .service__main-content .box__service-content .content__detail-right i");
-				let boxContent = $(".service-section .service__main-content .box__service-content .content__detail");
-				let content = $('.box__service-content');
-				let footer = $('.footer').position().top;
-				let y = 0;
-				($('.service__main-content').position() === 'undefined') ? y = $('.service__main-content').position().top : y =0;
-				if (scroll >= y - content.height()) {
-					icon.css({"-webkit-transform": "translateX(0%)"});
-				} else {
-					icon.css({"-webkit-transform": "translateX(-38%)"});
-				}
-				if (scroll < y + content.height() - 100 || scroll > footer - 840) {
-					boxContent.removeAttr('style');
-				}
-				if (scroll >= y + content.height() - 120 && scroll <= y + content.height() || scroll > footer - 920) {
-					icon.css({"-webkit-transform": "translateX(-38%)"});
-				}
-				if (scroll >= y + content.height() - 100 && scroll <= footer - 920) {
-					icon.css({"-webkit-transform": "translateX(0%)"});
-					boxContent.css({
-						"position": "fixed",
-						"bottom": "0",
-						"width": widthBox + "px",
-						"animation": "contentFadeIn 1s",
-						"border-top-right-radius": "10px",
-						"border-top-left-radius": "10px",
-						"border-bottom-left-radius": "0px",
-						"border-bottom-right-radius": "0px",
-					});
-				}
+				const windowHeight = $(window).height();
+				var icon = $(".service-section .service__main-content .box__service-content .content__detail-right i");
+				var boxContent = $(".service-section .service__main-content .box__service-content .content__detail");
+				if ($(".service__main-content")[0]){
+					if (scroll < 400) {
+						boxContent.removeAttr('style');
+						icon.css({"-webkit-transform": "translateX(-38%)"});
+					}else if (scroll >= 400 && scroll + windowHeight < y){
+						icon.css({"-webkit-transform": "translateX(0%)"});
+						boxContent.css({
+							"position": "fixed",
+							"bottom": "0",
+							"width": widthBox + "px",
+							"animation": "contentFadeIn 1s",
+							"border-top-right-radius": "10px",
+							"border-top-left-radius": "10px",
+							"border-bottom-left-radius": "0px",
+							"border-bottom-right-radius": "0px",
+						});
+					}else if(scroll + windowHeight >= y)  {
+						boxContent.removeAttr('style');
+					}
+				} 
 			});
 		}
 	}
 }
+/* ============================= 8, Box partner slider mb ============================= */
+const partnerSlidermb = {
+	init: function () {
+		this.partnerSlidermb();
+	},
+	partnerSlidermb: function () {
+		$('.partner-slider-section-mb .owl-carousel').owlCarousel({
+			loop:true,
+			nav:false,
+			margin:50,
+			items:2,
+			autoplay:false,
+			autoplayTimeout:4000,
+			autoplayHoverPause:true,
+		})
+	},
+}
+/* ============================= 8,list-boad-desktop load more  ============================= */
+const loadMoreOther={
+	init:function(){
+		this.clickLoadOther()
+	},
+	clickLoadOther:function(){
+		var data=[
+			{img:'assets/images/box-aycht-horizontal1.png'},
+			{img:'assets/images/box-aycht-horizontal1.png'},
+			{img:'assets/images/box-aycht-horizontal1.png'},
+			{img:'assets/images/box-aycht-horizontal1.png'},
+			{img:'assets/images/box-aycht-horizontal1.png'},
+			{img:'assets/images/box-aycht-horizontal1.png'},
+			{img:'assets/images/box-aycht-horizontal1.png'},
+			{img:'assets/images/box-aycht-horizontal1.png'}
+		]
+		$(".box-yacht-horizontal-wrapper .row .col-lg-12.col-md-6").slice(0, 2).show();
+		var items='';
+		if(data){
+			for (let i = 0; i < data.length; i++) {
+				items+= `<div class="col-lg-12 col-md-6">
+				<div class="box-yacht-horizontal">
+				  <div class="box-yacht-horizontal__group">
+					<div class="box-yacht-horizontal__img openPopup" data-popup="#popup-2">
+					  <div class="box-yacht-horizontal__img"><img src="assets/images/box-aycht-horizontal1.png" alt=""></div>
+					  <div class="photos"><i class="fas fa-plus"></i>Xem ảnh tàu</div>
+					</div>
+					<div class="box-yacht-horizontal__info"><a href="">
+						<h3>Tàu 18 chỗ thường</h3></a>
+					  <div class="btn-hover-wrapper"><span class="blue btn-hover">Có đồ ăn</span><span class="blue hasborder btn-hover">Có xe đưa đón</span><span class="orange btn-hover">Có ưu đãi</span></div>
+					  <ul>
+						<li>Cảng khởi hành: Tuần Châu</li>
+						<li>Thời gian khởi hành: 08h15</li>
+						<li>Vé thắng cảnh</li>
+						<li>Chèo thuyền Kayak 40.000 đ/người</li>
+						<li>Đưa đón/tiễn Tại khách sạn ở Bãi Cháy</li>
+						<li>Vé thăm quan tuyến</li>
+						<li>Ăn trên tàu bữa trưa / chiều 150.000 đ/người</li>
+						<li>Hướng dẫn viên du lịch suốt hành trình</li>
+					  </ul>
+					</div>
+					<div class="box-yacht-horizontal__info-reserve">
+					  <div class="price"><span class="price-new">đ 399,000</span><span class="price-old">đ 599,000</span><a class="btn-reserve" href="./booking-train-desktop.html"><span>Đặt tàu</span></a></div>
+					</div>
+				  </div>
+				  <div class="box-yacht-horizontal__sale"></div>
+				</div>
+	  </div>`
+			}
+		}
+		var ajaxDelay = 1000,
+			animationDuration = 201;
+		$(".ac").on("click", function(e){
+			console.log("tesst")
+			let $self = $(e.currentTarget);
+			$self.addClass('loading');
+			setTimeout(function() {
+				$(".box-yacht-horizontal-wrapper .row .col-lg-12.col-md-6:hidden").slice(0,3).slideDown();
+				if($(".box-yacht-horizontal-wrapper .row .col-lg-12.col-md-6:hidden").length == 0) {
+					$(".ac span").html("+98");
+					$(".ac").css({'display':'block'});
+					$("#loader").css({'display':'block'});
+				}
+				setTimeout(function() {
+				  $self.removeClass('loading');
+				}, animationDuration);
+			}, ajaxDelay);
+		});
+	}
+}
 
+/* ============================= 9, menu mobile ============================= */
+const menuMb = {
+	init:function () {
+		this.menuMb();
+	},
+	menuMb: function() {
+		var menuMb = $('.menu-mb');
+		var navBtn = $('.nav__btn');
+		var menuOverlay = $('.menu-mb__overlay');
+		var closeBtn = $('.menu-mb__btn');
+		navBtn.click(function() {
+			menuMb.addClass('menu-mb--active');
+			$("body").addClass("modal-open");
+		})
+		menuOverlay.add(closeBtn).click(function() {
+			menuMb.removeClass('menu-mb--active');
+			$("body").removeClass("modal-open");
+		})
+	},
+}
