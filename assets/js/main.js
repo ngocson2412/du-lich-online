@@ -201,11 +201,11 @@ const customModal = {
 		$(".openPopup").on("click",function() {
 			var popup = $(this).data("popup")
 			$(popup).removeClass('hidden');
-			$("body").addClass("modal-open");
+			$("body").css("overflow", "hidden");
 		})
 		$(".closePopup").on("click",function() {
 			$('.full-screen').addClass('hidden');
-			$("body").removeClass("modal-open");
+			$("body").css("overflow", "scroll");
 		})
 	}
 }
@@ -215,21 +215,20 @@ const loadMore={
 		this.clickLoad()
 	},
 	clickLoad:function(){
-		var data=[
-			{img:'assets/images/box-yacht/lee-06355.png'},
-			{img:'assets/images/box-yacht/lee-06355.png'},
-			{img:'assets/images/box-yacht/lee-06355.png'},
-			{img:'assets/images/box-yacht/lee-06355.png'},
-			{img:'assets/images/box-yacht/lee-06355.png'},
-			{img:'assets/images/box-yacht/lee-06355.png'},
-			{img:'assets/images/box-yacht/lee-06355.png'},
-			{img:'assets/images/box-yacht/lee-06355.png'}
-		]
-		$(".box-yacht__wrap .row .col-lg-4.col-md-6").slice(0, 6).show();
-		var items='';
-		if(data){
-			for (let i = 0; i < data.length; i++) {
-				items+= `<div class="col-lg-4 col-md-6">
+		var ajaxDelay = 2000;
+		$(".btn-more").on("click", function(e){
+			var data=[
+				{img:'assets/images/box-yacht/lee-06355.png'},
+				{img:'assets/images/box-yacht/lee-06355.png'},
+				{img:'assets/images/box-yacht/lee-06355.png'},
+				{img:'assets/images/box-yacht/lee-06355.png'},
+				{img:'assets/images/box-yacht/lee-06355.png'},
+				{img:'assets/images/box-yacht/lee-06355.png'},
+			]
+			var items='';
+			if(data){
+				for (let i = 0; i < data.length; i++) {
+					items+= `<div class="col-lg-4 col-md-6">
 							<div class="yacht__items">
 								<div class="yacht__items-img"><img src=${data[i].img} alt="">
 									<div class="endow">
@@ -266,34 +265,24 @@ const loadMore={
 								</div>
 							</div>
 						</div>`
-			}
-		}
-		let $newrow = $(items);
-		var ajaxDelay = 1000,
-			animationDuration = 201;
-		$newrow.appendTo($(".box-yacht__wrap .row"));
-		$(".btn-more").on("click", function(e){
-			e.preventDefault();
-			let $self = $(e.currentTarget);
-			if($self.hasClass('loading')){
-				return;
-			}
-			$self.addClass('loading');
-			setTimeout(function() {
-				let numberItem=$(".btn-more span").html();
-				$(".box-yacht__wrap .row .col-lg-4.col-md-6:hidden").slice(0, 6).slideDown();
-				$(".btn-more span").html(parseInt(numberItem)-6)
-				if($(".box-yacht__wrap .row .col-lg-4.col-md-6:hidden").length == 0) {
-					$(".btn-more span").html("0");
-					$(".btn-more").css({'display':'none'});
-					$("#loader").css({'display':'none'});
 				}
-				setTimeout(function() {
-				  $self.removeClass('loading');
-				}, animationDuration);
+			}
+			let $newrow = $(items);
+			e.preventDefault();
+			// call ajax
+			// call jax
+			var seft = $(this)
+			seft.addClass('loading');
+			setTimeout(function() {
+				//phần hiển thị còn bao nhiêu cái để load thêm, có gì thì sua o day
+				// $(".btn-more span").html(parseInt(numberItem)-6)
+				$(".box-yacht__wrap .row").append($newrow)
+				//code js ẩn nút
+				// $(".btn-more").hide();
+				// $("#loader").hide();
+				seft.removeClass('loading');
 			}, ajaxDelay);
 		});
-		
 	}
 }
 
