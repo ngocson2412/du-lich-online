@@ -14,6 +14,7 @@ $(document).ready(function() {
 	navigation.init();
 	date.init();
 	happyClient.init()
+	happyClientMb.init();
 	boxDiscoverSlider.init();
 	customModal.init();
 	partnerSlider.init()
@@ -464,4 +465,35 @@ const menuMb = {
 			$("body").removeClass("modal-open");
 		})
 	},
+}
+/* ============================= 10, Happy Client MOBI ============================= */
+const happyClientMb = {
+	init:function () {
+		this.happyClientMb();
+	},
+	happyClientMb:function () {
+		$('.happy__client__item .item__device .device-carousel-mb').owlCarousel({
+			loop:true,
+			nav:false,
+			dots: false,
+			margin:0,
+			responsive:{
+				0:{
+					items:1
+				},
+				767:{
+					items:3
+				},
+				1024:{
+					items:4
+				},
+				1200:{
+					items:5
+				}
+			},
+			autoplay:true,
+			autoplayTimeout:4000,
+			autoplayHoverPause:true,
+		})
+	}
 }
