@@ -23,6 +23,11 @@ $(document).ready(function() {
 	animationService.init();
 	menuMb.init();
 	loadMoreOther.init();
+	showScheduleList.init();
+	boxSaleListSlider.init();
+	boxWhereGoSlider.init();
+	playVideo.init();
+	flatpickrDate.init();
 });
 
 /* ============================= 2, Navigation  ============================= */
@@ -167,28 +172,44 @@ const date = {
 			language: 'vi',
 			startDate: "currentDate",
 		});
+		$("#datepickerMobile").datepicker({
+			format: 'yyyy-mm-dd',
+			autoclose: true,
+			language: 'vi',
+			startDate: "currentDate",
+		});
 		today = new Date(today.format('YYYY-MM-DD'))
 		$("#datepicker").datepicker("setDate", today);
 		$("#datepicker").text(`${today.getDate()} tháng ${today.getMonth()+1}, ${today.getFullYear()}`);
+		$("#datepickerMobile").datepicker("setDate", today);
+		$("#datepickerMobile").text(`${today.getDate()}/${today.getMonth()+1}/${today.getFullYear()}`);
 		$("#toggle").click(function(e) {
 			e.preventDefault();
 			$("#datepicker").datepicker("show");
+			$("#datepickerMobile").datepicker("show");
 		})
 
 		$("#toggle_cal").click(function(e) {
 			e.preventDefault();
 			$("#datepicker").datepicker("show");
+			$("#datepickerMobile").datepicker("show");
 		})
 		$("#dateLabel").click(function(e) {
 			e.preventDefault();
 			$("#datepicker").datepicker("show");
+			$("#datepickerMobile").datepicker("show");
 		});
 		$("#datepicker").on("changeDate", function() {
 			var selectedDate = $("#datepicker").datepicker("getFormattedDate")
 			$("#dateInput").val(selectedDate);
 			selectedDate = new Date(selectedDate)
 			$("#datepicker").text(`${selectedDate.getDate()} tháng ${selectedDate.getMonth()+1}, ${selectedDate.getFullYear()}`);
-
+		});
+		$("#datepickerMobile").on("changeDate", function() {
+			var selectedDate = $("#datepickerMobile").datepicker("getFormattedDate")
+			$("#dateInput").val(selectedDate);
+			selectedDate = new Date(selectedDate)
+			$("#datepickerMobile").text(`${selectedDate.getDate()}/${selectedDate.getMonth()+1}/${selectedDate.getFullYear()}`);
 		});
 	},
 }
@@ -495,5 +516,99 @@ const happyClientMb = {
 			autoplayTimeout:4000,
 			autoplayHoverPause:true,
 		})
+	}
+}
+/* ============================= 11, Show Schedule List  ============================= */
+const showScheduleList = {
+	init: function () {
+		this.showScheduleList();
+	},
+	showScheduleList:function () {
+		const btn = $('.schedule__top-btn');
+		$('.schedule__toDo').eq(0).addClass('active');
+		$('.schedule__toDo').eq(0).css('display','block');
+		btn.eq(0).addClass('active');
+		btn.click(function(e) {
+			const listToDo = $(this).parent().next();
+			listToDo.slideToggle(400);
+			if(listToDo.hasClass('active')) {
+				listToDo.removeClass('active');
+				$(this).removeClass('active');
+			} else {
+				listToDo.addClass('active')
+				$(this).addClass('active');
+			}
+		})
+	}
+}
+/* ============================= 12, Box Sale List Slider  ============================= */
+const boxSaleListSlider = {
+	init:function () {
+		this.boxSaleListSlider();
+	},
+	boxSaleListSlider:function () {
+		$('.box-sale-list .owl-carousel').owlCarousel({
+			loop:true,
+			margin:16,
+			nav:false,
+			dots: false,
+			responsive:{
+				0:{
+					items:1.5
+				},
+			},
+			autoplay:true,
+			autoplayTimeout:4000,
+			autoplayHoverPause:true,
+		})
+	}
+}
+/* ============================= 12, Box Where Go Slider  ============================= */
+const boxWhereGoSlider = {
+	init:function () {
+		this.boxWhereGoSlider();
+	},
+	boxWhereGoSlider:function () {
+		$('.box-where-go .owl-carousel').owlCarousel({
+			loop:true,
+			margin:16,
+			nav:false,
+			dots: false,
+			autoHeight: true,
+			responsive:{
+				0:{
+					items:1.5
+				},
+			},
+			autoplay:true,
+			autoplayTimeout:4000,
+			autoplayHoverPause:true,
+		})
+	}
+}
+/* ============================= 12, play video  ============================= */
+const playVideo = {
+	init: function () {
+		this.clickPlay();
+	},
+	clickPlay:function () {
+		$('.play-icon').click(function(){
+			$('.video video')[0].play();
+			$(this).css({'display':'none'});
+			$('.video video').attr('controls','');
+		})
+	}
+}
+
+const flatpickrDate = {
+	init: function () {
+		this.flatpickrAZ();
+	},
+	flatpickrAZ : function () {
+		flatpickr('#calendar-ja', {
+			"locale": "vn",
+			"minDate": new Date(),
+			"dateFormat": "d/m/Y",
+		});
 	}
 }

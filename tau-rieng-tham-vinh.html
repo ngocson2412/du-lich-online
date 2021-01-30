@@ -5,12 +5,11 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Du-Lich</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&amp;display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap"><link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&amp;display=swap"><link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <link rel="stylesheet" type="text/css" href="./assets/css/carousel/owl.carousel.min.css">
     <link rel="stylesheet" type="text/css" href="./assets/css/carousel/owl.theme.default.min.css">
     <link rel="stylesheet" type="text/css" href="./assets/css/main.css">
@@ -27,8 +26,8 @@
               <div class="col-xl-8 col-lg-9 col-md-9">
                 <ul class="nav__top-bar justify-content-end align-items-center">
                   <li><a href="#">Ưu đãi</a></li>
-                  <li><a href="javascript:void(0)">support@azcruise.vn</a></li>
-                  <li class="phone"><a class="d-flex" href="javascript:void(0)"><img class="phone-icon" src="./assets/images/header/phone.png" alt="phone icon"><span class="phone-text">0912.345.678   </span></a></li>
+                  <li><a href="mailto:support@azcruise.vn">support@azcruise.vn</a></li>
+                  <li class="phone"><a class="d-flex" href="tel:0912345678"><img class="phone-icon" src="./assets/images/header/phone.png" alt="phone icon"><span class="phone-text">0912.345.678   </span></a></li>
                 </ul>
                 <ul class="nav__menu d-none d-md-flex justify-content-between align-items-center">
                   <li class="nav__menu-item"><a class="item__links" href="./tau-tham-vinh-desktop.html"><span>Tàu thăm vịnh</span></a></li>
@@ -36,7 +35,7 @@
                   <li class="nav__menu-item"><a class="item__links" href="./cano-desktop.html"><span>Cano</span></a></li>
                   <li class="nav__menu-item"><a class="item__links" href="#"><span>Thuỷ phi cơ</span></a></li>
                   <li class="nav__menu-item"><a class="item__links" href="./truc-thang-desktop.html"><span>Trực thăng</span></a></li>
-                  <li class="nav__menu-item"><a class="item__links" href="#"><img class="icon-phone" src="./assets/images/header/phone.png" alt="phone icon"><span>0912.345.678</span></a></li>
+                  <li class="nav__menu-item"><a class="item__links" href="tel:0912345678"><img class="icon-phone" src="./assets/images/header/phone.png" alt="phone icon"><span>0912.345.678</span></a></li>
                 </ul>
               </div>
             </div>
@@ -44,7 +43,7 @@
         </div>
       </div>
       <div class="private-ship-section">
-        <div class="bannner-section banner-cano banner-boat" style="background-image: url('./assets/images/banner/boat.jpg');">
+        <div class="bannner-section banner-cano banner-boat">
           <div class="container">
             <div class="row">
               <div class="col-lg-12">
@@ -81,7 +80,7 @@
                                     </div>
                                     <div class="cano-service-detail grid-service last-row d-flex align-items-center">
                                       <div class="detail-left d-flex align-items-center">
-                                        <div class="left-img"><img src="./assets/images/banner/client.png" alt=""></div>
+                                        <div class="left-img mr-1"><img src="./assets/images/banner/client.png" alt=""></div>
                                         <div class="left-content select-icon">
                                           <p class="content-head">Số người</p>
                                           <select class="content-bottom input__control control-select">
@@ -96,15 +95,15 @@
                                     <div class="cano-service-detail grid-service d-flex align-items-center justify-content-between">
                                       <div class="detail-left d-flex align-items-center">
                                         <div class="left-img"><img id="toggle_cal" src="./assets/images/banner/cal.png" alt=""></div>
-                                        <div class="left-content content-date">
+                                        <div class="left-content content-date select-icon">
                                           <p class="content-head" id="dateLabel">Ngày đi</p>
-                                          <p class="content-bottom" id="datepicker"></p>
+                                          <p class="content-bottom control-select" id="datepickerMobile"></p>
                                           <input type="hidden" id="dateInput" autocomplete="off">
+                                          <div class="icon-arrow-down" id="toggle"><svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 490.688 490.688" style="enable-background:new 0 0 490.688 490.688;" xml:space="preserve"><path d="M472.328,120.529L245.213,347.665L18.098,120.529c-4.237-4.093-10.99-3.975-15.083,0.262c-3.992,4.134-3.992,10.687,0,14.82l234.667,234.667c4.165,4.164,10.917,4.164,15.083,0l234.667-234.667c4.237-4.093,4.354-10.845,0.262-15.083c-4.093-4.237-10.845-4.354-15.083-0.262c-0.089,0.086-0.176,0.173-0.262,0.262L472.328,120.529z"/><path d="M245.213,373.415c-2.831,0.005-5.548-1.115-7.552-3.115L2.994,135.633c-4.093-4.237-3.975-10.99,0.262-15.083c4.134-3.992,10.687-3.992,14.82,0l227.136,227.115l227.115-227.136c4.093-4.237,10.845-4.354,15.083-0.262c4.237,4.093,4.354,10.845,0.262,15.083c-0.086,0.089-0.173,0.176-0.262,0.262L252.744,370.279C250.748,372.281,248.039,373.408,245.213,373.415z"/></svg></div>
                                         </div>
                                       </div>
-                                      <div class="detail-arr"><img id="toggle" src="./assets/images/banner/arr.png" alt=""></div>
                                     </div>
-                                    <button class="btn-find btn-find-orange"><a class="btn-find-link" href="#">Tìm chuyến</a></button>
+                                    <button class="btn-find"><a class="btn-find-link" href="#">Tìm chuyến</a></button>
                                   </div>
                                 </div>
               </div>
@@ -122,7 +121,7 @@
                       <div class="col-lg-4 col-md-12">
                         <div class="box-discover-section__left">
                           <h2 class="box-discover-section__left-heading">Tàu riêng thăm vịnh Hạ Long</h2>
-                          <p class="box-discover__left-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse  gravida. </p>
+                          <p class="box-discover-section__left-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse  gravida. </p>
                         </div>
                       </div>
                       <div class="col-lg-8 col-md-12">
@@ -157,43 +156,34 @@
                                   <h3 class="schedule__title">Lịch trình tuyến 4h </h3>
                                   <div class="schedule__toDo">
                                     <div class="schedule__toDo-bevh">
-                                      <div class="bevh__circle"></div><span>Xe đón quý khách</span>
-                                    </div>
-                                    <div class="schedule__toDo-time">45 phút</div>
+                                      <div class="bevh__circle"><span></span></div><span>Xe đón quý khách</span>
+                                    </div><span class="schedule__toDo-time">45 phút</span>
                                     <div class="schedule__toDo-bevh">
-                                      <div class="bevh__circle"></div><span>Check - in lên tàu tại cảng Tuần Châu hoặc cảng Sunworld</span>
-                                    </div>
-                                    <div class="schedule__toDo-time">30 phút</div>
+                                      <div class="bevh__circle"><span></span></div><span>Check - in lên tàu tại cảng Tuần Châu hoặc cảng Sunworld</span>
+                                    </div><span class="schedule__toDo-time">30 phút</span>
                                     <div class="schedule__toDo-bevh">
-                                      <div class="bevh__circle"></div><span>Tàu khởi hành thăm quan vịnh Hạ Long</span>
-                                    </div>
-                                    <div class="schedule__toDo-time">35 phút</div>
+                                      <div class="bevh__circle"><span></span></div><span>Tàu khởi hành thăm quan vịnh Hạ Long</span>
+                                    </div><span class="schedule__toDo-time">35 phút</span>
                                     <div class="schedule__toDo-bevh">
-                                      <div class="bevh__circle"></div><span>Khám phá động Thiên Cung - Hang Đầu Gỗ</span>
-                                    </div>
-                                    <div class="schedule__toDo-time">1 giờ 10 phút</div>
+                                      <div class="bevh__circle"><span></span></div><span>Khám phá động Thiên Cung - Hang Đầu Gỗ</span>
+                                    </div><span class="schedule__toDo-time">1 giờ 10 phút</span>
                                     <div class="schedule__toDo-bevh">
-                                      <div class="bevh__circle"></div><span>Chụp ảnh những cảnh thiên nhiên hùng vĩ của Vịnh Hạ Long </span>
-                                    </div>
-                                    <div class="schedule__toDo-time">10 phút</div>
+                                      <div class="bevh__circle"><span></span></div><span>Chụp ảnh những cảnh thiên nhiên hùng vĩ của Vịnh Hạ Long </span>
+                                    </div><span class="schedule__toDo-time">10 phút</span>
                                     <div class="schedule__toDo-bevh">
-                                      <div class="bevh__circle"></div><span>Tham gia chèo Kayak, khám phá khu Làng Chài Ba Hang</span>
-                                    </div>
-                                    <div class="schedule__toDo-time">60 phút</div>
+                                      <div class="bevh__circle"><span></span></div><span>Tham gia chèo Kayak, khám phá khu Làng Chài Ba Hang</span>
+                                    </div><span class="schedule__toDo-time">60 phút</span>
                                     <div class="schedule__toDo-bevh">
-                                      <div class="bevh__circle"></div><span>Chụp ảnh sống ảo ở Hòn Trống Mái (Gà Chọi)-biểu tượng của vịnh hạ Long</span>
-                                    </div>
-                                    <div class="schedule__toDo-time">10 phút</div>
+                                      <div class="bevh__circle"><span></span></div><span>Chụp ảnh sống ảo ở Hòn Trống Mái (Gà Chọi)-biểu tượng của vịnh hạ Long</span>
+                                    </div><span class="schedule__toDo-time">10 phút</span>
                                     <div class="schedule__toDo-bevh">
-                                      <div class="bevh__circle"></div><span>Dùng bữa trưa trên tàu </span>
-                                    </div>
-                                    <div class="schedule__toDo-time">40 phút</div>
+                                      <div class="bevh__circle"><span></span></div><span>Dùng bữa trưa trên tàu </span>
+                                    </div><span class="schedule__toDo-time">40 phút</span>
                                     <div class="schedule__toDo-bevh">
-                                      <div class="bevh__circle"></div><span>Tàu cập cảng trả khách</span>
-                                    </div>
-                                    <div class="schedule__toDo-time">20 phút</div>
+                                      <div class="bevh__circle"><span></span></div><span>Tàu cập cảng trả khách</span>
+                                    </div><span class="schedule__toDo-time">20 phút</span>
                                     <div class="schedule__toDo-bevh">
-                                      <div class="bevh__circle"></div><span>Xe đưa quý khách trở về khách sạn</span>
+                                      <div class="bevh__circle"><span></span></div><span>Xe đưa quý khách trở về khách sạn</span>
                                     </div>
                                   </div>
                                 </div>
@@ -203,51 +193,40 @@
                                   <h3 class="schedule__title">Lịch trình tuyến 6h </h3>
                                   <div class="schedule__toDo">
                                     <div class="schedule__toDo-bevh">
-                                      <div class="bevh__circle"></div><span>Xe đón quý khách</span>
-                                    </div>
-                                    <div class="schedule__toDo-time">45 phút</div>
+                                      <div class="bevh__circle"><span></span></div><span>Xe đón quý khách</span>
+                                    </div><span class="schedule__toDo-time">45 phút</span>
                                     <div class="schedule__toDo-bevh">
-                                      <div class="bevh__circle"></div><span>Check - in lên tàu tại cảng Tuần Châu hoặc cảng Sunworld</span>
-                                    </div>
-                                    <div class="schedule__toDo-time">30 phút</div>
+                                      <div class="bevh__circle"><span></span></div><span>Check - in lên tàu tại cảng Tuần Châu hoặc cảng Sunworld</span>
+                                    </div><span class="schedule__toDo-time">30 phút</span>
                                     <div class="schedule__toDo-bevh">
-                                      <div class="bevh__circle"></div><span>Tàu khởi hành thăm quan vịnh Hạ Long</span>
-                                    </div>
-                                    <div class="schedule__toDo-time">35 phút</div>
+                                      <div class="bevh__circle"><span></span></div><span>Tàu khởi hành thăm quan vịnh Hạ Long</span>
+                                    </div><span class="schedule__toDo-time">35 phút</span>
                                     <div class="schedule__toDo-bevh">
-                                      <div class="bevh__circle"></div><span>Khám phá động Thiên Cung - Hang Đầu Gỗ</span>
-                                    </div>
-                                    <div class="schedule__toDo-time">1 giờ 10 phút</div>
+                                      <div class="bevh__circle"><span></span></div><span>Khám phá động Thiên Cung - Hang Đầu Gỗ</span>
+                                    </div><span class="schedule__toDo-time">1 giờ 10 phút</span>
                                     <div class="schedule__toDo-bevh">
-                                      <div class="bevh__circle"></div><span>Chụp ảnh những cảnh thiên nhiên hùng vĩ của Vịnh Hạ Long </span>
-                                    </div>
-                                    <div class="schedule__toDo-time">10 phút</div>
+                                      <div class="bevh__circle"><span></span></div><span>Chụp ảnh những cảnh thiên nhiên hùng vĩ của Vịnh Hạ Long </span>
+                                    </div><span class="schedule__toDo-time">10 phút</span>
                                     <div class="schedule__toDo-bevh">
-                                      <div class="bevh__circle"></div><span>Tham gia chèo Kayak, khám phá khu Làng Chài Ba Hang</span>
-                                    </div>
-                                    <div class="schedule__toDo-time">60 phút</div>
+                                      <div class="bevh__circle"><span></span></div><span>Tham gia chèo Kayak, khám phá khu Làng Chài Ba Hang</span>
+                                    </div><span class="schedule__toDo-time">60 phút</span>
                                     <div class="schedule__toDo-bevh">
-                                      <div class="bevh__circle"></div><span>Chụp ảnh sống ảo ở Hòn Trống Mái (Gà Chọi)-biểu tượng của vịnh hạ Long</span>
-                                    </div>
-                                    <div class="schedule__toDo-time">10 phút</div>
+                                      <div class="bevh__circle"><span></span></div><span>Chụp ảnh sống ảo ở Hòn Trống Mái (Gà Chọi)-biểu tượng của vịnh hạ Long</span>
+                                    </div><span class="schedule__toDo-time">10 phút</span>
                                     <div class="schedule__toDo-bevh">
-                                      <div class="bevh__circle"></div><span>Dùng bữa trưa trên tàu </span>
-                                    </div>
-                                    <div class="schedule__toDo-time">40 phút</div>
+                                      <div class="bevh__circle"><span></span></div><span>Dùng bữa trưa trên tàu </span>
+                                    </div><span class="schedule__toDo-time">40 phút</span>
                                     <div class="schedule__toDo-bevh">
-                                      <div class="bevh__circle"></div><span>Tàu cập cảng trả khách</span>
-                                    </div>
-                                    <div class="schedule__toDo-time">20 phút</div>
+                                      <div class="bevh__circle"><span></span></div><span>Tàu cập cảng trả khách</span>
+                                    </div><span class="schedule__toDo-time">20 phút</span>
                                     <div class="schedule__toDo-bevh">
-                                      <div class="bevh__circle"></div><span>Xe đưa quý khách trở về khách sạn</span>
-                                    </div>
-                                    <div class="schedule__toDo-time">30 phút</div>
+                                      <div class="bevh__circle"><span></span></div><span>Xe đưa quý khách trở về khách sạn</span>
+                                    </div><span class="schedule__toDo-time">30 phút</span>
                                     <div class="schedule__toDo-bevh">
-                                      <div class="bevh__circle"></div><span>Tàu cập cảng trả khách</span>
-                                    </div>
-                                    <div class="schedule__toDo-time">30 phút</div>
+                                      <div class="bevh__circle"><span></span></div><span>Tàu cập cảng trả khách</span>
+                                    </div><span class="schedule__toDo-time">30 phút</span>
                                     <div class="schedule__toDo-bevh">
-                                      <div class="bevh__circle"></div><span>Xe đưa quý khách trở về khách sạn</span>
+                                      <div class="bevh__circle"><span></span></div><span>Xe đưa quý khách trở về khách sạn</span>
                                     </div>
                                   </div>
                                 </div>
@@ -267,9 +246,7 @@
                     <div class="box__service-content">
                       <div class="content__img"><img src="./assets/images/service/thuyen1.png" alt=""></div>
                       <div class="content__detail d-flex align-items-center justify-content-between">
-                        <div class="content__detail-left">
-                          <h3>Tàu riêng</h3>
-                        </div>
+                        <h3 class="content__detail-left">Tàu riêng</h3>
                         <div class="content__detail-right"> <a class="d-flex align-items-center" href="./tau-rieng-tham-vinh.html">
                             <h4>Xem danh sách tàu</h4>
                             <div class="right__icon"></div></a></div>
@@ -280,9 +257,7 @@
                     <div class="box__service-content">
                       <div class="content__img"><img src="./assets/images/service/thuyen2.png" alt=""></div>
                       <div class="content__detail d-flex align-items-center justify-content-between">
-                        <div class="content__detail-left">
-                          <h3>Tàu ghép</h3>
-                        </div>
+                        <h3 class="content__detail-left">Tàu ghép</h3>
                         <div class="content__detail-right"><a class="d-flex align-items-center" href="./tau-ghep-theo-tuyen-desktop.html">
                             <h4>Xem danh sách tàu</h4>
                             <div class="right__icon"></div></a></div>
@@ -296,7 +271,7 @@
         </div>
         <div class="why-choose-section">
           <div class="container">
-            <h3 class="why-choose__title">Tại sao chọn AZCruise</h3>
+            <h2 class="why-choose__title">Tại sao chọn AZCruise</h2>
             <div class="row">
               <div class="col-lg-3 col-md-6">
                 <div class="why-choose__item">
@@ -342,7 +317,7 @@
             <div class="row align-items-center">
               <div class="col-lg-4 col-12">
                 <div class="happy__client__item happy__client__item-left">
-                  <h1>Happy Client</h1>
+                  <h2>Happy Client</h2>
                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.</p>
                 </div>
               </div>
@@ -541,6 +516,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/locales/bootstrap-datepicker.vi.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment-with-locales.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.5.1/flatpickr.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/vn.js"></script>
 <script src="./assets/js/owl.carousel.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.3.0/dist/lazyload.min.js"></script>
     <script src="./assets/js/main.js"></script>

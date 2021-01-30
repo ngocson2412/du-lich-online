@@ -5,12 +5,11 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Du-Lich</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&amp;display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap"><link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&amp;display=swap"><link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <link rel="stylesheet" type="text/css" href="./assets/css/carousel/owl.carousel.min.css">
     <link rel="stylesheet" type="text/css" href="./assets/css/carousel/owl.theme.default.min.css">
     <link rel="stylesheet" type="text/css" href="./assets/css/main.css">
@@ -48,7 +47,7 @@
         </ul>
       </div>
       <div class="booking__mb-section">
-        <form action="./booking-train-confirm-desktop.html">
+        <form action="./booking-train-confirm-mobile.html">
           <div class="container">
             <div class="booking__train-title">
               <h1>Thông tin khách hàng</h1>
@@ -116,14 +115,14 @@
                           <input class="custom-control-input" type="checkbox" id="service-checkbox-1">
                           <label class="custom-control-label check__label" for="service-checkbox-1">Chèo kaya</label>
                         </div>
-                        <p class="d-flex"><span class="text-right text-nowrap">40000 đ</span></p>
+                        <p class="d-flex text-right text-nowrap">40000 đ</p>
                       </div>
                       <div class="service__price-checkbox d-flex justify-content-between">
                         <div class="service__checkbox custom-checkbox d-flex align-items-center form-check">
                           <input class="custom-control-input" type="checkbox" id="service-checkbox-2">
                           <label class="custom-control-label check__label" for="service-checkbox-2">Đưa đón tại nhà/Tại khách sạn</label>
                         </div>
-                        <p class="d-flex"><span class="text-right text-nowrap">40000 đ</span></p>
+                        <p class="d-flex text-right text-nowrap">40000 đ</p>
                       </div>
                       <div class="service__price-checkbox d-flex justify-content-between">
                         <div class="service__checkbox d-flex align-items-center">
@@ -132,7 +131,7 @@
                             <label class="custom-control-label check__label" for="service-checkbox-3">Hướng dẫn nhân viên</label>
                           </div>
                         </div>
-                        <p class="d-flex"><span class="text-right text-nowrap">150 - 40000 đ</span></p>
+                        <p class="d-flex text-right text-nowrap">150 - 40000 đ</p>
                       </div>
                       <div class="service__price-checkbox d-flex justify-content-between">
                         <div class="service__checkbox custom-checkbox d-flex align-items-center form-check">
@@ -149,12 +148,8 @@
                         <svg width="20" height="20" viewbox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <path d="M3.125 10.6125C3.29076 10.6125 3.44973 10.5466 3.56694 10.4294C3.68415 10.3122 3.75 10.1532 3.75 9.98747C3.75 6.54802 6.53633 3.74997 9.96094 3.74997C11.4379 3.74601 12.867 4.2739 13.9867 5.23708H13.4141C13.2483 5.23708 13.0893 5.30293 12.9721 5.42014C12.8549 5.53735 12.7891 5.69632 12.7891 5.86208C12.7891 6.02784 12.8549 6.18681 12.9721 6.30402C13.0893 6.42123 13.2483 6.48708 13.4141 6.48708H15.4652C15.631 6.48708 15.79 6.42123 15.9072 6.30402C16.0244 6.18681 16.0902 6.02784 16.0902 5.86208V3.80231C16.0902 3.63655 16.0244 3.47758 15.9072 3.36037C15.79 3.24316 15.631 3.17731 15.4652 3.17731C15.2995 3.17731 15.1405 3.24316 15.0233 3.36037C14.9061 3.47758 14.8402 3.63655 14.8402 3.80231V4.32302C13.4893 3.14272 11.7548 2.49467 9.96094 2.49997C5.84687 2.49997 2.5 5.85935 2.5 9.98747C2.5 10.1532 2.56585 10.3122 2.68306 10.4294C2.80027 10.5466 2.95924 10.6125 3.125 10.6125Z" fill="#10284F"></path>
                           <path d="M16.8751 9.38751C16.7093 9.38751 16.5504 9.45336 16.4332 9.57057C16.3159 9.68778 16.2501 9.84675 16.2501 10.0125C16.2501 13.452 13.4638 16.25 10.0392 16.25C8.57976 16.2543 7.16644 15.7392 6.05205 14.7969H6.65244C6.8182 14.7969 6.97717 14.731 7.09438 14.6138C7.21159 14.4966 7.27744 14.3377 7.27744 14.1719C7.27744 14.0061 7.21159 13.8472 7.09438 13.7299C6.97717 13.6127 6.8182 13.5469 6.65244 13.5469H4.60088C4.59502 13.5469 4.58994 13.5469 4.58486 13.5469C4.56104 13.5469 4.5376 13.5508 4.51377 13.5539C4.49619 13.5567 4.479 13.5582 4.46182 13.5621C4.44104 13.5674 4.42057 13.5738 4.40049 13.5813C4.38174 13.5879 4.36143 13.5934 4.34463 13.6016C4.32783 13.6098 4.31104 13.6195 4.29463 13.6289C4.2747 13.6395 4.25539 13.6513 4.23682 13.6641C4.23213 13.6676 4.22705 13.6695 4.22236 13.6731C4.21182 13.6813 4.20361 13.6914 4.19346 13.7C4.1767 13.7142 4.16066 13.7292 4.14541 13.7449C4.13135 13.7602 4.11924 13.7758 4.10635 13.7914C4.09346 13.807 4.08213 13.8235 4.07119 13.8403C4.06051 13.8577 4.05074 13.8757 4.04189 13.8942C4.03267 13.9119 4.02445 13.9302 4.01728 13.9488C4.01017 13.968 4.00404 13.9876 3.99893 14.0074C3.99353 14.0265 3.9891 14.0458 3.98564 14.0653C3.98214 14.0874 3.9798 14.1097 3.97861 14.132C3.97861 14.1449 3.9751 14.1574 3.9751 14.1711V16.2309C3.9751 16.3966 4.04095 16.5556 4.15816 16.6728C4.27537 16.79 4.43434 16.8559 4.6001 16.8559C4.76586 16.8559 4.92483 16.79 5.04204 16.6728C5.15925 16.5556 5.2251 16.3966 5.2251 16.2309V15.7352C6.56752 16.8795 8.2752 17.5055 10.0392 17.5C14.1532 17.5 17.5001 14.1406 17.5001 10.0125C17.5001 9.84675 17.4342 9.68778 17.317 9.57057C17.1998 9.45336 17.0409 9.38751 16.8751 9.38751Z" fill="#10284F"></path>
-                        </svg>
-                        <h4>Điều kiện hoàn trả miễn phí</h4>
-                      </div><img class="toggleslide" src="./assets/images/layer-5.jpg" alt="">
-                    </div>
-                    <div class="wrapper__refund-detail">
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incid idunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.</p>
+                        </svg><a href="">Điều kiện hoàn trả miễn phí                       </a>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -184,11 +179,10 @@
                             <path d="M9.07494 11.0917C8.12523 11.0933 7.19638 10.8132 6.40593 10.2868C5.61548 9.76038 4.99896 9.01129 4.63438 8.13436C4.2698 7.25742 4.17355 6.29204 4.35782 5.36038C4.54209 4.42872 4.99858 3.57266 5.66954 2.90054C6.3405 2.22841 7.19577 1.77043 8.1271 1.58454C9.05844 1.39866 10.024 1.49323 10.9016 1.85628C11.7791 2.21934 12.5293 2.83456 13.0571 3.62409C13.5849 4.41363 13.8666 5.34199 13.8666 6.29169C13.8644 7.56262 13.3591 8.78098 12.4612 9.68044C11.5633 10.5799 10.3459 11.0873 9.07494 11.0917ZM9.07494 2.86669C8.39754 2.86669 7.73535 3.06757 7.17211 3.44391C6.60887 3.82025 6.16988 4.35517 5.91065 4.981C5.65142 5.60684 5.58359 6.29549 5.71575 6.95988C5.8479 7.62426 6.1741 8.23454 6.6531 8.71354C7.13209 9.19253 7.74237 9.51873 8.40675 9.65088C9.07114 9.78304 9.75979 9.71521 10.3856 9.45598C11.0115 9.19675 11.5464 8.75776 11.9227 8.19452C12.2991 7.63128 12.4999 6.9691 12.4999 6.29169C12.4999 5.38333 12.1391 4.51217 11.4968 3.86985C10.8545 3.22754 9.9833 2.86669 9.07494 2.86669Z" fill="#B3BFD3"></path>
                             <path d="M18.6668 13.8333C17.9874 13.835 17.3227 13.635 16.757 13.2588C16.1913 12.8825 15.75 12.3469 15.4888 11.7197C15.2277 11.0925 15.1585 10.4019 15.2901 9.73531C15.4216 9.06876 15.7479 8.45622 16.2278 7.97523C16.7076 7.49423 17.3193 7.16641 17.9856 7.03326C18.6518 6.90011 19.3425 6.96761 19.9704 7.22722C20.5982 7.48684 21.1349 7.92689 21.5126 8.49168C21.8902 9.05647 22.0918 9.7206 22.0918 10.4C22.0918 11.3091 21.7312 12.1812 21.0891 12.8248C20.447 13.4684 19.5759 13.8311 18.6668 13.8333ZM18.6668 8.35C18.2593 8.35 17.861 8.47094 17.5224 8.69748C17.1837 8.92402 16.9199 9.24598 16.7643 9.62258C16.6088 9.99918 16.5685 10.4135 16.6486 10.813C16.7287 11.2125 16.9256 11.5792 17.2143 11.8667C17.503 12.1543 17.8705 12.3496 18.2703 12.4281C18.6702 12.5066 19.0843 12.4647 19.4602 12.3076C19.8362 12.1505 20.1571 11.8854 20.3823 11.5458C20.6074 11.2062 20.7267 10.8075 20.7251 10.4C20.7262 10.129 20.6738 9.86044 20.5708 9.60975C20.4679 9.35906 20.3164 9.13117 20.1252 8.93915C19.9339 8.74713 19.7067 8.59477 19.4564 8.49081C19.2061 8.38685 18.9378 8.33333 18.6668 8.33333V8.35Z" fill="#B3BFD3"></path>
                             <path d="M17.2998 22.0584C17.1164 22.0584 16.9405 21.9855 16.8108 21.8558C16.681 21.7261 16.6082 21.5501 16.6082 21.3667C16.6082 19.3676 15.814 17.4504 14.4005 16.0369C12.9869 14.6233 11.0697 13.8292 9.07067 13.8292C7.0716 13.8292 5.15441 14.6233 3.74085 16.0369C2.3273 17.4504 1.53317 19.3676 1.53317 21.3667C1.53317 21.5479 1.46118 21.7217 1.33303 21.8499C1.20488 21.978 1.03107 22.05 0.849837 22.05C0.668606 22.05 0.494797 21.978 0.366648 21.8499C0.238498 21.7217 0.166504 21.5479 0.166504 21.3667C0.166504 19.0041 1.10506 16.7382 2.77569 15.0676C4.44633 13.3969 6.7122 12.4584 9.07484 12.4584C11.4375 12.4584 13.7033 13.3969 15.374 15.0676C17.0446 16.7382 17.9832 19.0041 17.9832 21.3667C17.9832 21.5487 17.9115 21.7234 17.7835 21.8529C17.6556 21.9823 17.4818 22.0562 17.2998 22.0584Z" fill="#B3BFD3"></path>
-                            <path d="M24.1665 22.0584C23.9845 22.0562 23.8107 21.9824 23.6828 21.8529C23.5549 21.7234 23.4832 21.5487 23.4832 21.3667C23.4818 20.5166 23.2547 19.6821 22.825 18.9485C22.3954 18.2149 21.7786 17.6086 21.0378 17.1916C20.297 16.7746 19.4587 16.5618 18.6087 16.575C17.7586 16.5882 16.9273 16.8269 16.1998 17.2667C16.044 17.3606 15.8573 17.3888 15.6807 17.3451C15.5041 17.3013 15.3521 17.1892 15.2582 17.0334C15.1642 16.8776 15.136 16.6908 15.1798 16.5142C15.2236 16.3376 15.3357 16.1856 15.4915 16.0917C16.4264 15.5302 17.4934 15.2267 18.5838 15.2121C19.6743 15.1975 20.7491 15.4723 21.6987 16.0085C22.6482 16.5447 23.4387 17.3231 23.9893 18.2644C24.5399 19.2057 24.8311 20.2762 24.8332 21.3667C24.8354 21.5465 24.7667 21.72 24.6419 21.8495C24.5171 21.9789 24.3463 22.054 24.1665 22.0584Z" fill="#B3BFD3"></path>
-                          </svg></span>
-                        <select class="d-flex flex-row align-items-center" name="">
-                          <option>2 người lớn</option>
-                          <option>3 người lớn</option><img src="./assets/images/layer-9.jpg" alt="">
+                            <path d="M24.1665 22.0584C23.9845 22.0562 23.8107 21.9824 23.6828 21.8529C23.5549 21.7234 23.4832 21.5487 23.4832 21.3667C23.4818 20.5166 23.2547 19.6821 22.825 18.9485C22.3954 18.2149 21.7786 17.6086 21.0378 17.1916C20.297 16.7746 19.4587 16.5618 18.6087 16.575C17.7586 16.5882 16.9273 16.8269 16.1998 17.2667C16.044 17.3606 15.8573 17.3888 15.6807 17.3451C15.5041 17.3013 15.3521 17.1892 15.2582 17.0334C15.1642 16.8776 15.136 16.6908 15.1798 16.5142C15.2236 16.3376 15.3357 16.1856 15.4915 16.0917C16.4264 15.5302 17.4934 15.2267 18.5838 15.2121C19.6743 15.1975 20.7491 15.4723 21.6987 16.0085C22.6482 16.5447 23.4387 17.3231 23.9893 18.2644C24.5399 19.2057 24.8311 20.2762 24.8332 21.3667C24.8354 21.5465 24.7667 21.72 24.6419 21.8495C24.5171 21.9789 24.3463 22.054 24.1665 22.0584Z" fill="#B3BFD3">                    </path>
+                          </svg></span><select class="minimal">
+                        <option value=""></option><option>2 người lớn</option>
+<option>3 người lớn</option>
                         </select>
                       </p>
                     </div>
@@ -215,6 +209,18 @@
                 </div>
                 <div class="booking__train-sig">
                   <p class="text-center">Chi phí trên đây là tạm ước tính, AZCruise sẽ liên hệ lại với Quý khách để tư vấn chính xác</p>
+                </div>
+                <div class="train__wrapper-btn">
+                  <div class="wrapper__btn-btn d-flex justify-content-between">
+                    <div class="row justify-content-between w-100 flex-nowrap">
+                      <div class="col-6 p-0">
+                        <button class="btn__btn-button color-gray text-nowrap w-100">Quay lại</button>
+                      </div>
+                      <div class="col-6 p-0">
+                        <button class="btn__btn-button other-color text-nowrap w-100" type="submit">Tiếp tục</button>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -305,6 +311,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/locales/bootstrap-datepicker.vi.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment-with-locales.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.5.1/flatpickr.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/vn.js"></script>
 <script src="./assets/js/owl.carousel.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.3.0/dist/lazyload.min.js"></script>
     <script src="./assets/js/main.js"></script>
