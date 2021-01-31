@@ -12,7 +12,6 @@
 
 $(document).ready(function() {
 	navigation.init();
-	date.init();
 	happyClient.init()
 	happyClientMb.init();
 	boxDiscoverSlider.init();
@@ -152,65 +151,6 @@ const boxDiscoverSlider = {
 			autoplayTimeout:4000,
 			autoplayHoverPause:true,
 		})
-	},
-}
-
-/* ============================= 3, Datepicker  ============================= */
-const date = {
-	init:function(){
-		this.datePicker();
-	},
-	datePicker:function(){
-		//set current date
-		var today = moment();
-		$("#dateInput").val(today.format('YYYY-MM-DD'));
-
-		//setting datepicker
-		$("#datepicker").datepicker({
-			format: 'yyyy-mm-dd',
-			autoclose: true,
-			language: 'vi',
-			startDate: "currentDate",
-		});
-		$("#datepickerMobile").datepicker({
-			format: 'yyyy-mm-dd',
-			autoclose: true,
-			language: 'vi',
-			startDate: "currentDate",
-		});
-		today = new Date(today.format('YYYY-MM-DD'))
-		$("#datepicker").datepicker("setDate", today);
-		$("#datepicker").text(`${today.getDate()} tháng ${today.getMonth()+1}, ${today.getFullYear()}`);
-		$("#datepickerMobile").datepicker("setDate", today);
-		$("#datepickerMobile").text(`${today.getDate()}/${today.getMonth()+1}/${today.getFullYear()}`);
-		$("#toggle").click(function(e) {
-			e.preventDefault();
-			$("#datepicker").datepicker("show");
-			$("#datepickerMobile").datepicker("show");
-		})
-
-		$("#toggle_cal").click(function(e) {
-			e.preventDefault();
-			$("#datepicker").datepicker("show");
-			$("#datepickerMobile").datepicker("show");
-		})
-		$("#dateLabel").click(function(e) {
-			e.preventDefault();
-			$("#datepicker").datepicker("show");
-			$("#datepickerMobile").datepicker("show");
-		});
-		$("#datepicker").on("changeDate", function() {
-			var selectedDate = $("#datepicker").datepicker("getFormattedDate")
-			$("#dateInput").val(selectedDate);
-			selectedDate = new Date(selectedDate)
-			$("#datepicker").text(`${selectedDate.getDate()} tháng ${selectedDate.getMonth()+1}, ${selectedDate.getFullYear()}`);
-		});
-		$("#datepickerMobile").on("changeDate", function() {
-			var selectedDate = $("#datepickerMobile").datepicker("getFormattedDate")
-			$("#dateInput").val(selectedDate);
-			selectedDate = new Date(selectedDate)
-			$("#datepickerMobile").text(`${selectedDate.getDate()}/${selectedDate.getMonth()+1}/${selectedDate.getFullYear()}`);
-		});
 	},
 }
 
@@ -605,10 +545,32 @@ const flatpickrDate = {
 		this.flatpickrAZ();
 	},
 	flatpickrAZ : function () {
+		var today = moment();
+		$("#calendar-text").val(today.format('YYYY-MM-DD'));
+
+		flatpickr('#calendar', {
+			"locale": "vn",
+			"minDate": new Date(),
+			"dateFormat": "d/m/Y",
+		});
 		flatpickr('#calendar-ja', {
 			"locale": "vn",
 			"minDate": new Date(),
 			"dateFormat": "d/m/Y",
+			disableMobile: true,
+			"defaultDate": new Date(),
+			altInput: true,
+			altFormat: "d/m/Y",
+		});
+		$("#timePicker").flatpickr({
+			enableTime: true,
+			noCalendar: true,
+			time_24hr: true,
+			dateFormat: "H:i",
+			altFormat: "H:i",
+			disableMobile: true,
+			altInput: true,
+			"defaultDate": "13:00",
 		});
 	}
 }
