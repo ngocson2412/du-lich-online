@@ -27,6 +27,7 @@ $(document).ready(function() {
 	boxWhereGoSlider.init();
 	playVideo.init();
 	flatpickrDate.init();
+	filterMB.init();
 });
 
 /* ============================= 2, Navigation  ============================= */
@@ -412,20 +413,19 @@ const menuMb = {
 	init:function () {
 		this.menuMb();
 	},
-	menuMb: function() {
-		var menuMb = $('.menu-mb');
-		var navBtn = $('.nav__btn');
-		var menuOverlay = $('.menu-mb__overlay');
-		var closeBtn = $('.menu-mb__btn');
-		navBtn.click(function() {
-			menuMb.addClass('menu-mb--active');
-			$("body").addClass("modal-open");
+	menuMb:function(){
+		$('.nav__btn').click(function(){
+			$('.menu-mbv2').toggleClass('active');
 		})
-		menuOverlay.add(closeBtn).click(function() {
-			menuMb.removeClass('menu-mb--active');
-			$("body").removeClass("modal-open");
+		$('.menu-mbv2 .--havesub').click(function(e){
+			e.preventDefault();
+			let dataID=$(this).attr('data-idsub');
+			$(dataID).addClass('active');
 		})
-	},
+		$('.submenu-item .back').click(function(){
+			$('.menu-mbv2 .submenu-item').removeClass('active');
+		})
+	}
 }
 /* ============================= 10, Happy Client MOBI ============================= */
 const happyClientMb = {
@@ -572,5 +572,25 @@ const flatpickrDate = {
 			altInput: true,
 			"defaultDate": "13:00",
 		});
+	}
+}
+/* ============================= 13, filterMB  ============================= */
+const filterMB = {
+	init: function () {
+		this.clickFilter();
+	},
+	clickFilter:function () {
+		$('.mb__wrapper-filter').click(function(){
+			$('.filter-mbv2').addClass('active');
+			$("body").css("overflow", "hidden");
+		})
+		$('.filter-mbv2 .fiter-mb__top .close').click(function(e){
+			e.preventDefault();
+			$('.filter-mbv2 ').removeClass('active');
+			$("body").css("overflow", "scroll");
+		})
+		$('.filter-mbv2 .fiter-mb__top .delete').click(function(e){
+			$('.fiter-mb__list select').val('0');
+		})
 	}
 }
