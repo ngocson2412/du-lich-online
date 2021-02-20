@@ -7,27 +7,33 @@
 - 6, Box partner slider
 - 7, Animtation Service
 - 8, Box partner slider mb
+- 9, fix Column Newfeed Detail
 */
 /* ============================= 1, init  ============================= */
 
-$(document).ready(function() {
-	navigation.init();
-	happyClient.init()
-	happyClientMb.init();
-	boxDiscoverSlider.init();
-	customModal.init();
-	partnerSlider.init()
-	partnerSlidermb.init()
-	loadMore.init();
-	animationService.init();
-	menuMb.init();
-	loadMoreOther.init();
-	showScheduleList.init();
-	boxSaleListSlider.init();
-	boxWhereGoSlider.init();
-	playVideo.init();
-	flatpickrDate.init();
-	filterMB.init();
+$(document).ready(function () {
+    navigation.init();
+    happyClient.init();
+    happyClientMb.init();
+    boxDiscoverSlider.init();
+    customModal.init();
+    partnerSlider.init();
+    partnerSlidermb.init();
+    loadMore.init();
+    animationService.init();
+    menuMb.init();
+    loadMoreOther.init();
+    showScheduleList.init();
+    boxSaleListSlider.init();
+    boxWhereGoSlider.init();
+    playVideo.init();
+    flatpickrDate.init();
+    filterMB.init();
+	tabContent.init();
+	provisoTab.init();
+	tintuc.init();
+	fixColumnNewfeed.init();
+	selectOption.init();
 });
 
 /* ============================= 2, Navigation  ============================= */
@@ -526,6 +532,113 @@ const boxWhereGoSlider = {
 		})
 	}
 }
+
+/* ============================= 13, Select options  ============================= */
+const selectOption = {
+	init:function(){
+		this.selectMenu();
+	},
+	selectMenu:function(){
+		const arrowBtn = document.querySelector('#selectMenu');
+		const arr2 = document.querySelector('#selectServices');
+		const arr3 = document.querySelector('#timeSelects');
+		const optionMenu = document.querySelector('#options-select');
+		const serviceSelect = document.querySelector('#services-select');
+		const timeSelect = document.querySelector('#time-select');
+		const serviceBox = document.querySelector('.cano-service');
+		const customSelectWrapper = document.querySelector('#custom-select')
+		const displaySelect = customSelectWrapper.querySelector('#display-select')
+		const optionsSelect = customSelectWrapper.querySelectorAll('#options-select li')
+
+		$('#services-select li').click(function(){
+			var value = $(this).attr("data-service");
+			var label = $(this).attr("data-search-label");	
+			$("#servicesID").val(value);
+			$("#service--select").html(label);
+		})
+
+		$('#time-select li').click(function(){
+			var value = $(this).attr("data-service");
+			var label = $(this).attr("data-time-label");	
+			$("#timeID").val(value);
+			$("#time--select").html(label);
+		})
+
+
+		arrowBtn.addEventListener('click', (e) =>{
+			if ($(e.target).closest(".options-select").length === 0) {
+				optionMenu.classList.toggle('active');
+				serviceBox.classList.remove('change-br');
+				serviceSelect.classList.remove('active');
+				timeSelect.classList.remove('active');
+			}
+		})
+
+		arr2.addEventListener('click', () =>{
+			optionMenu.classList.remove('active');
+			serviceSelect.classList.toggle('active');
+			serviceBox.classList.toggle('change-br');
+			timeSelect.classList.remove('active');
+		})
+		
+		$('.flatpickr-input').click(function(){
+			optionMenu.classList.remove('active');
+			serviceBox.classList.remove('change-br');
+			serviceSelect.classList.remove('active');
+			timeSelect.classList.remove('active');
+		})
+		
+		$(".decrease-btn").bind("click", function(){
+			var value = Number($(this).parent().find(".value-btn").html());
+			if(value == 0) return;
+			$(this).parent().find(".value-btn").html(value - 1);
+			$(this).parent().find("input").val(value - 1)
+			displaySelectValue()
+		})
+		$(".increase-btn").bind("click", function(){
+			var value = Number($(this).parent().find(".value-btn").html());
+			$(this).parent().find(".value-btn").html(value + 1);
+			$(this).parent().find("input").val(value + 1)
+			displaySelectValue()
+		})
+		
+		const displaySelectValue = () => {
+			let nguoiLonValue, treEmValue, nguoiGiaValue
+			const allValueBtn = document.querySelectorAll('#options-select .value-btn')
+			const data = []
+			allValueBtn.forEach((item) => {
+				if (item.dataset.value === 'adults') nguoiLonValue = item.innerHTML
+				if (item.dataset.value === 'child') treEmValue = item.innerHTML
+				if (item.dataset.value === 'elderly') nguoiGiaValue = item.innerHTML
+			})
+			
+			if (Number(nguoiLonValue) > 0) data.push(`${nguoiLonValue} người lớn`)
+			if (Number(treEmValue) > 0) data.push(`${treEmValue} trẻ em`)
+			if (Number(nguoiGiaValue) > 0) data.push(`${nguoiGiaValue} người già`)
+			
+			if (data.length === 0) {
+				displaySelect.innerHTML = 'Chưa được chọn'
+			} else {
+				displaySelect.innerHTML = data.toString()
+			}
+		}
+		
+		displaySelectValue()
+
+		arr3.addEventListener('click', () =>{
+			timeSelect.classList.toggle('active');
+			optionMenu.classList.remove('active');
+			serviceBox.classList.remove('change-br');
+			serviceSelect.classList.remove('active');
+		})
+
+		$(document).on('click', function (e) {
+			if ($(e.target).closest(".options-select").length === 0 && $(e.target).closest(".cano-service").length === 0) {
+				$(".options-select").removeClass('active');
+			}
+		});
+	}
+}
 /* ============================= 12, play video  ============================= */
 const playVideo = {
 	init: function () {
@@ -594,3 +707,80 @@ const filterMB = {
 		})
 	}
 }
+/* ============================= 14, tab content  ============================= */
+const tabContent = {
+	init: function() {
+		this.clickActive();
+		this.owlTab();
+	},
+	clickActive: function (){
+		$('.tab-content .tab a').on('click', function(e) {
+			e.preventDefault();
+			$(this).addClass('active');
+			$('.tab-content .tab a').not($(this)).removeClass('active');
+		})
+	},
+	owlTab: function() {
+		$('.owl-carousel.tab').owlCarousel({
+			loop:false,
+			nav:false,
+			dots:false,
+			items:2.25,
+			freeDrag: false
+	})
+	}
+}
+/* ============================= 14, proviso tab-content  ============================= */
+const provisoTab = {
+	init: function () {
+		this.clickTab();
+	},
+	clickTab:function () {
+		$('.proviso-tab').click(function(e){
+			e.preventDefault();
+			$('.proviso-tab').removeClass('active');
+			$(this).addClass('active');
+			let nameID=$(this).attr('data-id');
+			$('.proviso-tab-content').css("display","none");
+			$('#'+nameID).css('display','block');
+		})
+	}
+}
+
+const tintuc={
+	init:function(){
+		this.tintuc();
+	},
+	tintuc:function(){
+		$('.owl-carousel').owlCarousel({
+			loop:true,
+			margin:10,
+			nav:true,
+			responsive:{
+				0:{
+					items:1
+				},
+				600:{
+					items:3
+				},
+				1000:{
+					items:5
+				}
+			}
+		})
+	}
+}
+const fixColumnNewfeed = {
+	init() {
+		this.fixColumnNewfeed();
+	},
+	fixColumnNewfeed() {
+		let col = $(".newfeed__left");
+		let box = $(".newfeed__left .newfeed-detail__social");
+		let width = col.outerWidth();
+		col.css("margin-left", -width);
+		$(window).resize(function () {
+			window.location.href = window.location.href;
+		});
+	},
+};
