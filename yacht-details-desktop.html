@@ -177,14 +177,14 @@
               <div class="col-lg-3"> 
                 <h2 class="title-section">Full Itinerary </h2>
                 <ul class="itinerary-list schedule-list">
-                  <li class="itinerary-list__items schedule-list__items"><a class="active" href="#">Day 1: Ha Long </a></li>
-                  <li class="itinerary-list__items schedule-list__items"><a href="#">Day 2: Ha Long </a></li>
-                  <li class="itinerary-list__items schedule-list__items"> <a href="#">Day 1: Ha Noi </a></li>
+                  <li class="itinerary-list__items schedule-list__items"><a class="item-link active" href="#" data-tab="day-1">Day 1: Ha Long </a></li>
+                  <li class="itinerary-list__items schedule-list__items"><a class="item-link" href="#" data-tab="day-2">Day 2: Ha Long </a></li>
+                  <li class="itinerary-list__items schedule-list__items"> <a class="item-link" href="#" data-tab="day-3">Day 1: Ha Noi </a></li>
                 </ul>
               </div>
               <div class="col-lg-9"> 
-                <div class="schedule">
-                  <div class="schedule-items" style="overflow:hidden"> 
+                <div class="schedule current" id="day-1">
+                  <div class="schedule-items">
                     <div class="time"> 
                       <p>07h45 - 08h15</p>
                     </div>
@@ -226,6 +226,71 @@
                     </ul>
                   </div>
                 </div>
+                <div class="schedule" id="day-2">
+                  <div class="schedule-items" style="overflow:hidden"> 
+                    <div class="time"> 
+                      <p>07h45 - 08h15</p>
+                    </div>
+                    <ul>	
+                      <li><span>Sinh Cafe Travel tour guide will meet you at your hotel. The shuttle bus or private car pick up</span></li>
+                      <li><span>- Enjoy the peaceful scenery as we travel through the countryside, farmlands and Red River delta</span></li>
+                      <li><span>- Get your camera ready to take photos. Comfort break. The time from Hanoi to Halong bay is approximately 3 ½ hours</span></li>
+                    </ul>
+                  </div>
+                  <div class="schedule-items">
+                    <div class="time"> 
+                      <p>12h – 12h30 approx </p>
+                    </div>
+                    <ul>	
+                      <li><span>- Arriving Tuan Chau marina. Welcome aboard the cruise. Refresh with our welcome drink. Meet the captain, crew in the cruise briefing. Check into your cabin. Time to refresh and unwind</span></li>
+                      <li><span>- Set sail as lunch is served</span></li>
+                      <li><span>- Join us for a typical local lunch in the dining room or at the outdoor dining area. </span></li>
+                    </ul>
+                  </div>
+                  <div class="schedule-items" style="overflow:hidden"> 
+                    <div class="time"> 
+                      <p>Early evening </p>
+                    </div>
+                    <ul>	
+                      <li><span>- Summit on the sundeck watching the sunset, enjoy Sunset party. It’s ideal time to make acquaintance with new friends, sharing your traveling experience or simply watching the sunset</span></li>
+                      <li><span>- An authentic Vietnamese menu is served</span></li>
+                      <li><span>- After dinner, reward yourself with a large selection of cocktails at our bar, or take for you one of our onboard activities: book reading, games, movies, and squid fishing…</span></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="schedule" id="day-3">
+                  <div class="schedule-items" style="overflow:hidden"> 
+                    <div class="time"> 
+                      <p>07h45 - 08h15</p>
+                    </div>
+                    <ul>	
+                      <li><span>Sinh Cafe Travel tour guide will meet you at your hotel. The shuttle bus or private car pick up</span></li>
+                      <li><span>- Enjoy the peaceful scenery as we travel through the countryside, farmlands and Red River delta</span></li>
+                      <li><span>- Get your camera ready to take photos. Comfort break. The time from Hanoi to Halong bay is approximately 3 ½ hours</span></li>
+                    </ul>
+                  </div>
+                  <div class="schedule-items">
+                    <div class="time"> 
+                      <p>Afternoon</p>
+                    </div>
+                    <ul>	
+                      <li><span>- Arrive at Surprising Cave (Hang Sửng Sốt), explore the cave and find out how the cave was named a Surprising.</span></li>
+                      <li><span>- Heading to Titop island area. Drop anchor in the calm water surrounded by beautiful islets. Visit Titop island for swimming and snorkeling or do the short trek to the top of island to have the overview of Halong bay from here</span></li>
+                      <li><span>- Heading back toward the sleeping area</span></li>
+                      <li><span></span></li>
+                    </ul>
+                  </div>
+                  <div class="schedule-items" style="overflow:hidden"> 
+                    <div class="time"> 
+                      <p>Early evening </p>
+                    </div>
+                    <ul>	
+                      <li><span>- Summit on the sundeck watching the sunset, enjoy Sunset party. It’s ideal time to make acquaintance with new friends, sharing your traveling experience or simply watching the sunset</span></li>
+                      <li><span>- An authentic Vietnamese menu is served</span></li>
+                      <li><span>- After dinner, reward yourself with a large selection of cocktails at our bar, or take for you one of our onboard activities: book reading, games, movies, and squid fishing…</span></li>
+                    </ul>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -236,20 +301,72 @@
               <div class="col-lg-3"> 
                 <h2 class="title-section">Information</h2>
                 <ul class="itinerary-list schedule-list">
-                  <li class="itinerary-list__items schedule-list__items"><a class="active" href="#">Price inclustions </a></li>
-                  <li class="itinerary-list__items schedule-list__items"><a href="#">Price exclustions</a></li>
-                  <li class="itinerary-list__items schedule-list__items"> <a href="#">Booking policy</a></li>
-                  <li class="itinerary-list__items schedule-list__items"> <a href="#">Cancelation policy</a></li>
+                  <li class="itinerary-list__items schedule-list__items"><a class="item-link active" href="#" data-tab="inclustions">Price inclustions </a></li>
+                  <li class="itinerary-list__items schedule-list__items"><a class="item-link" href="#" data-tab="exclustions">Price exclustions</a></li>
+                  <li class="itinerary-list__items schedule-list__items"> <a class="item-link" href="#" data-tab="Booking">Booking policy</a></li>
+                  <li class="itinerary-list__items schedule-list__items"> <a class="item-link" href="#" data-tab="Cancelation">Cancelation policy</a></li>
                 </ul>
-                <div class="tab owl-carousel owl-theme">
-                  <div class="item"><a class="active" href="#">Cancelation policy</a></div>
-                  <div class="item"><a href="#">Price exclustions</a></div>
-                  <div class="item"><a href="#">Booking policy</a></div>
-                  <div class="item"><a href="#">Cancelation policy</a></div>
+                <div class="tab owl-carousel owl-theme schedule-list">
+                  <div class="item"><a class="item-link active" href="#" data-tab="inclustions">Cancelation policy</a></div>
+                  <div class="item"><a class="item-link" href="#" data-tab="exclustions">Price exclustions</a></div>
+                  <div class="item"><a class="item-link" href="#" data-tab="Booking">Booking policy</a></div>
+                  <div class="item"><a class="item-link" href="#" data-tab="Cancelation">Cancelation policy</a></div>
                 </div>
               </div>
               <div class="col-lg-9"> 
-                <div class="schedule">
+                <div class="schedule current" id="inclustions">
+                  <div class="schedule-items" style="overflow:hidden"> 
+                    <div class="time"> 
+                      <p>Price inclustions</p>
+                    </div>
+                    <ul>	
+                      <li><span> Full equipped luxury en-suite cabin with A/C, hot water</span></li>
+                      <li><span>- All meals on board (03 lunches, 02 dinners, 02 breakfasts)</span></li>
+                      <li><span>- Complimentary 02 bottled mineral water inside the cabin</span></li>
+                      <li><span>- Complimentary morning tea and coffee</span></li>
+                      <li><span>- Welcome drink</span></li>
+                      <li><span>- Tai Chi</span></li>
+                      <li><span>- Cookery demonstration</span></li>
+                      <li><span>- Entrance and sightseeing fees</span></li>
+                      <li><span>- Local rowing boat or kayaking</span></li>
+                      <li><span>- Shuttle bus (round trip)</span></li>
+                      <li><span>- Fruits and local wine party</span></li>
+                      <li><span>- Internet wifi on dining room</span></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="schedule" id="exclustions">
+                  <div class="schedule-items" style="overflow:hidden"> 
+                    <div class="time"> 
+                      <p>Price inclustions</p>
+                    </div>
+                    <ul>	
+                      <li><span> Full equipped luxury en-suite cabin with A/C, hot water</span></li>
+                      <li><span>- All meals on board (03 lunches, 02 dinners, 02 breakfasts)</span></li>
+                      <li><span>- Complimentary 02 bottled mineral water inside the cabin</span></li>
+                      <li><span>- Complimentary morning tea and coffee</span></li>
+                      <li><span>- Welcome drink</span></li>
+                      <li><span>- Shuttle bus (round trip)</span></li>
+                      <li><span>- Fruits and local wine party</span></li>
+                      <li><span>- Internet wifi on dining room</span></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="schedule" id="Booking">
+                  <div class="schedule-items" style="overflow:hidden"> 
+                    <div class="time"> 
+                      <p>Price inclustions</p>
+                    </div>
+                    <ul>	
+                      <li><span> Full equipped luxury en-suite cabin with A/C, hot water</span></li>
+                      <li><span>- All meals on board (03 lunches, 02 dinners, 02 breakfasts)</span></li>
+                      <li><span>- Complimentary 02 bottled mineral water inside the cabin</span></li>
+                      <li><span>- Complimentary morning tea and coffee</span></li>
+                      <li><span>- Welcome drink</span></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="schedule" id="Cancelation">
                   <div class="schedule-items" style="overflow:hidden"> 
                     <div class="time"> 
                       <p>Price inclustions</p>
@@ -353,14 +470,13 @@
           <div class="container">	
             <h2 class="title-section">Recommend</h2>
             <div class="row"> 
-              <div class="col-lg-4 col-md-4">
+              <div class="col-lg-4">
                 <div class="recommend-items"> 
-                  <div class="img"><img src="./assets/images/box-cano/box-cano.png" alt="">
+                  <div class="img"><img src="./assets/images/product-thumb.png" alt="">
                     <div class="discount"><span>Ưu đãi -40%</span></div>
                   </div>
                   <div class="text"> 
                     <h3 class="title">Pricess Day Cruise</h3>
-                    <div class="btn-group"> <span class="btn btn-hover">Có đồ ăn</span><span class="btn btn-hover">Xe đưa đón</span></div>
                     <ul> 
                       <li>
                         <p>Cảng khởi hành: Tuần Châu</p>
@@ -382,14 +498,13 @@
                   </div>
                 </div>
               </div>
-              <div class="col-lg-4 col-md-4">
+              <div class="col-lg-4">
                 <div class="recommend-items"> 
-                  <div class="img"><img src="./assets/images/box-cano/box-cano.png" alt="">
+                  <div class="img"><img src="./assets/images/product-thumb.png" alt="">
                     <div class="discount"><span>Ưu đãi -40%</span></div>
                   </div>
                   <div class="text"> 
                     <h3 class="title">Pricess Day Cruise</h3>
-                    <div class="btn-group"> <span class="btn btn-hover">Có đồ ăn</span><span class="btn btn-hover">Xe đưa đón</span></div>
                     <ul> 
                       <li>
                         <p>Cảng khởi hành: Tuần Châu</p>
@@ -411,14 +526,13 @@
                   </div>
                 </div>
               </div>
-              <div class="col-lg-4 col-md-4">
+              <div class="col-lg-4">
                 <div class="recommend-items"> 
-                  <div class="img"><img src="./assets/images/box-cano/box-cano.png" alt="">
+                  <div class="img"><img src="./assets/images/product-thumb.png" alt="">
                     <div class="discount"><span>Ưu đãi -40%</span></div>
                   </div>
                   <div class="text"> 
                     <h3 class="title">Pricess Day Cruise</h3>
-                    <div class="btn-group"> <span class="btn btn-hover">Có đồ ăn</span><span class="btn btn-hover">Xe đưa đón</span></div>
                     <ul> 
                       <li>
                         <p>Cảng khởi hành: Tuần Châu</p>

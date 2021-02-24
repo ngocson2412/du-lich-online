@@ -714,10 +714,22 @@ const tabContent = {
 		this.owlTab();
 	},
 	clickActive: function (){
-		$('.tab-content .tab a').on('click', function(e) {
-			e.preventDefault();
-			$(this).addClass('active');
-			$('.tab-content .tab a').not($(this)).removeClass('active');
+		$('.itinerary-section .schedule-list a').on('click', function(e) {
+			e.preventDefault()
+			$(this).addClass('active')
+			$('.itinerary-section .schedule-list a').not($(this)).removeClass('active')
+
+			let attr = $(this).attr('data-tab')
+			$('.itinerary-section .schedule').removeClass('current')
+			$("#"+attr).addClass('current');
+		})
+		$('.information-section .schedule-list a').on('click', function(e) {
+			e.preventDefault()
+			$(this).addClass('active')
+			$('.information-section .schedule-list a').not($(this)).removeClass('active')
+			let attr = $(this).attr('data-tab')
+			$('.information-section .schedule').removeClass('current')
+			$("#"+attr).addClass('current');
 		})
 	},
 	owlTab: function() {
