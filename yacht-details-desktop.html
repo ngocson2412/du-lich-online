@@ -215,7 +215,7 @@
                       <li><span></span></li>
                     </ul>
                   </div>
-                  <div class="schedule-items" style="overflow:hidden"> 
+                  <div class="schedule-items"> 
                     <div class="time"> 
                       <p>Early evening </p>
                     </div>
@@ -227,7 +227,7 @@
                   </div>
                 </div>
                 <div class="schedule" id="day-2">
-                  <div class="schedule-items" style="overflow:hidden"> 
+                  <div class="schedule-items"> 
                     <div class="time"> 
                       <p>07h45 - 08h15</p>
                     </div>
@@ -247,7 +247,7 @@
                       <li><span>- Join us for a typical local lunch in the dining room or at the outdoor dining area. </span></li>
                     </ul>
                   </div>
-                  <div class="schedule-items" style="overflow:hidden"> 
+                  <div class="schedule-items"> 
                     <div class="time"> 
                       <p>Early evening </p>
                     </div>
@@ -259,7 +259,7 @@
                   </div>
                 </div>
                 <div class="schedule" id="day-3">
-                  <div class="schedule-items" style="overflow:hidden"> 
+                  <div class="schedule-items"> 
                     <div class="time"> 
                       <p>07h45 - 08h15</p>
                     </div>
@@ -460,7 +460,51 @@
                       </div>
                     </div>
                   </div>
-                  <div class="write"> <a class="btn btn-review" href="">Write a review	</a></div>
+                  <div class="write" data-toggle="modal" data-target="#exampleModalCenter">
+                    <button class="btn btn-review">Write a review</button>
+                  </div>
+                  <div class="write-modal">
+                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                      <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalCenterTitle">Write a review</h5>
+                            <button class="close" type="button" data-dismiss="modal" aria-label="Close"></button><span aria-hidden="true">&times;</span>
+                          </div>
+                          <div class="modal-body">
+                            <form id="contactForm" name="sentMessage" novalidate="">
+                              <div class="control-group">
+                                <div class="form-group floating-label-form-group controls">
+                                  <label>Name</label>
+                                  <input class="form-control" id="name" type="text" placeholder="Name" required="" data-validation-required-message="Please enter your name.">
+                                </div>
+                              </div>
+                              <div class="control-group">
+                                <div class="form-group floating-label-form-group controls">
+                                  <label>Email Address</label>
+                                  <input class="form-control" id="email" type="email" placeholder="Email Address" required="" data-validation-required-message="Please enter your email address.">
+                                </div>
+                              </div>
+                              <div class="control-group">
+                                <div class="form-group col-xs-12 floating-label-form-group controls">
+                                  <label>Phone Number</label>
+                                  <input class="form-control" id="phone" type="tel" placeholder="Phone Number" required="" data-validation-required-message="Please enter your phone number." aria-invalid="false">
+                                </div>
+                              </div>
+                              <div class="control-group">
+                                <div class="form-group floating-label-form-group controls">
+                                  <label>Message</label>
+                                  <textarea class="form-control" id="message" rows="5" placeholder="Message" required="" data-validation-required-message="Please enter a message." aria-invalid="false"></textarea>
+                                </div>
+                              </div><br>
+                              <div id="success"></div>
+                              <button class="btn btn-primary" id="sendMessageButton" type="submit">Send</button>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
