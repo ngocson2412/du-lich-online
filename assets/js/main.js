@@ -58,7 +58,7 @@ const navigation = {
 				nav.removeClass("header-mb--fixed");
 			}
 		}
-	},	
+	},
 	slideToggle:function(){
 		$(".slideToggle").click(function(){
 			$(".wrapper__service-price").slideToggle();
@@ -68,7 +68,7 @@ const navigation = {
 		});
 	}
 
-	
+
 }
 
 /* ============================= 3, Happy Client Slider  ============================= */
@@ -322,7 +322,7 @@ const animationService = {
 					}else if(scroll + windowHeight >= y)  {
 						boxContent.removeAttr('style');
 					}
-				} 
+				}
 			});
 		}
 	}
@@ -555,14 +555,14 @@ const selectOption = {
 		const optionsSelect = customSelectWrapper.querySelectorAll('#options-select li')
 		$('#services-select li').click(function(){
 			var value = $(this).attr("data-service");
-			var label = $(this).attr("data-search-label");	
+			var label = $(this).attr("data-search-label");
 			$("#servicesID").val(value);
 			$("#service--select").html(label);
 		})
 
 		$('#time-select li').click(function(){
 			var value = $(this).attr("data-service");
-			var label = $(this).attr("data-time-label");	
+			var label = $(this).attr("data-time-label");
 			$("#timeID").val(value);
 			$("#time--select").html(label);
 		})
@@ -583,14 +583,14 @@ const selectOption = {
 			serviceBox.classList.toggle('change-br');
 			timeSelect.classList.remove('active');
 		})
-		
+
 		$('.flatpickr-input').click(function(){
 			optionMenu.classList.remove('active');
 			serviceBox.classList.remove('change-br');
 			serviceSelect.classList.remove('active');
 			timeSelect.classList.remove('active');
 		})
-		
+
 		$(".decrease-btn").bind("click", function(){
 			var value = Number($(this).parent().find(".value-btn").html());
 			if(value == 0) return;
@@ -604,7 +604,7 @@ const selectOption = {
 			$(this).parent().find("input").val(value + 1)
 			displaySelectValue()
 		})
-		
+
 		const displaySelectValue = () => {
 			let nguoiLonValue, treEmValue, nguoiGiaValue
 			const allValueBtn = document.querySelectorAll('#options-select .value-btn')
@@ -614,18 +614,18 @@ const selectOption = {
 				if (item.dataset.value === 'child') treEmValue = item.innerHTML
 				if (item.dataset.value === 'elderly') nguoiGiaValue = item.innerHTML
 			})
-			
+
 			if (Number(nguoiLonValue) > 0) data.push(`${nguoiLonValue} người lớn`)
 			if (Number(treEmValue) > 0) data.push(`${treEmValue} trẻ em`)
 			if (Number(nguoiGiaValue) > 0) data.push(`${nguoiGiaValue} người già`)
-			
+
 			if (data.length === 0) {
 				displaySelect.innerHTML = 'Chưa được chọn'
 			} else {
 				displaySelect.innerHTML = data.toString()
 			}
 		}
-		
+
 		displaySelectValue()
 
 		arr3.addEventListener('click', () =>{
@@ -809,18 +809,18 @@ const tintuc={
 	}
 }
 const fixColumnNewfeed = {
-	init() {
-		// this.fixColumnNewfeed();
-	},
-	fixColumnNewfeed() {
-		let col = $(".newfeed__left");
-		let box = $(".newfeed__left .newfeed-detail__social");
-		let width = col.outerWidth();
-		col.css("margin-left", -width);
-		$(window).resize(function () {
-			window.location.href = window.location.href;
-		});
-	},
+    init() {
+        this.fixColumnNewfeed();
+    },
+    fixColumnNewfeed() {
+        let col = $(".newfeed__left");
+        let width = col.outerWidth();
+        col.css("margin-left", -width);
+        $(window).resize(function () {
+            let widthResize = col.outerWidth();
+            col.css("margin-left", -widthResize);
+        });
+    },
 };
 const filterRadio = {
 	init: function() {
