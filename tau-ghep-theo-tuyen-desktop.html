@@ -201,50 +201,333 @@
                   <div class="container">
                     <div class="row">
                       <div class="col-lg-12">
-                        <div class="filter"><span class="filter__label">Bộ lọc</span>
-                          <div class="filter__detail">
-                            <select id="priceLst" name="priceLst">
-                              <option selected="selected" disabled="disabled">Giá</option>
-                              <option value="num">100</option>
-                              <option value="num">100</option>
-                              <option value="num">100</option>
-                            </select>
-                            <select id="rateLst" name="rateLst">
-                              <option selected="selected" disabled="disabled">Sao</option>
-                              <option value="num">5 sao</option>
-                              <option value="num">5 sao</option>
-                              <option value="num">5 sao</option>
-                            </select>
-                            <select id="saleLst" name="saleLst">
-                              <option selected="selected" disabled="disabled">Ưu đãi</option>
-                              <option value="num">100</option>
-                              <option value="num">100</option>
-                              <option value="num">100</option>
-                            </select>
-                            <select id="transportLst" name="transportLst">
-                              <option selected="selected" disabled="disabled">Loại tàu</option>
-                              <option value="num">Tau lua</option>
-                              <option value="num">Tau lua</option>
-                              <option value="num">Tau lua</option>
-                            </select>
-                            <select id="brandLst" name="brandLst">
-                              <option selected="selected" disabled="disabled">Hãng</option>
-                              <option value="num">VN Airline</option>
-                              <option value="num">VN Airline</option>
-                              <option value="num">VN Airline</option>
-                            </select>
-                            <select id="bedLst" name="bedLst">
-                              <option selected="selected" disabled="disabled">Giường</option>
-                              <option value="num">Giường 1 tầng</option>
-                              <option value="num">Giường 1 tầng</option>
-                              <option value="num">Giường 1 tầng</option>
-                            </select>
-                            <select id="comfortLst" name="comfortLst">
-                              <option selected="selected" disabled="disabled">Tiện nghi</option>
-                              <option value="num">Giường 1 tầng</option>
-                              <option value="num">Giường 1 tầng</option>
-                              <option value="num">Giường 1 tầng</option>
-                            </select>
+                        <div class="filter d-flex justify-content-between flex-wrap">
+                          <div class="filter-all filter d-flex align-items-center"><span class="filter__label">Bộ lọc</span>
+                            <div class="filter__detail d-flex flex-wrap">
+                              <select id="priceLst" name="priceLst">
+                                <option selected="selected" disabled="disabled">Giá</option>
+                                <option value="num">100</option>
+                                <option value="num">100</option>
+                                <option value="num">100</option>
+                              </select>
+                              <select id="rateLst" name="rateLst">
+                                <option selected="selected" disabled="disabled">Sao</option>
+                                <option value="num">5 sao</option>
+                                <option value="num">5 sao</option>
+                                <option value="num">5 sao</option>
+                              </select>
+                              <select id="saleLst" name="saleLst">
+                                <option selected="selected" disabled="disabled">Ưu đãi</option>
+                                <option value="num">100</option>
+                                <option value="num">100</option>
+                                <option value="num">100</option>
+                              </select>
+                              <select id="transportLst" name="transportLst">
+                                <option selected="selected" disabled="disabled">Loại tàu</option>
+                                <option value="num">Tau lua</option>
+                                <option value="num">Tau lua</option>
+                                <option value="num">Tau lua</option>
+                              </select>
+                              <select id="brandLst" name="brandLst">
+                                <option selected="selected" disabled="disabled">Hãng</option>
+                                <option value="num">VN Airline</option>
+                                <option value="num">VN Airline</option>
+                                <option value="num">VN Airline</option>
+                              </select>
+                              <select id="bedLst" name="bedLst">
+                                <option selected="selected" disabled="disabled">Giường</option>
+                                <option value="num">Giường 1 tầng</option>
+                                <option value="num">Giường 1 tầng</option>
+                                <option value="num">Giường 1 tầng</option>
+                              </select>
+                              <select id="comfortLst" name="comfortLst">
+                                <option selected="selected" disabled="disabled">Tiện nghi</option>
+                                <option value="num">Giường 1 tầng</option>
+                                <option value="num">Giường 1 tầng</option>
+                                <option value="num">Giường 1 tầng</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="dropdown_filter hover_extra"><span id="filterradio" name="filterradio">Thêm</span><i class="fas fa-chevron-down mt-1 ml-3"> </i></div>
+                        </div>
+                        <div class="filter__radio"> 
+                          <div class="radio-detail"> 
+                            <form action="" methor=""> 
+                              <div class="radio__detail-list"> 
+                                <h4 class="detail-list__lable">Đánh giá của khách hàng</h4>
+                                <div class="row">
+                                  <div class="col-6"> 
+                                    <div class="form-ground radio">
+                                      <input type="radio" id="r1" name="r1">
+                                      <label for="r1">9+Trên cả tuyệt vời </label>
+                                    </div>
+                                    <div class="form-ground radio">
+                                      <input type="radio" id="r2" name="r2">
+                                      <label for="r2">8+Xuất sắc</label>
+                                    </div>
+                                  </div>
+                                  <div class="col-6"> 
+                                    <div class="form-ground radio">
+                                      <input type="radio" id="r3" name="r3">
+                                      <label for="r3">7+Rất tốt</label>
+                                    </div>
+                                    <div class="form-ground radio">
+                                      <input type="radio" id="r4" name="r4">
+                                      <label for="r4">6+Hài lòng</label>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="radio__detail-list"> 
+                                <h4 class="detail-list__lable">Tiện nghi chỗ nghỉ</h4>
+                                <div class="row">
+                                  <div class="col-6"> 
+                                    <div class="form-ground radio">
+                                      <input type="radio" id="r5" name="r5">
+                                      <label for="r5">Bể bơi</label>
+                                    </div>
+                                    <div class="form-ground radio">
+                                      <input type="radio" id="r6" name="r6">
+                                      <label for="r6">Internet</label>
+                                    </div>
+                                    <div class="form-ground radio">
+                                      <input type="radio" id="r7" name="r7">
+                                      <label for="r7">Bãi để xe </label>
+                                    </div>
+                                    <div class="form-ground radio">
+                                      <input type="radio" id="r8" name="r8">
+                                      <label for="r8">Đưa đón sân bay</label>
+                                    </div>
+                                    <div class="form-ground radio">
+                                      <input type="radio" id="r9" name="r9">
+                                      <label for="r9">Phòng tập</label>
+                                    </div>
+                                    <div class="form-ground radio">
+                                      <input type="radio" id="r10" name="r10">
+                                      <label for="r10">Thích hợp cho gia đình/trẻ em               </label>
+                                    </div>
+                                  </div>
+                                  <div class="col-6"> 
+                                    <div class="form-ground radio">
+                                      <input type="radio" id="r11" name="r11">
+                                      <label for="r11">Không hút thuốc</label>
+                                    </div>
+                                    <div class="form-ground radio">
+                                      <input type="radio" id="r12" name="r12">
+                                      <label for="r12">Spa</label>
+                                    </div>
+                                    <div class="form-ground radio">
+                                      <input type="radio" id="r13" name="r13">
+                                      <label for="r13">Nhà hàng</label>
+                                    </div>
+                                    <div class="form-ground radio">
+                                      <input type="radio" id="r14" name="r14">
+                                      <label for="r14">Khu vực hút thuốc</label>
+                                    </div>
+                                    <div class="form-ground radio">
+                                      <input type="radio" id="r15" name="r15">
+                                      <label for="r15">Được phép đưa thú nuôi vào</label>
+                                    </div>
+                                    <div class="form-ground radio">
+                                      <input type="radio" id="r16" name="r16">
+                                      <label for="r16">Tiện nghi cho khách khuyết tật             </label>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="radio__detail-list"> 
+                                <h4 class="detail-list__lable">Chọn phòng có</h4>
+                                <div class="row">
+                                  <div class="col-6"> 
+                                    <div class="form-ground radio">
+                                      <input type="radio" id="r17" name="r17">
+                                      <label for="r17">Có ăn sáng </label>
+                                    </div>
+                                    <div class="form-ground radio">
+                                      <input type="radio" id="r18" name="r18">
+                                      <label for="r18">Nhận phòng sớm</label>
+                                    </div>
+                                    <div class="form-ground radio">
+                                      <input type="radio" id="r19" name="r19">
+                                      <label for="r19">Bao gồm bữa trưa    </label>
+                                    </div>
+                                  </div>
+                                  <div class="col-6"> 
+                                    <div class="form-ground radio">
+                                      <input type="radio" id="r20" name="r20">
+                                      <label for="r20">Bao gồm bữa tối</label>
+                                    </div>
+                                    <div class="form-ground radio">
+                                      <input type="radio" id="r21" name="r21">
+                                      <label for="r21">Trả phòng muộn</label>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="radio__detail-list"> 
+                                <h4 class="detail-list__lable">Loại phòng</h4>
+                                <div class="row">
+                                  <div class="col-6"> 
+                                    <div class="form-ground radio">
+                                      <input type="radio" id="r22" name="r22">
+                                      <label for="r22">1 giường đơn</label>
+                                    </div>
+                                    <div class="form-ground radio">
+                                      <input type="radio" id="r23" name="r23">
+                                      <label for="r23">1 giường đôi/ 2 người</label>
+                                    </div>
+                                    <div class="form-ground radio">
+                                      <input type="radio" id="r24" name="r24">
+                                      <label for="r24">2 giường đôi/ gia đình 3 người    </label>
+                                    </div>
+                                  </div>
+                                  <div class="col-6"> 
+                                    <div class="form-ground radio">
+                                      <input type="radio" id="r25" name="r25">
+                                      <label for="r25">2 giường đôi</label>
+                                    </div>
+                                    <div class="form-ground radio">
+                                      <input type="radio" id="r26" name="r26">
+                                      <label for="r26">3 giường đơn                </label>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="radio__detail-list"> 
+                                <h4 class="detail-list__lable">Tiện nghi phòng</h4>
+                                <div class="row">
+                                  <div class="col-6"> 
+                                    <div class="form-ground radio">
+                                      <input type="radio" id="r27" name="r27">
+                                      <label for="r27">Bồn tắm</label>
+                                    </div>
+                                    <div class="form-ground radio">
+                                      <input type="radio" id="r28" name="r28">
+                                      <label for="r28">Ban công/sân hiên</label>
+                                    </div>
+                                    <div class="form-ground radio">
+                                      <input type="radio" id="r39" name="r29">
+                                      <label for="r29">TV</label>
+                                    </div>
+                                    <div class="form-ground radio">
+                                      <input type="radio" id="r30" name="r30">
+                                      <label for="r30">Điều hòa</label>
+                                    </div>
+                                    <div class="form-ground radio">
+                                      <input type="radio" id="r31" name="r31">
+                                      <label for="r31">Tiện nghi là/ủi      </label>
+                                    </div>
+                                  </div>
+                                  <div class="col-6"> 
+                                    <div class="form-ground radio">
+                                      <input type="radio" id="r32" name="r32">
+                                      <label for="r32">Bể bơi riêng </label>
+                                    </div>
+                                    <div class="form-ground radio">
+                                      <input type="radio" id="r33" name="r33">
+                                      <label for="r33">Tủ lạnh</label>
+                                    </div>
+                                    <div class="form-ground radio">
+                                      <input type="radio" id="r34" name="r34">
+                                      <label for="r34">Được phép đưa thú cưng vào phòng</label>
+                                    </div>
+                                    <div class="form-ground radio">
+                                      <input type="radio" id="r35" name="r35">
+                                      <label for="r35">Máy pha trà/cà phê</label>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="radio__detail-list"> 
+                                <h4 class="detail-list__lable">Ưu đãi & Giảm giá</h4>
+                                <div class="row">
+                                  <div class="col-6"> 
+                                    <div class="form-ground radio">
+                                      <input type="radio" id="r36" name="r36">
+                                      <label for="r36">Giảm từ 50% trở lên</label>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="radio__detail-list"> 
+                                <h4 class="detail-list__lable">Hãng tàu phổ biến</h4>
+                                <div class="row">
+                                  <div class="col-6"> 
+                                    <div class="form-ground radio">
+                                      <input type="radio" id="r37" name="r37">
+                                      <label for="r37">Orchid</label>
+                                    </div>
+                                    <div class="form-ground radio">
+                                      <input type="radio" id="r38" name="r38">
+                                      <label for="r38">Azalea</label>
+                                    </div>
+                                    <div class="form-ground radio">
+                                      <input type="radio" id="r39" name="r39">
+                                      <label for="r39">Apricot </label>
+                                    </div>
+                                    <div class="form-ground radio">
+                                      <input type="radio" id="r40" name="r40">
+                                      <label for="r40">Paloma</label>
+                                    </div>
+                                    <div class="form-ground radio">
+                                      <input type="radio" id="r41" name="r41">
+                                      <label for="r41">Signature         </label>
+                                    </div>
+                                  </div>
+                                  <div class="col-6"> 
+                                    <div class="form-ground radio">
+                                      <input type="radio" id="r42" name="r42">
+                                      <label for="r42">President</label>
+                                    </div>
+                                    <div class="form-ground radio">
+                                      <input type="radio" id="r43" name="r43">
+                                      <label for="r43">Era</label>
+                                    </div>
+                                    <div class="form-ground radio">
+                                      <input type="radio" id="r44" name="r44">
+                                      <label for="r44">Starlight</label>
+                                    </div>
+                                    <div class="form-ground radio">
+                                      <input type="radio" id="r45" name="r45">
+                                      <label for="r45">Peony</label>
+                                    </div>
+                                    <div class="form-ground radio">
+                                      <input type="radio" id="r46" name="r46">
+                                      <label for="r46">Moncheri </label>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="radio__detail-list"> 
+                                <h4 class="detail-list__lable">Them input demo</h4>
+                                <div class="row">
+                                  <div class="col-6"> 
+                                    <div class="form-ground radio">
+                                      <input type="checkbox" name="checkbox1" id="checkbox-1">
+                                      <label for="checkbox-1">Checkbox demo 1</label>
+                                    </div>
+                                    <div class="form-ground radio">
+                                      <input type="checkbox" name="checkbox2" id="checkbox-2">
+                                      <label for="checkbox-2">Checkbox demo 2        </label>
+                                    </div>
+                                  </div>
+                                  <div class="col-6"> 
+                                    <div class="form-ground radio">
+                                      <input type="checkbox" name="checkbox3" id="checkbox-3">
+                                      <label for="checkbox-3">Checkbox demo 3</label>
+                                    </div>
+                                    <div class="form-ground radio">
+                                      <input type="checkbox" name="checkbox4" id="checkbox-4">
+                                      <label for="checkbox-4">Checkbox demo 4                </label>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="submit_radio d-flex justify-content-between align-items-center"> 
+                                <button class="delete-radio" type="reset">Xóa tất cả chọn lọc </button>
+                                <button class="btn-result btn-result-link">Hoàn thành</button>
+                              </div>
+                            </form>
                           </div>
                         </div>
                       </div>

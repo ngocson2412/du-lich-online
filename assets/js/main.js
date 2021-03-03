@@ -34,6 +34,7 @@ $(document).ready(function () {
 	tintuc.init();
 	fixColumnNewfeed.init();
 	selectOption.init();
+	filterRadio.init();
 });
 
 /* ============================= 2, Navigation  ============================= */
@@ -547,9 +548,11 @@ const selectOption = {
 		const timeSelect = document.querySelector('#time-select');
 		const serviceBox = document.querySelector('.cano-service');
 		const customSelectWrapper = document.querySelector('#custom-select')
+		if(!customSelectWrapper) {
+			return;
+		}
 		const displaySelect = customSelectWrapper.querySelector('#display-select')
 		const optionsSelect = customSelectWrapper.querySelectorAll('#options-select li')
-
 		$('#services-select li').click(function(){
 			var value = $(this).attr("data-service");
 			var label = $(this).attr("data-search-label");	
@@ -705,6 +708,27 @@ const filterMB = {
 		$('.filter-mbv2 .fiter-mb__top .delete').click(function(e){
 			$('.fiter-mb__list select').val('0');
 		})
+		$('.fiter-mb__more .submit .reset').click(function(e){
+			e.preventDefault()
+			$('.fiter-mb__more form').trigger("reset");
+		});
+		$('.filter-mbv2 .fiter-mb__top .filter-more').click(function(){
+			$('.fiter-mb__more').addClass('active');
+		})
+		$('.fiter-mb__more .back').click(function(){
+			$('.fiter-mb__more').removeClass('active');
+		})
+		$('.filter-mbv2 .fiter-mb__item .choose-radio').click(function(){
+			$(this).closest('.fiter-mb__item').find('.fiter-mb__price').addClass('active');
+		})
+		$('.fiter-mb__price .back ').click(function(){
+			$('.fiter-mb__price').removeClass('active');
+		})
+		$('.fiter-mb__price .radio').click(function(){
+			let valueOption=$($(this).parents()[3]).find('select option:last-child');
+			valueOption.html($(this).find('span').html());
+			$($(this).parents()[3]).find('select').val('1');
+		})
 	}
 }
 /* ============================= 14, tab content  ============================= */
@@ -796,3 +820,25 @@ const fixColumnNewfeed = {
 		});
 	},
 };
+const filterRadio = {
+	init: function() {
+		this.clickActive();
+		this.removeRadio();
+	},
+	clickActive: function (){
+		$('.filter .hover_extra').on('click', function(e) {
+			e.preventDefault()
+			$('.filter-section .filter__radio').toggleClass('active');
+			if($('.filter-section .filter__radio').hasClass('active')){
+				$('.filter .hover_extra .fa-chevron-down').addClass('active');
+			}else{
+				$('.filter .hover_extra .fa-chevron-down').removeClass('active');
+			}
+		})
+		$(document).click(function(event) {
+			if (!$(event.target).closest(".filter-section").length) {
+			  $("body").find(".filter-section .filter__radio").removeClass("active");
+			}
+		  });
+	},
+}
