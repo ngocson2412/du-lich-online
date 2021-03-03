@@ -706,7 +706,10 @@ const filterMB = {
 			$("body").css("overflow", "scroll");
 		})
 		$('.filter-mbv2 .fiter-mb__top .delete').click(function(e){
-			$('.fiter-mb__list select').val('0');
+			let textdefaul=document.querySelectorAll('.fiter-mb__list .choose-radio .radio-value');
+			for (let i = 0; i < textdefaul.length; i++) {
+				textdefaul[i].children[0].innerHTML=textdefaul[i].getAttribute("data-defaultValue");
+			}
 		})
 		$('.fiter-mb__more .submit .reset').click(function(e){
 			e.preventDefault()
@@ -725,9 +728,8 @@ const filterMB = {
 			$('.fiter-mb__price').removeClass('active');
 		})
 		$('.fiter-mb__price .radio').click(function(){
-			let valueOption=$($(this).parents()[3]).find('select option:last-child');
+			let valueOption=$($(this).parents()[3]).find('.radio-value span');
 			valueOption.html($(this).find('span').html());
-			$($(this).parents()[3]).find('select').val('1');
 		})
 	}
 }
@@ -808,22 +810,21 @@ const tintuc={
 }
 const fixColumnNewfeed = {
 	init() {
-		this.fixColumnNewfeed();
+		// this.fixColumnNewfeed();
 	},
 	fixColumnNewfeed() {
-		// let col = $(".newfeed__left");
-		// let box = $(".newfeed__left .newfeed-detail__social");
-		// let width = col.outerWidth();
-		// col.css("margin-left", -width);
-		// $(window).resize(function () {
-		// 	window.location.href = window.location.href;
-		// });
+		let col = $(".newfeed__left");
+		let box = $(".newfeed__left .newfeed-detail__social");
+		let width = col.outerWidth();
+		col.css("margin-left", -width);
+		$(window).resize(function () {
+			window.location.href = window.location.href;
+		});
 	},
 };
 const filterRadio = {
 	init: function() {
 		this.clickActive();
-		this.removeRadio();
 	},
 	clickActive: function (){
 		$('.filter .hover_extra').on('click', function(e) {
