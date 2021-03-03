@@ -811,13 +811,13 @@ const fixColumnNewfeed = {
 		this.fixColumnNewfeed();
 	},
 	fixColumnNewfeed() {
-		let col = $(".newfeed__left");
-		let box = $(".newfeed__left .newfeed-detail__social");
-		let width = col.outerWidth();
-		col.css("margin-left", -width);
-		$(window).resize(function () {
-			window.location.href = window.location.href;
-		});
+		// let col = $(".newfeed__left");
+		// let box = $(".newfeed__left .newfeed-detail__social");
+		// let width = col.outerWidth();
+		// col.css("margin-left", -width);
+		// $(window).resize(function () {
+		// 	window.location.href = window.location.href;
+		// });
 	},
 };
 const filterRadio = {
