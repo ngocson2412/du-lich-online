@@ -174,7 +174,7 @@
                                         </div>
                                       </div>
                                     </div>
-                                    <div class="cano-service-detail grid-service d-flex align-items-center justify-content-between">
+                                    <div class="cano-service-detail grid-service d-flex align-items-center justify-content-between" id="flatpickr-custom">
                                       <div class="detail-left d-flex align-items-center">
                                         <div class="left-img mr-2"><img id="toggle_cal" src="./assets/images/banner/cal.png" alt=""></div>
                                         <div class="left-content content-date select-icon">
@@ -204,48 +204,146 @@
                         <div class="filter d-flex justify-content-between flex-wrap">
                           <div class="filter-all filter d-flex align-items-center"><span class="filter__label">Bộ lọc</span>
                             <div class="filter__detail d-flex flex-wrap">
-                              <select id="priceLst" name="priceLst">
-                                <option selected="selected" disabled="disabled">Giá</option>
-                                <option value="num">100</option>
-                                <option value="num">100</option>
-                                <option value="num">100</option>
-                              </select>
-                              <select id="rateLst" name="rateLst">
-                                <option selected="selected" disabled="disabled">Sao</option>
-                                <option value="num">5 sao</option>
-                                <option value="num">5 sao</option>
-                                <option value="num">5 sao</option>
-                              </select>
-                              <select id="saleLst" name="saleLst">
-                                <option selected="selected" disabled="disabled">Ưu đãi</option>
-                                <option value="num">100</option>
-                                <option value="num">100</option>
-                                <option value="num">100</option>
-                              </select>
-                              <select id="transportLst" name="transportLst">
-                                <option selected="selected" disabled="disabled">Loại tàu</option>
-                                <option value="num">Tau lua</option>
-                                <option value="num">Tau lua</option>
-                                <option value="num">Tau lua</option>
-                              </select>
-                              <select id="brandLst" name="brandLst">
-                                <option selected="selected" disabled="disabled">Hãng</option>
-                                <option value="num">VN Airline</option>
-                                <option value="num">VN Airline</option>
-                                <option value="num">VN Airline</option>
-                              </select>
-                              <select id="bedLst" name="bedLst">
-                                <option selected="selected" disabled="disabled">Giường</option>
-                                <option value="num">Giường 1 tầng</option>
-                                <option value="num">Giường 1 tầng</option>
-                                <option value="num">Giường 1 tầng</option>
-                              </select>
-                              <select id="comfortLst" name="comfortLst">
-                                <option selected="selected" disabled="disabled">Tiện nghi</option>
-                                <option value="num">Giường 1 tầng</option>
-                                <option value="num">Giường 1 tầng</option>
-                                <option value="num">Giường 1 tầng</option>
-                              </select>
+                              <div class="filter__detail-select">
+                                <div class="select-value d-flex justify-content-between align-items-center"><span>Giá</span><img src="assets/images/filter/layer-3.png" alt=""></div>
+                                <div class="select-dropdow">
+                                  <label class="radio-ch">
+                                    <input type="radio" name="gia" value=""><span>100</span>
+                                  </label>
+                                  <label class="radio-ch">
+                                    <input type="radio" name="gia" value=""><span>100</span>
+                                  </label>
+                                  <label class="radio-ch">
+                                    <input type="radio" name="gia" value=""><span>100</span>
+                                  </label>
+                                  <label class="radio-ch">
+                                    <input type="radio" name="gia" value=""><span>100</span>
+                                  </label>
+                                  <label class="radio-ch">
+                                    <input type="radio" name="gia" value=""><span>100</span>
+                                  </label>
+                                </div>
+                              </div>
+                              <div class="filter__detail-select">
+                                <div class="select-value d-flex justify-content-between align-items-center"><span>Sao</span><img src="assets/images/filter/layer-3.png" alt=""></div>
+                                <div class="select-dropdow">
+                                  <label class="radio-ch">
+                                    <input type="radio" name="gia" value=""><span class="star"><i class="fas fa-star active"></i></span>
+                                  </label>
+                                  <label class="radio-ch">
+                                    <input type="radio" name="gia" value=""><span class="star"><i class="fas fa-star active"></i><i class="fas fa-star active"></i></span>
+                                  </label>
+                                  <label class="radio-ch">
+                                    <input type="radio" name="gia" value=""><span class="star"><i class="fas fa-star active"></i><i class="fas fa-star active"></i><i class="fas fa-star active"></i></span>
+                                  </label>
+                                  <label class="radio-ch">
+                                    <input type="radio" name="gia" value=""><span class="star"><i class="fas fa-star active"></i><i class="fas fa-star active"></i><i class="fas fa-star active"></i><i class="fas fa-star active"></i></span>
+                                  </label>
+                                  <label class="radio-ch">
+                                    <input type="radio" name="gia" value=""><span class="star"><i class="fas fa-star active"></i><i class="fas fa-star active"></i><i class="fas fa-star active"></i><i class="fas fa-star active"></i><i class="fas fa-star active"></i></span>
+                                  </label>
+                                </div>
+                              </div>
+                              <div class="filter__detail-select">
+                                <div class="select-value d-flex justify-content-between align-items-center"><span>Ưu đãi</span><img src="assets/images/filter/layer-3.png" alt=""></div>
+                                <div class="select-dropdow">
+                                  <label class="radio-ch">
+                                    <input type="radio" name="gia" value=""><span>100</span>
+                                  </label>
+                                  <label class="radio-ch">
+                                    <input type="radio" name="gia" value=""><span>100</span>
+                                  </label>
+                                  <label class="radio-ch">
+                                    <input type="radio" name="gia" value=""><span>100</span>
+                                  </label>
+                                  <label class="radio-ch">
+                                    <input type="radio" name="gia" value=""><span>100</span>
+                                  </label>
+                                  <label class="radio-ch">
+                                    <input type="radio" name="gia" value=""><span>100</span>
+                                  </label>
+                                </div>
+                              </div>
+                              <div class="filter__detail-select">
+                                <div class="select-value d-flex justify-content-between align-items-center"><span>Loại tàu</span><img src="assets/images/filter/layer-3.png" alt=""></div>
+                                <div class="select-dropdow">
+                                  <label class="radio-ch">
+                                    <input type="radio" name="gia" value=""><span>Tau lua</span>
+                                  </label>
+                                  <label class="radio-ch">
+                                    <input type="radio" name="gia" value=""><span>Tau lua</span>
+                                  </label>
+                                  <label class="radio-ch">
+                                    <input type="radio" name="gia" value=""><span>Tau lua</span>
+                                  </label>
+                                  <label class="radio-ch">
+                                    <input type="radio" name="gia" value=""><span>Tau lua</span>
+                                  </label>
+                                  <label class="radio-ch">
+                                    <input type="radio" name="gia" value=""><span>Tau lua</span>
+                                  </label>
+                                </div>
+                              </div>
+                              <div class="filter__detail-select">
+                                <div class="select-value d-flex justify-content-between align-items-center"><span>Hãng</span><img src="assets/images/filter/layer-3.png" alt=""></div>
+                                <div class="select-dropdow">
+                                  <label class="radio-ch">
+                                    <input type="radio" name="gia" value=""><span>VN Airline</span>
+                                  </label>
+                                  <label class="radio-ch">
+                                    <input type="radio" name="gia" value=""><span>VN Airline</span>
+                                  </label>
+                                  <label class="radio-ch">
+                                    <input type="radio" name="gia" value=""><span>VN Airline</span>
+                                  </label>
+                                  <label class="radio-ch">
+                                    <input type="radio" name="gia" value=""><span>VN Airline</span>
+                                  </label>
+                                  <label class="radio-ch">
+                                    <input type="radio" name="gia" value=""><span>VN Airline</span>
+                                  </label>
+                                </div>
+                              </div>
+                              <div class="filter__detail-select">
+                                <div class="select-value d-flex justify-content-between align-items-center"><span>Giường</span><img src="assets/images/filter/layer-3.png" alt=""></div>
+                                <div class="select-dropdow">
+                                  <label class="radio-ch">
+                                    <input type="radio" name="gia" value=""><span>Giường 1 tầng</span>
+                                  </label>
+                                  <label class="radio-ch">
+                                    <input type="radio" name="gia" value=""><span>Giường 1 tầng</span>
+                                  </label>
+                                  <label class="radio-ch">
+                                    <input type="radio" name="gia" value=""><span>Giường 1 tầng</span>
+                                  </label>
+                                  <label class="radio-ch">
+                                    <input type="radio" name="gia" value=""><span>Giường 1 tầng</span>
+                                  </label>
+                                  <label class="radio-ch">
+                                    <input type="radio" name="gia" value=""><span>Giường 1 tầng</span>
+                                  </label>
+                                </div>
+                              </div>
+                              <div class="filter__detail-select">
+                                <div class="select-value d-flex justify-content-between align-items-center"><span>Tiện nghi</span><img src="assets/images/filter/layer-3.png" alt=""></div>
+                                <div class="select-dropdow">
+                                  <label class="radio-ch">
+                                    <input type="radio" name="gia" value=""><span>Giường 1 tầng</span>
+                                  </label>
+                                  <label class="radio-ch">
+                                    <input type="radio" name="gia" value=""><span>Giường 1 tầng</span>
+                                  </label>
+                                  <label class="radio-ch">
+                                    <input type="radio" name="gia" value=""><span>Giường 1 tầng</span>
+                                  </label>
+                                  <label class="radio-ch">
+                                    <input type="radio" name="gia" value=""><span>Giường 1 tầng</span>
+                                  </label>
+                                  <label class="radio-ch">
+                                    <input type="radio" name="gia" value=""><span>Giường 1 tầng</span>
+                                  </label>
+                                </div>
+                              </div>
                             </div>
                           </div>
                           <div class="dropdown_filter hover_extra"><span id="filterradio" name="filterradio">Thêm</span><i class="fas fa-chevron-down mt-1 ml-3"> </i></div>

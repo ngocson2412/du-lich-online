@@ -35,6 +35,7 @@ $(document).ready(function () {
 	fixColumnNewfeed.init();
 	selectOption.init();
 	filterRadio.init();
+	filterDextop.init();
 });
 
 /* ============================= 2, Navigation  ============================= */
@@ -677,6 +678,7 @@ const flatpickrDate = {
 			"defaultDate": new Date(),
 			altInput: true,
 			altFormat: "d/m/Y",
+			appendTo: window.document.querySelector('#flatpickr-custom')
 		});
 		$("#timePicker").flatpickr({
 			enableTime: true,
@@ -842,4 +844,28 @@ const filterRadio = {
 			}
 		  });
 	},
+}
+/* ============================= , filter dextop  ============================= */
+
+const filterDextop = {
+	init:function () {
+		this.handalClick();
+	},
+	handalClick:function () {
+		$('.filter .filter__detail-select').click(function(){
+			console.log($(this).hasClass('active'));
+			if($(this).hasClass('active')){
+				$('.filter .filter__detail-select').removeClass('active');
+			}else{
+				$('.filter .filter__detail-select').removeClass('active');
+				$(this).addClass('active');
+			}
+		})
+		$('.filter .filter__detail-select .radio-ch').click(function(e){
+			e.stopPropagation();
+			$('.filter .filter__detail-select').removeClass('active');
+			let text=$(this).find('span').html();
+			$($(this).parents()[1]).find('.select-value span').html(text);
+		})
+	}
 }
