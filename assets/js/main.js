@@ -680,6 +680,15 @@ const flatpickrDate = {
 			altFormat: "d/m/Y",
 			appendTo: window.document.querySelector('#flatpickr-custom')
 		});
+		flatpickr('#calendar-ja-mb', {
+			"locale": "vn",
+			"minDate": new Date(),
+			"dateFormat": "d/m/Y",
+			disableMobile: true,
+			"defaultDate": new Date(),
+			altInput: true,
+			altFormat: "d/m/Y",
+		});
 		$("#timePicker").flatpickr({
 			enableTime: true,
 			noCalendar: true,
