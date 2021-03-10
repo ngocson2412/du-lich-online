@@ -741,6 +741,7 @@ const filterMB = {
 		$('.fiter-mb__price .radio').click(function(){
 			let valueOption=$($(this).parents()[3]).find('.radio-value span');
 			valueOption.html($(this).find('span').html());
+			$('.fiter-mb__price').removeClass('active');
 		})
 	}
 }
