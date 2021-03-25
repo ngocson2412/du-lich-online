@@ -36,6 +36,7 @@ $(document).ready(function () {
 	selectOption.init();
 	filterRadio.init();
 	filterDextop.init();
+	selectOption1.init();
 });
 
 /* ============================= 2, Navigation  ============================= */
@@ -574,7 +575,9 @@ const selectOption = {
 				optionMenu.classList.toggle('active');
 				serviceBox.classList.remove('change-br');
 				serviceSelect.classList.remove('active');
-				timeSelect.classList.remove('active');
+				if(timeSelect){
+					timeSelect.classList.remove('active');
+				}
 			}
 		})
 
@@ -582,14 +585,18 @@ const selectOption = {
 			optionMenu.classList.remove('active');
 			serviceSelect.classList.toggle('active');
 			serviceBox.classList.toggle('change-br');
-			timeSelect.classList.remove('active');
+			if(timeSelect){
+				timeSelect.classList.remove('active');
+			}
 		})
 
 		$('.flatpickr-input').click(function(){
 			optionMenu.classList.remove('active');
 			serviceBox.classList.remove('change-br');
 			serviceSelect.classList.remove('active');
-			timeSelect.classList.remove('active');
+			if(timeSelect){
+				timeSelect.classList.remove('active');
+			}
 		})
 
 		$(".decrease-btn").bind("click", function(){
@@ -628,14 +635,16 @@ const selectOption = {
 		}
 
 		displaySelectValue()
-
-		arr3.addEventListener('click', () =>{
-			timeSelect.classList.toggle('active');
-			optionMenu.classList.remove('active');
-			serviceBox.classList.remove('change-br');
-			serviceSelect.classList.remove('active');
-		})
-
+		if(arr3){
+			arr3.addEventListener('click', () =>{
+				if(timeSelect){
+					timeSelect.classList.toggle('active');
+				}
+				optionMenu.classList.remove('active');
+				serviceBox.classList.remove('change-br');
+				serviceSelect.classList.remove('active');
+			})
+		}
 		$(document).on('click', function (e) {
 			if ($(e.target).closest(".options-select").length === 0 && $(e.target).closest(".cano-service").length === 0) {
 				$(".options-select").removeClass('active');
@@ -879,3 +888,70 @@ const filterDextop = {
 		})
 	}
 }
+
+/* ============================= 16 Select options trang dat ve cano  ============================= */
+
+
+	const selectOption1 = {
+		init:function(){
+			this.selectMenu();
+		
+		},
+		selectMenu:function(){
+			const removeactive = document.querySelector('.booking__train-infor');
+			const arrowBtn = document.querySelector('#selectMenu1');
+			const optionMenu = document.querySelector('#options-select1');
+			const serviceBox = document.querySelector('.cano-service');
+			const customSelectWrapper = document.querySelector('#custom-select1')
+			if(!customSelectWrapper) {
+				return;
+			}
+			const displaySelect = customSelectWrapper.querySelector('#display-select1')
+			const optionsSelect = customSelectWrapper.querySelectorAll('#options-select1 li')
+		
+			$(".decrease-btn").bind("click", function(){
+				var value = Number($(this).parent().find(".value-btn").html());
+				if(value == 0) return;
+				$(this).parent().find(".value-btn").html(value - 1);
+				$(this).parent().find("input").val(value - 1)
+				displaySelectValue()
+			})
+			$(".increase-btn").bind("click", function(){
+				var value = Number($(this).parent().find(".value-btn").html());
+				$(this).parent().find(".value-btn").html(value + 1);
+				$(this).parent().find("input").val(value + 1)
+				displaySelectValue()
+			})
+			arrowBtn.addEventListener('click', (e) =>{
+				if ($(e.target).closest(".options-select").length === 0) {
+					optionMenu.classList.toggle('active');
+					serviceBox.classList.remove('change-br');
+				}
+			})
+			const displaySelectValue = () => {
+				let nguoiLonValue, treEmValue, nguoiGiaValue
+				const allValueBtn = document.querySelectorAll('#options-select1 .value-btn')
+				const data = []
+				allValueBtn.forEach((item) => {
+					if (item.dataset.value === 'adults') nguoiLonValue = item.innerHTML
+					if (item.dataset.value === 'child') treEmValue = item.innerHTML
+					if (item.dataset.value === 'elderly') nguoiGiaValue = item.innerHTML
+				})
+				if (Number(nguoiLonValue) > 0) data.push(`${nguoiLonValue} người lớn`)
+				if (Number(treEmValue) > 0) data.push(`${treEmValue} trẻ em`)
+				if (Number(nguoiGiaValue) > 0) data.push(`${nguoiGiaValue} người già`)
+	
+				if (data.length === 0) {
+					displaySelect.innerHTML = 'Chưa được chọn'
+				} else {
+					displaySelect.innerHTML = data.toString()
+				}
+			}
+			displaySelectValue()
+			$(document).on('click', function (e) {
+				if ($(e.target).closest(".options-select").length === 0 && $(e.target).closest("#booking-select").length === 0) {
+					$(".options-select").removeClass('active');
+				}
+			});
+		}
+	}
