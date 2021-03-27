@@ -54,10 +54,12 @@ const navigation = {
 				$(".nav").addClass("nav--fixed");
 				topBar.css({"display": "none"});
 				nav.addClass("header-mb--fixed");
+				$('.booking__train-infor').addClass('stickky');
 			} else {
 				$(".nav").removeClass("nav--fixed");
 				topBar.css({"display": "flex"});
-				nav.removeClass("header-mb--fixed");
+				nav.removeClass("header-mb--fixed");	
+				$('.booking__train-infor').removeClass('stickky');	
 			}
 		}
 	},
@@ -895,7 +897,6 @@ const filterDextop = {
 	const selectOption1 = {
 		init:function(){
 			this.selectMenu();
-		
 		},
 		selectMenu:function(){
 			const removeactive = document.querySelector('.booking__train-infor');
@@ -949,9 +950,9 @@ const filterDextop = {
 			}
 			displaySelectValue()
 			$(document).on('click', function (e) {
-				if ($(e.target).closest(".options-select").length === 0 && $(e.target).closest("#booking-select").length === 0) {
+				if ($(e.target).closest(".options-select").length === 0 && $(e.target).closest(".booking__train-infor").length === 0) {
 					$(".options-select").removeClass('active');
 				}
 			});
-		}
+		},
 	}
