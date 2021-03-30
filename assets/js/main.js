@@ -1066,6 +1066,20 @@ const showMoreDetailYatch = {
             ".box-tiket .box-tiket__btn",
             ".list__item"
         );
+        this.showMoreText(
+            ".item__paragraph",
+            ".detail-ship__box-item .item__show-more-p"
+        );
+    },
+    changeIcon(item) {
+        $(item).toggleClass("active");
+        if ($(item).hasClass("active")) {
+            $(item).html('<i class="fas fa-angle-up mr-2"></i> Thu gọn ');
+        } else {
+            $(item).html(
+                '<i class="fas fa-angle-down mr-2"></i> Xem chi tiết '
+            );
+        }
     },
     showMoreDetailYatch(gList, gBtn, gItems) {
         let list = $(gList);
@@ -1082,13 +1096,13 @@ const showMoreDetailYatch = {
         if (btn) {
             let arrIdx = [];
             btn.click(function (e) {
-                $(this).toggleClass("active");
-                if ($(this).hasClass("active")) {
-                    $(this).text("Thu Gọn");
-                } else {
-                    $(this).text("Xem Tất Cả");
-                }
-                let items = $(this).parent().find(gItems);
+                e.preventDefault();
+                showMoreDetailYatch.changeIcon(this);
+                let tmp = $(this).parent();
+                tmp.find(".detail-ship__box-serDetail").toggleClass(
+                    "show-more"
+                );
+                let items = tmp.find(gItems);
                 items.each(function (i, item) {
                     if (i >= 4) {
                         $(item).toggleClass("d-none");
@@ -1096,5 +1110,13 @@ const showMoreDetailYatch = {
                 });
             });
         }
+    },
+    showMoreText(item, btn) {
+        $(btn).click(function (e) {
+            e.preventDefault();
+            let txt = $(btn).parent().find(item);
+            txt.toggleClass("show-more");
+            showMoreDetailYatch.changeIcon(this);
+        });
     },
 };
