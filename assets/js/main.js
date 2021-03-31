@@ -1056,10 +1056,10 @@ const selectOption1 = {
 /* ============================= 17 showMoreDetailYatch  ============================= */
 const showMoreDetailYatch = {
     init() {
-        this.showMoreDetailYatch(
-            ".detail-ship__box-serDetail",
-            ".detail-ship__box-item .item__btn",
-            ".serDetail__item"
+        this.showMoreText(
+            ".item__paragraph-detail",
+            ".detail-ship__box-item .item__btn"
+            
         );
         this.showMoreDetailYatch(
             ".box-tiket .box-list",
