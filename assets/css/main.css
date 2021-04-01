@@ -4518,7 +4518,7 @@ button {
               top: 50%;
               transform: translateY(-50%); }
         .detail-ship-section .detail-ship__box-item .show-more {
-          height: auto;
+          height: 150px;
           overflow-y: auto; }
       .detail-ship-section .detail-ship__box-nav {
         display: flex;
