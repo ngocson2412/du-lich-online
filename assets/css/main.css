@@ -4497,29 +4497,29 @@ button {
           font-size: 16px;
           color: #616980;
           font-weight: 600;
-          height: 74px;
-          overflow: hidden; }
-          .detail-ship-section .detail-ship__box-item .item__paragraph ul li {
-            font-family: "Nunito Sans", sans-serif;
-            font-size: 16px;
-            font-weight: normal;
-            line-height: 1.88;
-            color: #505a6d;
-            position: relative;
-            padding-left: 22px; }
-            .detail-ship-section .detail-ship__box-item .item__paragraph ul li::after {
-              content: "";
-              position: absolute;
-              width: 8px;
-              height: 8px;
-              background: #d1e5ee;
-              border-radius: 50px;
-              left: 0;
-              top: 50%;
-              transform: translateY(-50%); }
+          height: 100px;
+          overflow: hidden;
+          margin-bottom: 0.125rem; }
         .detail-ship-section .detail-ship__box-item .show-more {
-          height: 150px;
           overflow-y: auto; }
+      .detail-ship-section .detail-ship__box ul li {
+        font-family: "Nunito Sans", sans-serif;
+        font-size: 16px;
+        font-weight: normal;
+        line-height: 1.88;
+        color: #505a6d;
+        position: relative;
+        padding-left: 22px; }
+        .detail-ship-section .detail-ship__box ul li::after {
+          content: "";
+          position: absolute;
+          width: 8px;
+          height: 8px;
+          background: #d1e5ee;
+          border-radius: 50px;
+          left: 0;
+          top: 50%;
+          transform: translateY(-50%); }
       .detail-ship-section .detail-ship__box-nav {
         display: flex;
         justify-content: space-between;
