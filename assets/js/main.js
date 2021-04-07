@@ -39,6 +39,7 @@ $(document).ready(function () {
     filterDextop.init();
     selectOption1.init();
     showMoreDetailYatch.init();
+    toastMessage.init();
 });
 
 /* ============================= 2, Navigation  ============================= */
@@ -1115,3 +1116,15 @@ const showMoreDetailYatch = {
         });
     },
 };
+
+const toastMessage = {
+    init() {
+        this.toastMessage();
+    },
+    toastMessage() {
+        $('.toast-btn').click((e)=> {
+            e.preventDefault();
+            $('.toast').toast('show');
+        })
+    }
+}

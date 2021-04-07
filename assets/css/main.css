@@ -3376,6 +3376,27 @@ button {
     .component__pagination ul li:first-child {
       margin-left: 0; }
 
+.toast-body {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  transition: all .3s ease-in-out;
+  user-select: none; }
+  .toast-body:hover {
+    background-color: #eefee5;
+    outline: 1px solid #c6f0ae; }
+    .toast-body:hover .toast-body__title {
+      color: #91bb37; }
+  .toast-body__title {
+    font-size: 14px;
+    font-weight: bold;
+    color: #404040;
+    transition: all .3s ease-in-out; }
+  .toast-body__msg {
+    font-size: 14px;
+    font-weight: normal;
+    color: #787d92;
+    line-height: 10px; }
+
 @media only screen and (max-width: 767px) {
   .header {
     display: none; } }
