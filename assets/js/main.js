@@ -736,12 +736,12 @@ const flatpickrDate = {
 
         flatpickr("#calendar", {
             locale: "vn",
-            minDate: new Date(),
+            // minDate: new Date(),
             dateFormat: "d/m/Y",
         });
         flatpickr("#calendar-ja", {
             locale: "vn",
-            minDate: new Date(),
+            // minDate: new Date(),
             dateFormat: "d/m/Y",
             disableMobile: true,
             defaultDate: new Date(),
@@ -751,7 +751,7 @@ const flatpickrDate = {
         });
         flatpickr("#calendar-ja-mb", {
             locale: "vn",
-            minDate: new Date(),
+            // minDate: new Date(),
             dateFormat: "d/m/Y",
             disableMobile: true,
             defaultDate: new Date(),
@@ -1119,12 +1119,14 @@ const showMoreDetailYatch = {
 
 const toastMessage = {
     init() {
-        this.toastMessage();
+        this.toastMessage(true);
     },
-    toastMessage() {
-        $('.toast-btn').click((e)=> {
-            e.preventDefault();
+    toastMessage(isOn) {
+        if(isOn) {
             $('.toast').toast('show');
-        })
+            setInterval(()=> {
+                $('.toast').toast('show');
+            },18000)
+        }
     }
 }
