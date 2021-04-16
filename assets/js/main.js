@@ -1118,15 +1118,27 @@ const showMoreDetailYatch = {
 };
 
 const toastMessage = {
+    firstName : ['Nguyễn', 'Mạc', 'Trần', 'Hồ', 'Lý', 'Phan', 'Lê', 'Bùi', 'Đặng', 'Phạm', 'Trương', 'Kiểu', 'Lã'],
+    middleName : ['Đức', 'Đinh', 'Xuân', 'Thu', 'Vân', 'Vĩ', 'Trung', 'Phú', 'Công', 'Việt', 'Văn', 'Nhựt', 'Thiện'],
+    lastName : ['Hiếu', 'Dũng', 'Hoàng', 'Như', 'Yến', 'Đăng', 'Vĩnh', 'Xương', 'Thành', 'Tiến', 'Vinh', 'Toàn', 'Thịnh'],
     init() {
         this.toastMessage(true);
     },
+    generateIndex (){
+        return Math.floor(Math.random() * 12);
+    },
+    generateName() {
+        return `${this.firstName[this.generateIndex()]} ${this.middleName[this.generateIndex()]} ${this.lastName[this.generateIndex()]} `
+    },
+    generatePhone() {
+        return `09${Math.floor(Math.random() * 4000)}xxxx`
+    },
     toastMessage(isOn) {
         if(isOn) {
-            $('.toast').toast('show');
             setInterval(()=> {
+                $('.toast-body__title').text(this.generateName() + this.generatePhone())
                 $('.toast').toast('show');
-            },18000)
+            },10000)
         }
     }
 }
