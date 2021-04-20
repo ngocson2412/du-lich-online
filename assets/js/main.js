@@ -40,6 +40,7 @@ $(document).ready(function () {
     selectOption1.init();
     showMoreDetailYatch.init();
     toastMessage.init();
+    menuSelect.init();
 });
 
 /* ============================= 2, Navigation  ============================= */
@@ -333,7 +334,7 @@ const animationService = {
                     if (scroll < 400) {
                         boxContent.removeAttr("style");
                         icon.css({ "-webkit-transform": "translateX(-38%)" });
-                    } else if (scroll >= 400 && scroll + windowHeight < y) {
+                    } else if (scroll >= 400 && scroll + windowHeight < y || scroll > y + 60) {
                         icon.css({ "-webkit-transform": "translateX(0%)" });
                         boxContent.css({
                             position: "fixed",
@@ -1111,6 +1112,10 @@ const showMoreDetailYatch = {
         $(btn).click(function (e) {
             e.preventDefault();
             let txt = $(btn).parent().find(item);
+            if($(btn).hasClass('item__show-more-p')) {
+                console.log($(btn));
+                $(this).toggleClass('show');
+            }
             txt.toggleClass("show-more");
             showMoreDetailYatch.changeIcon(this);
         });
@@ -1142,3 +1147,31 @@ const toastMessage = {
         }
     }
 }
+
+/* ============================= 18, menu select  ============================= */
+const menuSelect = {
+    init: function () {
+        this.menuSelect();
+    },
+    menuSelect: function () {
+        $('.detail-left').click(function() {
+            $('#btn-find').addClass('active');
+        });
+
+        var $win = $(window); // or $box parent container
+        var $box = $(".detail-left");
+        var $log = $("#btn-find");
+        
+            $win.on("click.Bst", function(event){		
+            if ( 
+            $box.has(event.target).length == 0 //checks if descendants of $box was clicked
+            &&
+            !$box.is(event.target) //checks if the $box itself was clicked
+            ){
+                $log.removeClass('active');
+            } else {
+                $log.addClass('active');
+            }
+        });
+    }
+};

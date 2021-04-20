@@ -248,10 +248,12 @@ button {
       font-family: "Nunito Sans", sans-serif;
       font-size: 16px;
       font-weight: normal;
-      line-height: 1.88;
+      line-height: 1.8;
       color: #505a6d;
       position: relative;
-      padding-left: 22px; }
+      padding-left: 22px;
+      padding-right: 10px;
+      margin: 3px 0; }
       .box-yacht-horizontal__info ul li::after {
         content: "";
         position: absolute;
@@ -260,8 +262,7 @@ button {
         background: #d1e5ee;
         border-radius: 50px;
         left: 0;
-        top: 50%;
-        transform: translateY(-50%); }
+        top: 10px; }
     .box-yacht-horizontal__info-reserve {
       padding-left: 80px;
       border-left: 1px solid #dee4ef; }
@@ -661,12 +662,15 @@ button {
       .banner-cano-inner .cano-service-detail .detail-arr {
         cursor: pointer; }
     .banner-cano-inner .cano-service .btn-find {
+      cursor: pointer;
       border: none;
       outline: none;
-      border-radius: 4px;
+      border-radius: 50px;
       background-color: #f54f3f;
       height: 60px;
       width: 23%; }
+      .banner-cano-inner .cano-service .btn-find span, .banner-cano-inner .cano-service .btn-find button {
+        display: none; }
       .banner-cano-inner .cano-service .btn-find-orange {
         background-color: #fb8834; }
       @media (max-width: 768px) {
@@ -686,8 +690,6 @@ button {
         @media (max-width: 768px) {
           .banner-cano-inner .cano-service .btn-find-link {
             font-size: 15px; } }
-        .banner-cano-inner .cano-service .btn-find-link:hover {
-          color: #F78B31; }
     .banner-cano-inner .flatpickr-input {
       border: none;
       outline: none;
@@ -712,18 +714,18 @@ button {
 @media (max-width: 2560px) {
   #flatpickr-custom .flatpickr-calendar {
     top: 98px !important;
-    left: 25px !important;
+    left: -45px !important;
     right: auto; } }
 
 @media (max-width: 1024px) {
   #flatpickr-custom .flatpickr-calendar {
     top: 91px !important;
-    left: 25px !important; } }
+    left: -45px !important; } }
 
 @media (max-width: 768px) {
   #flatpickr-custom .flatpickr-calendar {
     top: 63px !important;
-    left: 25 !important; } }
+    left: -45px !important; } }
 
 @media (max-width: 768px) {
   .banner-boat .cano-title {
@@ -818,7 +820,7 @@ button {
         .banner-boat .cano-service-detail:hover, .banner-boat .cano-service-detail:focus {
           border: 1px solid #a4bfd3; } }
   .banner-boat .cano-service .btn-find {
-    width: 200px; }
+    width: 60px; }
     @media (max-width: 1024px) {
       .banner-boat .cano-service .btn-find {
         width: 150px;
@@ -826,6 +828,26 @@ button {
     @media (max-width: 768px) {
       .banner-boat .cano-service .btn-find {
         width: 225px; } }
+  .banner-boat .cano-service .btn-find.active {
+    width: 200px; }
+    .banner-boat .cano-service .btn-find.active button {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 50px;
+      background-color: #f54f3f;
+      color: white; }
+  .banner-boat .cano-service .btn-find:focus {
+    width: 200px; }
+    .banner-boat .cano-service .btn-find:focus button {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 50px;
+      background-color: #f54f3f;
+      color: white; }
   .banner-boat .cano-service .btn {
     width: 100%;
     margin-top: 20px;
@@ -986,12 +1008,6 @@ button {
       border-radius: 10px;
       position: relative;
       overflow: hidden; }
-      @media only screen and (max-width: 768px) {
-        .box__cano .box__cano-wrapper .cano__wrapper-img {
-          width: 200px; } }
-      @media only screen and (max-width: 426px) {
-        .box__cano .box__cano-wrapper .cano__wrapper-img {
-          width: 100%; } }
       .box__cano .box__cano-wrapper .cano__wrapper-img button,
       .box__cano .box__cano-wrapper .cano__wrapper-img .cano__wrapper-img-button {
         position: absolute;
@@ -1020,29 +1036,34 @@ button {
             bottom: 15px; } }
       .box__cano .box__cano-wrapper .cano__wrapper-img img {
         border-radius: 10px;
-        transition: all 0.5s ease-in-out; }
+        transition: all 0.5s ease-in-out;
+        width: 100%; }
         .box__cano .box__cano-wrapper .cano__wrapper-img img:hover {
           transform: scale(1.1); }
         @media only screen and (max-width: 425px) {
           .box__cano .box__cano-wrapper .cano__wrapper-img img {
             width: 100%; } }
     .box__cano .box__cano-wrapper .cano__wrapper-infor {
-      padding-left: 71px;
-      padding-right: 71px;
-      border-right: 1px solid #dee4ef; }
+      padding-left: 40px;
+      border-right: 1px solid #dee4ef;
+      margin-right: 30px; }
       .box__cano .box__cano-wrapper .cano__wrapper-infor .btn-hover-wrapper {
         padding: 13px 0 35px 0; }
+        @media only screen and (max-width: 991px) {
+          .box__cano .box__cano-wrapper .cano__wrapper-infor .btn-hover-wrapper {
+            padding: 15px 0; } }
         @media only screen and (max-width: 426px) {
           .box__cano .box__cano-wrapper .cano__wrapper-infor .btn-hover-wrapper {
             padding: 5px 0; } }
       @media only screen and (max-width: 1200px) {
         .box__cano .box__cano-wrapper .cano__wrapper-infor {
-          padding-left: 40px;
-          padding-right: 40px; } }
+          padding-left: 20px;
+          margin-right: 10px; } }
       @media only screen and (max-width: 991px) {
         .box__cano .box__cano-wrapper .cano__wrapper-infor {
-          padding-left: 20px;
-          padding-right: 20px; } }
+          padding: 25px 20px 25px 0px;
+          border: none;
+          margin-right: 0px; } }
       @media only screen and (max-width: 426px) {
         .box__cano .box__cano-wrapper .cano__wrapper-infor {
           padding: 20px 0;
@@ -1096,98 +1117,91 @@ button {
           background: #d1e5ee;
           border-radius: 50px;
           left: 0;
-          top: 50%;
-          transform: translateY(-50%); }
-    .box__cano .box__cano-wrapper .cano__wrapper-book {
-      margin-left: 60px; }
-      .box__cano .box__cano-wrapper .cano__wrapper-book span.sale-off {
-        display: none; }
-      @media only screen and (max-width: 426px) {
-        .box__cano .box__cano-wrapper .cano__wrapper-book .book__other-cost {
+          top: 14px; }
+    .box__cano .box__cano-wrapper .cano__wrapper-book span.sale-off {
+      display: none; }
+    @media only screen and (max-width: 426px) {
+      .box__cano .box__cano-wrapper .cano__wrapper-book .book__other-cost {
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column; } }
+    @media only screen and (max-width: 426px) {
+      .box__cano .box__cano-wrapper .cano__wrapper-book {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 10px; }
+        .box__cano .box__cano-wrapper .cano__wrapper-book .wrapper__book-other {
           display: flex;
-          align-items: flex-start;
-          flex-direction: column; } }
+          justify-content: space-between;
+          align-items: center;
+          padding: 10px 0; }
+        .box__cano .box__cano-wrapper .cano__wrapper-book span.sale-off {
+          font-family: "Nunito Sans", sans-serif;
+          display: block;
+          color: #fff;
+          padding: 5px 10px;
+          background-color: #f54f3f;
+          border-radius: 5px;
+          font-size: 16px; } }
+    .box__cano .box__cano-wrapper .cano__wrapper-book p.new-cost {
+      color: #10284f;
+      font-size: 24px;
+      font-weight: bold;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      margin-bottom: 10px;
+      white-space: nowrap; }
       @media only screen and (max-width: 991px) {
-        .box__cano .box__cano-wrapper .cano__wrapper-book {
-          margin-left: 15px; } }
+        .box__cano .box__cano-wrapper .cano__wrapper-book p.new-cost {
+          font-size: 18px;
+          text-align: left !important; } }
       @media only screen and (max-width: 426px) {
-        .box__cano .box__cano-wrapper .cano__wrapper-book {
+        .box__cano .box__cano-wrapper .cano__wrapper-book p.new-cost {
+          margin-bottom: 0px; } }
+    .box__cano .box__cano-wrapper .cano__wrapper-book p.old-cost {
+      color: #949cb4;
+      text-decoration: line-through;
+      font-size: 16px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      text-align: center;
+      margin-bottom: 12px; }
+      @media only screen and (max-width: 991px) {
+        .box__cano .box__cano-wrapper .cano__wrapper-book p.old-cost {
+          text-align: left !important; } }
+      @media only screen and (max-width: 426px) {
+        .box__cano .box__cano-wrapper .cano__wrapper-book p.old-cost {
+          margin-bottom: 0px; } }
+    @media only screen and (max-width: 426px) {
+      .box__cano .box__cano-wrapper .cano__wrapper-book .wrapper__book-btn {
+        width: 100%; } }
+    .box__cano .box__cano-wrapper .cano__wrapper-book .wrapper__book-btn button.book__btn-btn {
+      background-color: #f54f3f;
+      border-radius: 6px;
+      border: solid 1px #e1e1e1;
+      padding: 18px 0;
+      font-size: 18px;
+      color: #fff;
+      font-weight: 600;
+      text-align: left;
+      white-space: nowrap;
+      width: 100%;
+      text-align: center; }
+      @media only screen and (max-width: 991px) {
+        .box__cano .box__cano-wrapper .cano__wrapper-book .wrapper__book-btn button.book__btn-btn {
+          font-size: 16px; } }
+      @media only screen and (max-width: 426px) {
+        .box__cano .box__cano-wrapper .cano__wrapper-book .wrapper__book-btn button.book__btn-btn {
           width: 100%;
-          margin-left: 0;
-          margin-top: 10px; }
-          .box__cano .box__cano-wrapper .cano__wrapper-book .wrapper__book-other {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 0; }
-          .box__cano .box__cano-wrapper .cano__wrapper-book span.sale-off {
-            font-family: "Nunito Sans", sans-serif;
-            display: block;
-            color: #fff;
-            padding: 5px 10px;
-            background-color: #f54f3f;
-            border-radius: 5px;
-            font-size: 16px; } }
-      .box__cano .box__cano-wrapper .cano__wrapper-book p.new-cost {
-        color: #10284f;
-        font-size: 24px;
-        font-weight: bold;
-        font-stretch: normal;
-        font-style: normal;
-        line-height: normal;
-        letter-spacing: normal;
-        margin-bottom: 10px;
-        white-space: nowrap; }
-        @media only screen and (max-width: 991px) {
-          .box__cano .box__cano-wrapper .cano__wrapper-book p.new-cost {
-            font-size: 18px; } }
-        @media only screen and (max-width: 426px) {
-          .box__cano .box__cano-wrapper .cano__wrapper-book p.new-cost {
-            margin-bottom: 0px; } }
-      .box__cano .box__cano-wrapper .cano__wrapper-book p.old-cost {
-        color: #949cb4;
-        text-decoration: line-through;
-        font-size: 16px;
-        font-weight: normal;
-        font-stretch: normal;
-        font-style: normal;
-        line-height: normal;
-        letter-spacing: normal;
-        text-align: center;
-        margin-bottom: 12px; }
-        @media only screen and (max-width: 426px) {
-          .box__cano .box__cano-wrapper .cano__wrapper-book p.old-cost {
-            margin-bottom: 0px; } }
-      @media only screen and (max-width: 426px) {
-        .box__cano .box__cano-wrapper .cano__wrapper-book .wrapper__book-btn {
-          width: 100%; } }
-      .box__cano .box__cano-wrapper .cano__wrapper-book .wrapper__book-btn button.book__btn-btn {
-        background-color: #f54f3f;
-        border-radius: 6px;
-        border: solid 1px #e1e1e1;
-        padding: 18px 57px;
-        font-size: 18px;
-        color: #fff;
-        font-weight: 600;
-        font-stretch: normal;
-        font-style: normal;
-        line-height: normal;
-        letter-spacing: normal;
-        text-align: left;
-        white-space: nowrap; }
-        @media only screen and (max-width: 991px) {
-          .box__cano .box__cano-wrapper .cano__wrapper-book .wrapper__book-btn button.book__btn-btn {
-            padding: 10px 20px; } }
-        @media only screen and (max-width: 991px) {
-          .box__cano .box__cano-wrapper .cano__wrapper-book .wrapper__book-btn button.book__btn-btn {
-            font-size: 16px; } }
-        @media only screen and (max-width: 426px) {
-          .box__cano .box__cano-wrapper .cano__wrapper-book .wrapper__book-btn button.book__btn-btn {
-            width: 100%;
-            background-color: #fb8834;
-            text-align: center;
-            padding: 12px 20px;
-            font-size: 18px; } }
+          background-color: #fb8834;
+          text-align: center;
+          padding: 12px 20px;
+          font-size: 18px; } }
 
 .box-cano-partner {
   display: flex;
@@ -1335,8 +1349,7 @@ button {
         background: #d1e5ee;
         border-radius: 50px;
         left: 0;
-        top: 50%;
-        transform: translateY(-50%); }
+        top: 10px; }
     .yacht__items-text .price {
       display: flex;
       align-items: baseline; }
@@ -4507,12 +4520,21 @@ button {
       top: 40px; }
       .detail-ship-section .detail-ship__box-item {
         padding: 20px 40px; }
+        .detail-ship-section .detail-ship__box-item .item__show-more-p.show::before {
+          content: '';
+          position: absolute;
+          top: -328%;
+          left: 0;
+          width: 100%;
+          height: 70px;
+          background: linear-gradient(180deg, rgba(255, 255, 255, 0.2), #fff); }
         .detail-ship-section .detail-ship__box-item .item__btn,
         .detail-ship-section .detail-ship__box-item .item__show-more-p {
           color: #ff722c;
           text-decoration: none;
           font-weight: 700;
-          font-size: 14px; }
+          font-size: 14px;
+          position: relative; }
         .detail-ship-section .detail-ship__box-item .item__paragraph {
           font-family: "Nunito Sans", sans-serif;
           font-size: 16px;
@@ -4520,17 +4542,22 @@ button {
           font-weight: 600;
           height: 100px;
           overflow: hidden;
-          margin-bottom: 0.125rem; }
+          margin-bottom: 0.125rem;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-line-clamp: 6;
+          -webkit-box-orient: vertical; }
         .detail-ship-section .detail-ship__box-item .show-more {
-          overflow-y: auto; }
+          height: auto; }
       .detail-ship-section .detail-ship__box ul li {
         font-family: "Nunito Sans", sans-serif;
         font-size: 16px;
         font-weight: normal;
-        line-height: 1.88;
+        line-height: 1.8;
         color: #505a6d;
         position: relative;
-        padding-left: 22px; }
+        padding-left: 22px;
+        margin: 4px 0; }
         .detail-ship-section .detail-ship__box ul li::after {
           content: "";
           position: absolute;
@@ -4539,8 +4566,7 @@ button {
           background: #d1e5ee;
           border-radius: 50px;
           left: 0;
-          top: 50%;
-          transform: translateY(-50%); }
+          top: 10px; }
       .detail-ship-section .detail-ship__box-nav {
         display: flex;
         justify-content: space-between;
@@ -4699,12 +4725,12 @@ button {
   .helicopter .box-tiket .box-list {
     padding: 26px 0 26px 0; }
     .helicopter .box-tiket .box-list .list__item {
-      display: flex;
-      align-items: center; }
+      display: flex; }
       .helicopter .box-tiket .box-list .list__item i {
         font-size: 6px;
         color: #d1e5ee;
-        padding-right: 11px; }
+        padding-right: 11px;
+        padding-top: 10px; }
       .helicopter .box-tiket .box-list .list__item span {
         font-family: "Nunito Sans", sans-serif;
         font-size: 16px;

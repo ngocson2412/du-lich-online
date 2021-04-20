@@ -164,7 +164,10 @@
                                         </div>
                                       </div>
                                     </div>
-                                    <button class="btn-find btn-find-link" type="submit">Tìm chuyến</button>
+                                    <div class="btn-find btn-find-link d-flex align-items-center" tabindex="-1" id="btn-find">
+                                      <div class="icon ml-3 mr-1"><svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" style="display: block; fill: none; height: 30px; width: 30px; stroke: currentcolor; stroke-width: 4px; overflow: visible;"><g fill="none"><path d="m13 24c6.0751322 0 11-4.9248678 11-11 0-6.07513225-4.9248678-11-11-11-6.07513225 0-11 4.92486775-11 11 0 6.0751322 4.92486775 11 11 11zm8-3 9 9"></path></g></svg> </div>
+                                      <button class="btn-find-link" type="submit" id="btn-submit">Tìm chuyến</button>
+                                    </div>
                                   </form>
                                 </div>
               </div>
@@ -182,95 +185,113 @@
               <div class="col-xl-10 col-lg-12">
                 <div class="box-cano-detail">
                                     <div class="box__cano">
-                                      <div class="box__cano-wrapper d-flex justify-content-center">
-                                        <div class="cano__wrapper-img"><img src="./assets/images/box-cano/box-cano.png" alt="">
-                                          <button>+ Xem ảnh cano</button>
-                                        </div>
-                                        <div class="cano__wrapper-infor">
-                                          <div class="wrapper__infor-title"><a href="">
-                                              <h3>Cano VietYacht</h3></a></div>
-                                          <div class="btn-hover-wrapper"><span class="btn-hover">Có đồ ăn</span><span class="pd-l-r btn-hover">Có xe đưa đón</span><span class="orange btn-hover">Có ưu đãi</span></div>
-                                          <div class="wrapper__infor-detail">
-                                            <ul> 
-                                              <li>Khởi hành từ cảng Tuần Châu </li>
-                                              <li>Tàu ghép   </li>
-                                              <li>Có đồ ăn    </li>
-                                              <li>Đã bao gồm vé thắng cảnh + vé tàu</li>
-                                            </ul>
+                                      <div class="box__cano-wrapper row">
+                                        <div class="col-lg-4">
+                                          <div class="cano__wrapper-img"><img src="./assets/images/box-cano/box-cano.png" alt="">
+                                            <button>+ Xem ảnh cano</button>
                                           </div>
                                         </div>
-                                        <div class="cano__wrapper-book d-flex flex-column">
-                                          <form action="./booking-train-desktop.html">
-                                            <div class="wrapper__book-other">
-                                              <div class="book__other-cost">
-                                                <p class="new-cost text-right">đ 399,000</p>
-                                                <p class="old-cost text-right">đ 599,000</p>
-                                              </div><span class="sale-off">sale-off 30%</span>
+                                        <div class="col-lg-6">
+                                          <div class="cano__wrapper-infor">
+                                            <div class="wrapper__infor-title"><a href="">
+                                                <h3>Cano VietYacht</h3></a></div>
+                                            <div class="btn-hover-wrapper"><span class="btn-hover">Có đồ ăn</span><span class="pd-l-r btn-hover">Có xe đưa đón</span><span class="orange btn-hover">Có ưu đãi</span></div>
+                                            <div class="wrapper__infor-detail">
+                                              <ul> 
+                                                <li>Khởi hành từ cảng Tuần Châu </li>
+                                                <li>Tàu ghép   </li>
+                                                <li>Có đồ ăn    </li>
+                                                <li>Đã bao gồm vé thắng cảnh + vé tàu</li>
+                                              </ul>
                                             </div>
-                                            <div class="wrapper__book-btn">
-                                              <button class="book__btn-btn">Đặt vé</button>
-                                            </div>
-                                          </form>
+                                          </div>
+                                        </div>
+                                        <div class="col-lg-2">
+                                          <div class="cano__wrapper-book d-flex flex-column">
+                                            <form action="./booking-train-desktop.html">
+                                              <div class="wrapper__book-other">
+                                                <div class="book__other-cost">
+                                                  <p class="new-cost text-right">đ 399,000</p>
+                                                  <p class="old-cost text-right">đ 599,000</p>
+                                                </div><span class="sale-off">sale-off 30%</span>
+                                              </div>
+                                              <div class="wrapper__book-btn">
+                                                <button class="book__btn-btn">Đặt vé</button>
+                                              </div>
+                                            </form>
+                                          </div>
                                         </div>
                                       </div>
                                     </div>
                                     <div class="box__cano">
-                                      <div class="box__cano-wrapper d-flex justify-content-center">
-                                        <div class="cano__wrapper-img"><img src="./assets/images/box-cano/box-cano.png" alt="">
-                                          <button>+ Xem ảnh cano</button>
-                                        </div>
-                                        <div class="cano__wrapper-infor">
-                                          <div class="wrapper__infor-title"><a href="">
-                                              <h3>Cano VietYacht</h3></a></div>
-                                          <div class="btn-hover-wrapper"><span class="btn-hover">Có đồ ăn</span><span class="pd-l-r btn-hover">Có xe đưa đón</span><span class="orange btn-hover">Có ưu đãi</span></div>
-                                          <div class="wrapper__infor-detail">
-                                            <ul> 
-                                              <li>Khởi hành từ cảng Tuần Châu </li>
-                                              <li>Tàu ghép   </li>
-                                              <li>Có đồ ăn    </li>
-                                              <li>Đã bao gồm vé thắng cảnh + vé tàu</li>
-                                            </ul>
+                                      <div class="box__cano-wrapper row">
+                                        <div class="col-lg-4">
+                                          <div class="cano__wrapper-img"><img src="./assets/images/box-cano/box-cano.png" alt="">
+                                            <button>+ Xem ảnh cano</button>
                                           </div>
                                         </div>
-                                        <div class="cano__wrapper-book d-flex flex-column">
-                                          <form action="./booking-train-desktop.html">
-                                            <div class="wrapper__book-other">
-                                              <p class="new-cost text-right">đ 399,000</p><span class="sale-off">sale-off 30%</span>
+                                        <div class="col-lg-6">
+                                          <div class="cano__wrapper-infor">
+                                            <div class="wrapper__infor-title"><a href="">
+                                                <h3>Cano VietYacht</h3></a></div>
+                                            <div class="btn-hover-wrapper"><span class="btn-hover">Có đồ ăn</span><span class="pd-l-r btn-hover">Có xe đưa đón</span><span class="orange btn-hover">Có ưu đãi</span></div>
+                                            <div class="wrapper__infor-detail">
+                                              <ul> 
+                                                <li>Khởi hành từ cảng Tuần Châu </li>
+                                                <li>Tàu ghép   </li>
+                                                <li>Có đồ ăn    </li>
+                                                <li>Đã bao gồm vé thắng cảnh + vé tàu</li>
+                                              </ul>
                                             </div>
-                                            <div class="wrapper__book-btn">
-                                              <button class="book__btn-btn">Đặt vé</button>
-                                            </div>
-                                          </form>
+                                          </div>
+                                        </div>
+                                        <div class="col-lg-2">
+                                          <div class="cano__wrapper-book d-flex flex-column">
+                                            <form action="./booking-train-desktop.html">
+                                              <div class="wrapper__book-other">
+                                                <p class="new-cost text-right">đ 399,000</p><span class="sale-off">sale-off 30%</span>
+                                              </div>
+                                              <div class="wrapper__book-btn">
+                                                <button class="book__btn-btn">Đặt vé</button>
+                                              </div>
+                                            </form>
+                                          </div>
                                         </div>
                                       </div>
                                     </div>
                                     <div class="box__cano">
-                                      <div class="box__cano-wrapper d-flex justify-content-center">
-                                        <div class="cano__wrapper-img"><img src="./assets/images/box-cano/box-cano.png" alt="">
-                                          <button>+ Xem ảnh cano</button>
-                                        </div>
-                                        <div class="cano__wrapper-infor">
-                                          <div class="wrapper__infor-title"><a href="">
-                                              <h3>Cano VietYacht</h3></a></div>
-                                          <div class="btn-hover-wrapper"><span class="btn-hover">Có đồ ăn</span><span class="pd-l-r btn-hover">Có xe đưa đón</span><span class="orange btn-hover">Có ưu đãi</span></div>
-                                          <div class="wrapper__infor-detail">
-                                            <ul> 
-                                              <li>Khởi hành từ cảng Tuần Châu </li>
-                                              <li>Tàu ghép   </li>
-                                              <li>Có đồ ăn    </li>
-                                              <li>Đã bao gồm vé thắng cảnh + vé tàu</li>
-                                            </ul>
+                                      <div class="box__cano-wrapper row">
+                                        <div class="col-lg-4">
+                                          <div class="cano__wrapper-img"><img src="./assets/images/box-cano/box-cano.png" alt="">
+                                            <button>+ Xem ảnh cano</button>
                                           </div>
                                         </div>
-                                        <div class="cano__wrapper-book d-flex flex-column">
-                                          <form action="./booking-train-desktop.html">
-                                            <div class="wrapper__book-other">
-                                              <p class="new-cost text-right">đ 399,000</p><span class="sale-off">sale-off 30%</span>
+                                        <div class="col-lg-6">
+                                          <div class="cano__wrapper-infor">
+                                            <div class="wrapper__infor-title"><a href="">
+                                                <h3>Cano VietYacht</h3></a></div>
+                                            <div class="btn-hover-wrapper"><span class="btn-hover">Có đồ ăn</span><span class="pd-l-r btn-hover">Có xe đưa đón</span><span class="orange btn-hover">Có ưu đãi</span></div>
+                                            <div class="wrapper__infor-detail">
+                                              <ul> 
+                                                <li>Khởi hành từ cảng Tuần Châu </li>
+                                                <li>Tàu ghép   </li>
+                                                <li>Có đồ ăn    </li>
+                                                <li>Đã bao gồm vé thắng cảnh + vé tàu</li>
+                                              </ul>
                                             </div>
-                                            <div class="wrapper__book-btn">
-                                              <button class="book__btn-btn">Đặt vé</button>
-                                            </div>
-                                          </form>
+                                          </div>
+                                        </div>
+                                        <div class="col-lg-2">
+                                          <div class="cano__wrapper-book d-flex flex-column">
+                                            <form action="./booking-train-desktop.html">
+                                              <div class="wrapper__book-other">
+                                                <p class="new-cost text-right">đ 399,000</p><span class="sale-off">sale-off 30%</span>
+                                              </div>
+                                              <div class="wrapper__book-btn">
+                                                <button class="book__btn-btn">Đặt vé</button>
+                                              </div>
+                                            </form>
+                                          </div>
                                         </div>
                                       </div>
                                     </div>
