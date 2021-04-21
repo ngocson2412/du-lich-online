@@ -40,7 +40,6 @@ $(document).ready(function () {
     selectOption1.init();
     showMoreDetailYatch.init();
     toastMessage.init();
-    menuSelect.init();
 });
 
 /* ============================= 2, Navigation  ============================= */
@@ -50,25 +49,18 @@ const navigation = {
         this.slideToggle();
     },
     navbarFixed: function () {
-        window.onscroll = function () {
-            var topBar = $(".nav__top-bar");
-            var nav = $(".nav");
-            var nav = $(".header-mb");
-            if (
-                document.body.scrollTop > 80 ||
-                document.documentElement.scrollTop > 80
-            ) {
-                $(".nav").addClass("nav--fixed");
-                topBar.css({ display: "none" });
-                nav.addClass("header-mb--fixed");
-                $(".booking__train-infor").addClass("stickky");
-            } else {
+        var lastScrollTop = 0;
+        window.addEventListener("scroll", function() { 
+            var st = window.pageYOffset || document.documentElement.scrollTop; 
+            if (st > lastScrollTop){
+                // downscroll code
                 $(".nav").removeClass("nav--fixed");
-                topBar.css({ display: "flex" });
-                nav.removeClass("header-mb--fixed");
-                $(".booking__train-infor").removeClass("stickky");
+            } else {
+               // upscroll code
+               $(".nav").addClass("nav--fixed");
             }
-        };
+            lastScrollTop = st;
+         }, false);
     },
     slideToggle: function () {
         $(".slideToggle").click(function () {
@@ -1147,31 +1139,3 @@ const toastMessage = {
         }
     }
 }
-
-/* ============================= 18, menu select  ============================= */
-const menuSelect = {
-    init: function () {
-        this.menuSelect();
-    },
-    menuSelect: function () {
-        $('.detail-left').click(function() {
-            $('#btn-find').addClass('active');
-        });
-
-        var $win = $(window); // or $box parent container
-        var $box = $(".detail-left");
-        var $log = $("#btn-find");
-        
-            $win.on("click.Bst", function(event){		
-            if ( 
-            $box.has(event.target).length == 0 //checks if descendants of $box was clicked
-            &&
-            !$box.is(event.target) //checks if the $box itself was clicked
-            ){
-                $log.removeClass('active');
-            } else {
-                $log.addClass('active');
-            }
-        });
-    }
-};
