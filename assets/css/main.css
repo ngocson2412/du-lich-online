@@ -321,7 +321,7 @@ button {
         color: #fff;
         border: 1px solid #ff7430; }
         .box-yacht-horizontal__info-reserve .btn-reserve:hover {
-          background: transparent;
+          background: #FF385C;
           color: #ff7430;
           transition: 0.3s; }
   .box-yacht-horizontal__sale {
@@ -1355,8 +1355,7 @@ button {
       transition: 0.3s;
       font-family: "Nunito Sans", sans-serif; }
       .yacht__items-text .btn-booking:hover {
-        background: transparent;
-        color: #ff7430;
+        background: #FF385C;
         transition: 0.3s;
         border: 2px solid #ff7430; }
 
@@ -2569,8 +2568,7 @@ button {
       transition: 0.3s;
       font-family: "Nunito Sans", sans-serif; }
       .box-yacht-mobile__section .yacht-mobile__items .yacht-item__text a.btn-booking:hover {
-        background: transparent;
-        color: #ff7430;
+        background: #FF385C;
         transition: 0.3s;
         border: 2px solid #ff7430; }
 
@@ -4628,7 +4626,7 @@ button {
           font-size: 24px;
           color: #fff; }
           .detail-ship-section .detail-ship__box-book .book__btn:hover {
-            background-color: #fff;
+            background-color: #FF385C;
             color: #ff722c; }
 
 .item__scrollbar::-webkit-scrollbar-track {
@@ -6385,8 +6383,7 @@ button {
     transition: all 0.3s ease-in-out;
     border: 2px solid #f78b31; }
     .yacht-details__mb .yacht-details__wrap .recommend-section__wrap .recommend-content .text a.btn.btn-booking:hover {
-      color: #f78b31;
-      background: transparent; }
+      background: #FF385C; }
   .yacht-details__mb .yacht-details__wrap .recommend-section__wrap .recommend-content .recommend-content__booking {
     display: flex;
     align-items: center;
@@ -6893,8 +6890,7 @@ button {
         transition: all 0.3s ease-in-out;
         border: 2px solid #f78b31; }
         .yach-details__section .recommend-section .recommend-items .text a.btn.btn-booking:hover {
-          color: #f78b31;
-          background: transparent; }
+          background: #FF385C; }
 
 @-webkit-keyframes opacity {
   from {
