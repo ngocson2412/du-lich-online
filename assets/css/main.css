@@ -725,6 +725,12 @@ button {
     top: 63px !important;
     left: 25 !important; } }
 
+#flatpickr-custom .disabled {
+  color: rgba(57, 57, 57, 0.3);
+  background: transparent;
+  border-color: transparent;
+  cursor: default; }
+
 @media (max-width: 768px) {
   .banner-boat .cano-title {
     font-size: 50px; } }

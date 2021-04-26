@@ -730,11 +730,13 @@ const flatpickrDate = {
         flatpickr("#calendar", {
             locale: "vn",
             // minDate: new Date(),
+            disable: ["2021-04-30", "2021-05-01", "2025-03-08", new Date(2021, 4, 30) ],
             dateFormat: "d/m/Y",
         });
         flatpickr("#calendar-ja", {
             locale: "vn",
             // minDate: new Date(),
+            disable: ["2021-04-30", "2021-05-01", "2025-03-08", new Date(2025, 4, 9) ],
             dateFormat: "d/m/Y",
             disableMobile: true,
             defaultDate: new Date(),
@@ -745,6 +747,7 @@ const flatpickrDate = {
         flatpickr("#calendar-ja-mb", {
             locale: "vn",
             // minDate: new Date(),
+            disable: ["2021-04-30", "2021-05-01", "2025-03-08", new Date(2025, 4, 9) ],
             dateFormat: "d/m/Y",
             disableMobile: true,
             defaultDate: new Date(),
