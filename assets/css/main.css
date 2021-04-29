@@ -3401,6 +3401,7 @@ button {
   background-color: #fff; }
   .header .nav--fixed {
     position: fixed;
+    padding: 15px 0;
     top: 0;
     left: 0;
     right: 0;
@@ -3557,6 +3558,18 @@ button {
     height: 40px;
     width: 40px;
     border-radius: 50%; }
+
+.padding-top-120 {
+  padding-top: 120px  !important; }
+
+.padding-0 {
+  padding: 0px; }
+
+.helicopter-custom {
+  margin-top: 30px !important; }
+
+.border-none {
+  border: none !important; }
 
 .footer .footer__section {
   background: #19254b; }

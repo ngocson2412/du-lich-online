@@ -55,9 +55,11 @@ const navigation = {
             if (st > lastScrollTop){
                 // downscroll code
                 $(".nav").removeClass("nav--fixed");
+                $(".dont_image_layout").removeClass("padding-top-120");
             } else {
                // upscroll code
                $(".nav").addClass("nav--fixed");
+               $(".dont_image_layout").addClass("padding-top-120");
             }
             lastScrollTop = st;
          }, false);
@@ -943,7 +945,6 @@ const filterDextop = {
     },
     handalClick: function () {
         $(".filter .filter__detail-select").click(function () {
-            console.log($(this).hasClass("active"));
             if ($(this).hasClass("active")) {
                 $(".filter .filter__detail-select").removeClass("active");
             } else {
@@ -1108,7 +1109,6 @@ const showMoreDetailYatch = {
             e.preventDefault();
             let txt = $(btn).parent().find(item);
             if($(btn).hasClass('item__show-more-p')) {
-                console.log($(btn));
                 $(this).toggleClass('show');
             }
             txt.toggleClass("show-more");
