@@ -3571,6 +3571,9 @@ button {
 .border-none {
   border: none !important; }
 
+.display-none {
+  display: none !important; }
+
 .footer .footer__section {
   background: #19254b; }
   @media only screen and (max-width: 767px) {
