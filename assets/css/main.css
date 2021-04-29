@@ -1366,7 +1366,7 @@ button {
         border: 2px solid #ff7430; }
 
 .box-menu-order-section .menu__order-wrap {
-  padding: 84px 0; }
+  padding: 125px 0; }
   .box-menu-order-section .menu__order-wrap .menu__order-items {
     cursor: pointer;
     align-items: baseline; }
@@ -4038,6 +4038,9 @@ button {
           min-height: 120px; }
     .booking__train-section .cano-service-detail .detail-arr {
       cursor: pointer; }
+  .booking__train-section .sticky-customer-home-page {
+    position: sticky;
+    top: 40px; }
   .booking__train-section .mg-b-0 {
     margin-bottom: 0; }
   .booking__train-section .mg-bt-10 {
