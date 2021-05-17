@@ -13,6 +13,7 @@
 /* ============================= 1, init  ============================= */
 
 $(document).ready(function () {
+    fastnews.init();
     navigation.init();
     happyClient.init();
     happyClientMb.init();
@@ -40,7 +41,30 @@ $(document).ready(function () {
     selectOption1.init();
     showMoreDetailYatch.init();
     toastMessage.init();
+    
 });
+
+const fastnews= {
+    init: function () {
+        this.newslider();
+    },
+    newslider: function () {
+        $(".fast-news__list").owlCarousel({
+            dots:false,
+            animateIn: 'fadeInUp',
+            items:1,
+            loop:true,
+            margin:0,
+            autoplay:true,
+            autoplayTimeout:3000,
+            autoplayHoverPause:true,
+            autoplayHoverPause: true,
+            mouseDrag:false,
+            touchDrag:false,
+            pullDrag:false,
+        });
+    },
+};
 
 /* ============================= 2, Navigation  ============================= */
 const navigation = {
@@ -50,16 +74,22 @@ const navigation = {
     },
     navbarFixed: function () {
         var lastScrollTop = 0;
+        var heightHeader=$('.header').outerHeight()
+        // $('.header').next().css({'paddingTop':heightHeader})
+       
         window.addEventListener("scroll", function() { 
             var st = window.pageYOffset || document.documentElement.scrollTop; 
             if (st > lastScrollTop){
                 // downscroll code
                 $(".nav").removeClass("nav--fixed");
                 $(".dont_image_layout").removeClass("padding-top-120");
+               $('.header').next().css({'paddingTop':'0'})
+
             } else {
                // upscroll code
                $(".nav").addClass("nav--fixed");
                $(".dont_image_layout").addClass("padding-top-120");
+               $('.header').next().css({'paddingTop':heightHeader})
             }
             lastScrollTop = st;
          }, false);
@@ -1142,3 +1172,4 @@ const toastMessage = {
         }
     }
 }
+
