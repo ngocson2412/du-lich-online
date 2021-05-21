@@ -41,27 +41,27 @@ $(document).ready(function () {
     selectOption1.init();
     showMoreDetailYatch.init();
     toastMessage.init();
-    
+    comment.init();
 });
 
-const fastnews= {
+const fastnews = {
     init: function () {
         this.newslider();
     },
     newslider: function () {
         $(".fast-news__list").owlCarousel({
-            dots:false,
-            animateIn: 'fadeInUp',
-            items:1,
-            loop:true,
-            margin:0,
-            autoplay:true,
-            autoplayTimeout:3000,
-            autoplayHoverPause:true,
+            dots: false,
+            animateIn: "fadeInUp",
+            items: 1,
+            loop: true,
+            margin: 0,
+            autoplay: true,
+            autoplayTimeout: 3000,
             autoplayHoverPause: true,
-            mouseDrag:false,
-            touchDrag:false,
-            pullDrag:false,
+            autoplayHoverPause: true,
+            mouseDrag: false,
+            touchDrag: false,
+            pullDrag: false,
         });
     },
 };
@@ -74,25 +74,27 @@ const navigation = {
     },
     navbarFixed: function () {
         var lastScrollTop = 0;
-        var heightHeader=$('.header').outerHeight()
-        // $('.header').next().css({'paddingTop':heightHeader})
-       
-        window.addEventListener("scroll", function() { 
-            var st = window.pageYOffset || document.documentElement.scrollTop; 
-            if (st > lastScrollTop){
-                // downscroll code
-                $(".nav").removeClass("nav--fixed");
-                $(".dont_image_layout").removeClass("padding-top-120");
-               $('.header').next().css({'paddingTop':'0'})
-
-            } else {
-               // upscroll code
-               $(".nav").addClass("nav--fixed");
-               $(".dont_image_layout").addClass("padding-top-120");
-               $('.header').next().css({'paddingTop':heightHeader})
-            }
-            lastScrollTop = st;
-         }, false);
+        var heightHeader = $(".header").outerHeight();
+        window.addEventListener(
+            "scroll",
+            function () {
+                var st =
+                    window.pageYOffset || document.documentElement.scrollTop;
+                if (st > lastScrollTop) {
+                    // downscroll code
+                    $(".nav").removeClass("nav--fixed");
+                    $(".dont_image_layout").removeClass("padding-top-120");
+                    $(".header").next().css({ paddingTop: "0" });
+                } else {
+                    // upscroll code
+                    $(".nav").addClass("nav--fixed");
+                    $(".dont_image_layout").addClass("padding-top-120");
+                    $(".header").next().css({ paddingTop: heightHeader });
+                }
+                lastScrollTop = st;
+            },
+            false
+        );
     },
     slideToggle: function () {
         $(".slideToggle").click(function () {
@@ -358,7 +360,10 @@ const animationService = {
                     if (scroll < 400) {
                         boxContent.removeAttr("style");
                         icon.css({ "-webkit-transform": "translateX(-38%)" });
-                    } else if (scroll >= 400 && scroll + windowHeight < y || scroll > y + 60) {
+                    } else if (
+                        (scroll >= 400 && scroll + windowHeight < y) ||
+                        scroll > y + 60
+                    ) {
                         icon.css({ "-webkit-transform": "translateX(0%)" });
                         boxContent.css({
                             position: "fixed",
@@ -614,12 +619,10 @@ const selectOption = {
         if (!customSelectWrapper) {
             return;
         }
-        const displaySelect = customSelectWrapper.querySelector(
-            "#display-select"
-        );
-        const optionsSelect = customSelectWrapper.querySelectorAll(
-            "#options-select li"
-        );
+        const displaySelect =
+            customSelectWrapper.querySelector("#display-select");
+        const optionsSelect =
+            customSelectWrapper.querySelectorAll("#options-select li");
         $("#services-select li").click(function () {
             var value = $(this).attr("data-service");
             var label = $(this).attr("data-search-label");
@@ -757,18 +760,28 @@ const flatpickrDate = {
     },
     flatpickrAZ: function () {
         var today = moment();
-        $("#calendar-text").val(today.format("YYYY-MM-DD"));
+        $(".calendar-text").val(today.format("YYYY-MM-DD"));
 
         flatpickr("#calendar", {
             locale: "vn",
             // minDate: new Date(),
-            disable: ["2021-04-30", "2021-05-01", "2025-03-08", new Date(2021, 4, 30) ],
+            disable: [
+                "2021-04-30",
+                "2021-05-01",
+                "2025-03-08",
+                new Date(2021, 4, 30),
+            ],
             dateFormat: "d/m/Y",
         });
         flatpickr("#calendar-ja", {
             locale: "vn",
             // minDate: new Date(),
-            disable: ["2021-04-30", "2021-05-01", "2025-03-08", new Date(2025, 4, 9) ],
+            disable: [
+                "2021-04-30",
+                "2021-05-01",
+                "2025-03-08",
+                new Date(2025, 4, 9),
+            ],
             dateFormat: "d/m/Y",
             disableMobile: true,
             defaultDate: new Date(),
@@ -776,10 +789,47 @@ const flatpickrDate = {
             altFormat: "d/m/Y",
             appendTo: window.document.querySelector("#flatpickr-custom"),
         });
+        flatpickr("#calendar-ja-from", {
+            locale: "vn",
+            // minDate: new Date(),
+            disable: [
+                "2021-04-30",
+                "2021-05-01",
+                "2025-03-08",
+                new Date(2025, 4, 9),
+            ],
+            dateFormat: "d/m/Y",
+            disableMobile: true,
+            defaultDate: new Date(),
+            altInput: true,
+            altFormat: "d/m/Y",
+            appendTo: window.document.querySelector("#flatpickr-custom-1"),
+        });
+        flatpickr("#calendar-ja-to", {
+            locale: "vn",
+            // minDate: new Date(),
+            disable: [
+                "2021-04-30",
+                "2021-05-01",
+                "2025-03-08",
+                new Date(2025, 4, 9),
+            ],
+            dateFormat: "d/m/Y",
+            disableMobile: true,
+            defaultDate: new Date(),
+            altInput: true,
+            altFormat: "d/m/Y",
+            appendTo: window.document.querySelector("#flatpickr-custom-2"),
+        });
         flatpickr("#calendar-ja-mb", {
             locale: "vn",
             // minDate: new Date(),
-            disable: ["2021-04-30", "2021-05-01", "2025-03-08", new Date(2025, 4, 9) ],
+            disable: [
+                "2021-04-30",
+                "2021-05-01",
+                "2025-03-08",
+                new Date(2025, 4, 9),
+            ],
             dateFormat: "d/m/Y",
             disableMobile: true,
             defaultDate: new Date(),
@@ -818,9 +868,8 @@ const filterMB = {
                 ".fiter-mb__list .choose-radio .radio-value"
             );
             for (let i = 0; i < textdefaul.length; i++) {
-                textdefaul[i].children[0].innerHTML = textdefaul[
-                    i
-                ].getAttribute("data-defaultValue");
+                textdefaul[i].children[0].innerHTML =
+                    textdefaul[i].getAttribute("data-defaultValue");
             }
         });
         $(".fiter-mb__more .submit .reset").click(function (e) {
@@ -1006,9 +1055,8 @@ const selectOption1 = {
         if (!customSelectWrapper) {
             return;
         }
-        const displaySelect = customSelectWrapper.querySelector(
-            "#display-select1"
-        );
+        const displaySelect =
+            customSelectWrapper.querySelector("#display-select1");
         const optionsSelect = customSelectWrapper.querySelectorAll(
             "#options-select1 li"
         );
@@ -1138,8 +1186,8 @@ const showMoreDetailYatch = {
         $(btn).click(function (e) {
             e.preventDefault();
             let txt = $(btn).parent().find(item);
-            if($(btn).hasClass('item__show-more-p')) {
-                $(this).toggleClass('show');
+            if ($(btn).hasClass("item__show-more-p")) {
+                $(this).toggleClass("show");
             }
             txt.toggleClass("show-more");
             showMoreDetailYatch.changeIcon(this);
@@ -1148,28 +1196,187 @@ const showMoreDetailYatch = {
 };
 
 const toastMessage = {
-    firstName : ['Nguyễn', 'Mạc', 'Trần', 'Hồ', 'Lý', 'Phan', 'Lê', 'Bùi', 'Đặng', 'Phạm', 'Trương', 'Kiểu', 'Lã'],
-    middleName : ['Đức', 'Đinh', 'Xuân', 'Thu', 'Vân', 'Vĩ', 'Trung', 'Phú', 'Công', 'Việt', 'Văn', 'Nhựt', 'Thiện'],
-    lastName : ['Hiếu', 'Dũng', 'Hoàng', 'Như', 'Yến', 'Đăng', 'Vĩnh', 'Xương', 'Thành', 'Tiến', 'Vinh', 'Toàn', 'Thịnh'],
+    firstName: [
+        "Nguyễn",
+        "Mạc",
+        "Trần",
+        "Hồ",
+        "Lý",
+        "Phan",
+        "Lê",
+        "Bùi",
+        "Đặng",
+        "Phạm",
+        "Trương",
+        "Kiểu",
+        "Lã",
+    ],
+    middleName: [
+        "Đức",
+        "Đinh",
+        "Xuân",
+        "Thu",
+        "Vân",
+        "Vĩ",
+        "Trung",
+        "Phú",
+        "Công",
+        "Việt",
+        "Văn",
+        "Nhựt",
+        "Thiện",
+    ],
+    lastName: [
+        "Hiếu",
+        "Dũng",
+        "Hoàng",
+        "Như",
+        "Yến",
+        "Đăng",
+        "Vĩnh",
+        "Xương",
+        "Thành",
+        "Tiến",
+        "Vinh",
+        "Toàn",
+        "Thịnh",
+    ],
     init() {
         this.toastMessage(true);
     },
-    generateIndex (){
+    generateIndex() {
         return Math.floor(Math.random() * 12);
     },
     generateName() {
-        return `${this.firstName[this.generateIndex()]} ${this.middleName[this.generateIndex()]} ${this.lastName[this.generateIndex()]} `
+        return `${this.firstName[this.generateIndex()]} ${
+            this.middleName[this.generateIndex()]
+        } ${this.lastName[this.generateIndex()]} `;
     },
     generatePhone() {
-        return `09${Math.floor(Math.random() * 4000)}xxxx`
+        return `09${Math.floor(Math.random() * 4000)}xxxx`;
     },
     toastMessage(isOn) {
-        if(isOn) {
-            setInterval(()=> {
-                $('.toast-body__title').text(this.generateName() + this.generatePhone())
-                $('.toast').toast('show');
-            },10000)
+        if (isOn) {
+            setInterval(() => {
+                $(".toast-body__title").text(
+                    this.generateName() + this.generatePhone()
+                );
+                $(".toast").toast("show");
+            }, 10000);
         }
-    }
-}
+    },
+};
 
+const comment = {
+    init() {
+        this.comment();
+    },
+    handleResetStars(stars) {
+        Array.from(stars).forEach((star, index) => {
+            const img = star.querySelector("img");
+            if (index === 0) {
+                img.src = "../../assets/images/image-update/large-active.png";
+            } else {
+                img.src = "../../assets/images/image-update/large.png";
+            }
+        });
+    },
+    handleInputStar(input, value) {
+        input.value = value;
+    },
+    pickActiveStars(nth, stars) {
+        for (let i = 0; i <= nth; ++i) {
+            const a = Array.from(stars)[i];
+            const img = a.querySelector("img");
+            img.src = "../../assets/images/image-update/large-active.png";
+        }
+        const input = document.querySelector('input[name="rate-stars"]');
+        this.handleInputStar(input, nth + 1);
+    },
+    handleRateStar() {
+        const _this = this;
+        const listStars = document.querySelectorAll(
+            ".comment-box__rate-stars a"
+        );
+        Array.from(listStars).forEach((star, index) => {
+            star.addEventListener("click", (e) => {
+                e.preventDefault();
+                _this.handleResetStars(listStars);
+                _this.pickActiveStars(index, listStars);
+            });
+        });
+    },
+    handleValueInput(input, result) {
+        result[input.name] = input.value;
+        if (input.name === "rate-stars") {
+            this.handleResetStars(
+                document.querySelectorAll(".comment-box__rate-stars a")
+            );
+            input.value = 1;
+        } else {
+            input.value = "";
+        }
+    },
+    handleSubmit() {
+        const _this = this;
+        const form = document.querySelector(".comment-box__form");
+        const result = {};
+        if (form) {
+            form.addEventListener("submit", (e) => {
+                e.preventDefault();
+                const inputs = form.querySelectorAll("[name]");
+                inputs.forEach((input) => {
+                    _this.handleValueInput(input, result);
+                });
+                _this.handleAddNewComment(result);
+            });
+        }
+    },
+    handleStarSubmit(numStar) {
+        const result = [];
+        let addStar = true;
+        for (let i = 0; i < 5; ++i) {
+            if (addStar) {
+                for (let j = 0; j < numStar; ++j) {
+                    result.push(
+                        '<img src="../../assets/images/image-update/small-active.png" alt="">'
+                    );
+                    ++i;
+                }
+                addStar = false;
+            }
+            if (i < 5) {
+                result.push(
+                    '<img src="../../assets/images/image-update/small.png" alt="">'
+                );
+            }
+        }
+        return result.join("");
+    },
+    handleAddNewComment(objComment) {
+        const newComment = `
+                            <li class="comment-list__item py-4">
+                                <h3 class="comment-list__item-name comment-list__item-text mb-3">${
+                                    objComment.name
+                                }</h3>
+                                <div class="comment-list__item-rate mb-3">${this.handleStarSubmit(
+                                    objComment["rate-stars"]
+                                )}</div>
+                                    <div class="d-flex">
+                                    <div class="comment-list__item-text comment-list__item-date mr-4">Thang 05, 2021</div>
+                                    <div class="comment-list__item-text reduce">${
+                                        objComment.feedback
+                                    }</div>
+                                </div>
+                            </li>
+                            `;
+        const commentList = document.querySelector(".comment-list");
+        const oldComment = commentList.innerHTML;
+        const result = oldComment + newComment;
+        commentList.innerHTML = result;
+    },
+    comment() {
+        this.handleSubmit();
+        this.handleRateStar();
+    },
+};
