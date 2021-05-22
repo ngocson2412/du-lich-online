@@ -42,6 +42,7 @@ $(document).ready(function () {
     showMoreDetailYatch.init();
     toastMessage.init();
     comment.init();
+    reviewButtonClick.init();
 });
 
 const fastnews = {
@@ -455,7 +456,6 @@ const loadMoreOther = {
         var ajaxDelay = 1000,
             animationDuration = 201;
         $(".ac").on("click", function (e) {
-            console.log("tesst");
             let $self = $(e.currentTarget);
             $self.addClass("loading");
             setTimeout(function () {
@@ -1268,8 +1268,27 @@ const toastMessage = {
 };
 
 const comment = {
+    validateForm() {
+        Validator({
+            form: ".comment-box__form",
+            errorMsg: ".form-msg",
+            rules: [
+                Validator.isRequired(
+                    "#name",
+                    "Hãy nhập họ tên tối thiểu 6 ký tự"
+                ),
+                Validator.isEmail("#email"),
+                Validator.isRequired("#phone", "Hãy nhập trường số điện thoại"),
+                Validator.isPhoneNumber(
+                    "#phone",
+                    "Trường này phải là số điện thoại"
+                ),
+            ],
+        });
+    },
     init() {
         this.comment();
+        this.validateForm();
     },
     handleResetStars(stars) {
         Array.from(stars).forEach((star, index) => {
@@ -1317,21 +1336,6 @@ const comment = {
             input.value = "";
         }
     },
-    handleSubmit() {
-        const _this = this;
-        const form = document.querySelector(".comment-box__form");
-        const result = {};
-        if (form) {
-            form.addEventListener("submit", (e) => {
-                e.preventDefault();
-                const inputs = form.querySelectorAll("[name]");
-                inputs.forEach((input) => {
-                    _this.handleValueInput(input, result);
-                });
-                _this.handleAddNewComment(result);
-            });
-        }
-    },
     handleStarSubmit(numStar) {
         const result = [];
         let addStar = true;
@@ -1376,7 +1380,150 @@ const comment = {
         commentList.innerHTML = result;
     },
     comment() {
-        this.handleSubmit();
         this.handleRateStar();
     },
+};
+
+const reviewButtonClick = {
+    init() {
+        this.reviewButtonClick();
+    },
+    reviewButtonClick() {
+        const btn = document.querySelector(".btn.btn-review");
+        const textArea = document.querySelector('[name="feedback"]');
+
+        if (btn && textArea) {
+            btn.addEventListener("click", (e) => {
+                e.preventDefault();
+                const divPos = document
+                    .querySelector(".comment")
+                    .getBoundingClientRect().top;
+                const curPos = window.scrollY;
+
+                document.documentElement.scrollTop = divPos + curPos - 20;
+                textArea.focus();
+            });
+        }
+    },
+};
+
+function Validator(options) {
+    const formElement = document.querySelector(options.form);
+    const selectorRules = {};
+
+    const validate = (inputElement, rule) => {
+        let isUnValid;
+        const msgElement = inputElement.parentElement.querySelector(
+            options.errorMsg
+        );
+
+        for (let i = 0; i < selectorRules[rule.selector].length; ++i) {
+            isUnValid = selectorRules[rule.selector][i](inputElement.value);
+            if (isUnValid) break;
+        }
+
+        if (isUnValid) {
+            msgElement.innerHTML = isUnValid;
+            inputElement.classList.add("active");
+        }
+        return !!isUnValid;
+    };
+    if (formElement) {
+        formElement.onsubmit = (e) => {
+            e.preventDefault();
+            let isFormValid = true;
+            let isValid;
+
+            options.rules.forEach((rule) => {
+                const inputElement = formElement.querySelector(rule.selector);
+                isValid = validate(inputElement, rule);
+                if (isValid) isFormValid = false;
+            });
+
+            if (isFormValid) {
+                const result = {};
+                const inputs = formElement.querySelectorAll("[name]");
+
+                inputs.forEach((input) => {
+                    comment.handleValueInput(input, result);
+                });
+                comment.handleAddNewComment(result);
+            }
+
+            // do something here : callAPI ...
+        };
+        options.rules.forEach((rule) => {
+            if (selectorRules[rule.selector]) {
+                selectorRules[rule.selector].push(rule.test);
+            } else {
+                selectorRules[rule.selector] = [rule.test];
+            }
+            const inputElement = formElement.querySelector(rule.selector);
+            const msgElement =
+                inputElement.parentElement.querySelector(".form-msg");
+
+            if (inputElement) {
+                inputElement.onblur = (e) => {
+                    validate(inputElement, rule);
+                };
+
+                inputElement.oninput = (e) => {
+                    if (inputElement.classList.contains("active")) {
+                        inputElement.classList.remove("active");
+                        msgElement.innerHTML = "";
+                    }
+                };
+            }
+        });
+    }
+}
+
+Validator.isRequired = (selector, msg) => {
+    return {
+        selector,
+        test(value) {
+            return value.trim().length >= 6
+                ? undefined
+                : value.trim().length === 0
+                ? "Hãy nhập trường này"
+                : msg;
+        },
+    };
+};
+
+Validator.isEmail = (selector) => {
+    return {
+        selector,
+        test(value) {
+            const re =
+                /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(String(value.trim()).toLowerCase())
+                ? undefined
+                : "Trường này phải là email";
+        },
+    };
+};
+
+Validator.isConfirmed = (selector, param) => {
+    return {
+        selector,
+        test(value) {
+            const passwordElement = document.querySelector(param);
+            return passwordElement.value === value
+                ? undefined
+                : "Mật khẩu nhập lại không chính xác";
+        },
+    };
+};
+
+Validator.isPhoneNumber = (selector) => {
+    return {
+        selector,
+        test(value) {
+            var phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+            return phoneno.test(String(value.trim()).toLowerCase())
+                ? undefined
+                : "Trường này số điện thoại";
+        },
+    };
 };

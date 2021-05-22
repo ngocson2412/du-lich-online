@@ -685,7 +685,7 @@
                 <div class="comment mt-5">
                   <h3>Đăng bình luận</h3>
                   <div class="comment-box p-4">
-                    <form class="comment-box__form d-flex flex-wrap" action="">
+                    <form class="comment-box__form d-flex flex-wrap">
                       <div class="form-group w-100">
                         <div class="comment-box__rate d-flex align-items-center mb-4"> 
                           <p>Bạn cảm thấy sản phẩm này như thế nào? </p>
@@ -697,9 +697,15 @@
                         <textarea class="pl-4 pt-3" type="text" placeholder="Viết bình luận của bạn" name="feedback" id="write-review"></textarea>
                       </div>
                       <div class="form-group d-flex flex-column flex-2">
-                        <input class="pl-4 py-3 mb-2" type="text" placeholder="Họ và tên" name="name" required>
-                        <input class="pl-4 py-3 mb-2" type="email" placeholder="Email" name="email" required>
-                        <input class="pl-4 py-3" type="number" placeholder="Số điện thoại của bạn" name="phone" required>
+                        <div class="form-wrap">
+                          <input class="w-100 pl-4 py-3 mb-2" id="name" type="text" placeholder="Họ và tên" name="name"><span class="form-msg"></span>
+                        </div>
+                        <div class="form-wrap">
+                          <input class="w-100 pl-4 py-3 mb-2" id="email" type="text" placeholder="Email" name="email"><span class="form-msg"></span>
+                        </div>
+                        <div class="form-wrap">
+                          <input class="w-100 pl-4 py-3" id="phone" type="text" placeholder="Số điện thoại của bạn" name="phone"><span class="form-msg"></span>
+                        </div>
                       </div>
                       <div class="form-group w-100 mb-0">
                         <button class="btn form-btn" type="submit">Gửi</button>

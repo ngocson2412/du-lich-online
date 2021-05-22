@@ -1734,6 +1734,15 @@ button {
     font-family: "Nunito Sans", sans-serif; }
     .comment-box__form .form-group .form-btn:hover {
       background-color: #d7703e; }
+  .comment-box__form .form-group .form-wrap:not(:last-child) {
+    margin-bottom: 10px; }
+  .comment-box__form .form-group .form-wrap:last-child input.active {
+    margin-bottom: 8px; }
+  .comment-box__form .form-group .form-wrap input.active {
+    border-color: red; }
+  .comment-box__form .form-group .form-wrap .form-msg {
+    color: red;
+    font-size: 14px; }
   .comment-box__form .flex-3 {
     flex: 3; }
     .comment-box__form .flex-3 textarea {
@@ -7059,7 +7068,7 @@ button {
     display: flex;
     align-items: center;
     flex-wrap: wrap; }
-    @media only screen and (max-width: 991px) {
+    @media only screen and (max-width: 1200px) {
       .yach-details__section .review-section .review {
         padding: 23px 30px; } }
     .yach-details__section .review-section .review .write {
