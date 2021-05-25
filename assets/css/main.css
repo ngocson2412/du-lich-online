@@ -461,7 +461,7 @@ button {
       font-size: 60px;
       margin-bottom: 25px;
       color: #fff;
-      font-weight: 600;
+      font-weight: 700;
       font-family: "Nunito Sans", sans-serif; }
       .banner-cano-inner .cano-title.pick-room-title {
         font-size: 48px; }
@@ -576,7 +576,7 @@ button {
                 font-size: 14px; } }
         .banner-cano-inner .cano-service-detail .detail-left .left-content .content-bottom {
           color: #153262;
-          font-weight: 600;
+          font-weight: 700;
           font-size: 16px;
           cursor: pointer; }
           @media (max-width: 1024px) {
@@ -713,7 +713,7 @@ button {
       border: none;
       outline: none;
       color: #153262;
-      font-weight: 600;
+      font-weight: 700;
       font-size: 14px;
       font-family: "Nunito Sans", sans-serif;
       padding: 0;
@@ -771,6 +771,18 @@ button {
   #flatpickr-custom-2 .flatpickr-calendar {
     top: 103px !important;
     left: -11px !important; } }
+
+.banner-boat.pick-room {
+  height: auto !important; }
+  .banner-boat.pick-room form {
+    margin: 20px 0;
+    background-color: #fff;
+    padding: 10px 20px; }
+  .banner-boat.pick-room .cano-service-detail {
+    padding: 8px 0;
+    border-bottom: 1px solid #d0e1e7; }
+  .banner-boat.pick-room .btn {
+    margin-top: 10px !important; }
 
 @media (max-width: 768px) {
   .banner-boat .cano-title {
@@ -1011,6 +1023,13 @@ button {
     .box__cano {
       margin-top: 0;
       margin-bottom: 6px; } }
+  .box__cano.pick-yacht-mb .box__cano-wrapper {
+    padding: 24px 12px;
+    flex-direction: row; }
+    .box__cano.pick-yacht-mb .box__cano-wrapper .cano__wrapper-infor {
+      padding: 10px 0; }
+    .box__cano.pick-yacht-mb .box__cano-wrapper .wrapper__book-btn {
+      width: 50% !important; }
   .box__cano .box__cano-wrapper {
     background-color: #fff;
     padding: 38px;
@@ -1125,6 +1144,9 @@ button {
             margin-bottom: 0; } }
       .box__cano .box__cano-wrapper .cano__wrapper-infor .wrapper__infor-title h2 {
         font-size: 18px; }
+        @media only screen and (max-width: 425px) {
+          .box__cano .box__cano-wrapper .cano__wrapper-infor .wrapper__infor-title h2 {
+            font-size: 24px; } }
       .box__cano .box__cano-wrapper .cano__wrapper-infor .wrapper__infor-more {
         font-size: 13px;
         color: #479dc1;
@@ -1165,6 +1187,9 @@ button {
       .box__cano .box__cano-wrapper .cano__wrapper-infor .wrapper__rule-detail p {
         font-size: 16px;
         color: #1c274e; }
+        @media only screen and (max-width: 425px) {
+          .box__cano .box__cano-wrapper .cano__wrapper-infor .wrapper__rule-detail p {
+            color: #616980; } }
     .box__cano .box__cano-wrapper .cano__wrapper-book span.sale-off {
       display: none; }
     @media only screen and (max-width: 426px) {
@@ -1176,6 +1201,10 @@ button {
       font-size: 18px;
       color: #616980;
       font-weight: bold; }
+      @media only screen and (max-width: 425px) {
+        .box__cano .box__cano-wrapper .cano__wrapper-book .book__other-cost .cost-per-person {
+          font-size: 16px;
+          color: #10284f; } }
     @media only screen and (max-width: 426px) {
       .box__cano .box__cano-wrapper .cano__wrapper-book {
         width: 100%;
@@ -1707,18 +1736,46 @@ button {
   font-size: 16px !important;
   color: #1c274e !important;
   font-family: "Nunito Sans", sans-serif;
-  font-weight: 400; }
+  font-weight: 500; }
+  @media only screen and (max-width: 425px) {
+    .comment p,
+    .comment input,
+    .comment h3 {
+      font-weight: 700;
+      padding-left: 24px; } }
 
-.comment h3 {
-  font-weight: 600; }
+.comment-count h3 {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 22px;
+  padding-left: 21px;
+  color: #10284f; }
 
 .comment-box {
   background-color: #fff;
   border-radius: 8px; }
+  @media only screen and (max-width: 425px) {
+    .comment-box {
+      margin: 0 !important; } }
+  @media only screen and (max-width: 425px) {
+    .comment-box__rate {
+      display: block !important;
+      margin-bottom: 10px !important; } }
+  .comment-box__rate p {
+    font-size: 18px !important;
+    font-weight: 500 !important; }
+    @media only screen and (max-width: 425px) {
+      .comment-box__rate p {
+        padding-left: 0;
+        margin-bottom: 10px; } }
   .comment-box__rate img {
-    cursor: pointer; }
+    cursor: pointer;
+    margin-right: 4px; }
   .comment-box__rate input {
-    visibility: hidden; }
+    display: none; }
+  @media only screen and (max-width: 425px) {
+    .comment-box__rate-stars {
+      margin-left: 0 !important; } }
   .comment-box__form .form-group input,
   .comment-box__form .form-group textarea {
     outline: none;
@@ -1738,35 +1795,88 @@ button {
     margin-bottom: 10px; }
   .comment-box__form .form-group .form-wrap:last-child input.active {
     margin-bottom: 8px; }
+  @media only screen and (max-width: 425px) {
+    .comment-box__form .form-group .form-wrap input {
+      font-size: 14px;
+      font-weight: 400;
+      color: #616980; } }
   .comment-box__form .form-group .form-wrap input.active {
     border-color: red; }
   .comment-box__form .form-group .form-wrap .form-msg {
     color: red;
     font-size: 14px; }
+  @media only screen and (max-width: 425px) {
+    .comment-box__form .form-group .form-wrap ::placeholder {
+      font-size: 14px;
+      font-weight: 400;
+      color: #616980; } }
   .comment-box__form .flex-3 {
     flex: 3; }
+    @media only screen and (max-width: 425px) {
+      .comment-box__form .flex-3 {
+        flex: auto;
+        margin-right: 0 !important;
+        height: 160px; } }
     .comment-box__form .flex-3 textarea {
       height: 100%;
       width: 100%;
       text-align: start; }
   .comment-box__form .flex-2 {
     flex: 2; }
+    @media only screen and (max-width: 425px) {
+      .comment-box__form .flex-2 {
+        flex: auto; } }
+  @media only screen and (max-width: 425px) {
+    .comment-box .comment-list {
+      padding: 0 40px !important; } }
   .comment-box .comment-list__item:not(:last-child) {
     border-bottom: 1px solid #d7d7d7; }
-  .comment-box .comment-list__item-name {
-    font-weight: 700; }
+  @media only screen and (max-width: 425px) {
+    .comment-box .comment-list__item:last-child {
+      border-bottom: 1px solid #d7d7d7; } }
   .comment-box .comment-list__item-text {
     color: #1c274e;
-    font-size: 16px;
+    font-size: 16px !important;
+    font-weight: 500 !important;
     font-family: "Nunito Sans", sans-serif; }
+    @media only screen and (max-width: 425px) {
+      .comment-box .comment-list__item-text {
+        font-size: 14px !important; } }
     .comment-box .comment-list__item-text.reduce {
       overflow: hidden;
       text-overflow: ellipsis;
       display: -webkit-box;
       -webkit-line-clamp: 4;
       -webkit-box-orient: vertical; }
+  .comment-box .comment-list__item-name {
+    font-weight: 700 !important; }
+    @media only screen and (max-width: 425px) {
+      .comment-box .comment-list__item-name {
+        font-size: 18px !important; } }
   .comment-box .comment-list__item-date {
     min-width: 120px; }
+    @media only screen and (max-width: 425px) {
+      .comment-box .comment-list__item-date {
+        font-size: 14px !important;
+        color: #616980; } }
+  @media only screen and (max-width: 425px) {
+    .comment-box .comment-list__item-rate {
+      margin-bottom: 4px; } }
+
+@media only screen and (max-width: 425px) {
+  .comment-pagination {
+    padding: 18px 40px;
+    justify-content: start !important;
+    background-color: #fff; } }
+
+@media only screen and (max-width: 425px) {
+  .comment-pagination .pagination__list li.active {
+    border-color: #10284f !important; }
+    .comment-pagination .pagination__list li.active a {
+      color: #10284f !important; }
+  .comment-pagination .pagination__list li a {
+    font-size: 12px !important;
+    color: #aaaaaa !important; } }
 
 .filter-section {
   border-bottom: 1px solid #c9dceb; }
@@ -4786,7 +4896,7 @@ button {
       .detail-ship-section .detail-ship__img .modal {
         background-color: rgba(0, 0, 0, 0.5); }
         .detail-ship-section .detail-ship__img .modal .modal-lg .modal-content {
-          height: 600px; }
+          height: 700px; }
         @media only screen and (min-width: 992px) {
           .detail-ship-section .detail-ship__img .modal .modal-lg {
             max-width: 990px; } }
@@ -4810,6 +4920,8 @@ button {
       top: 40px; }
       .detail-ship-section .detail-ship__box-item {
         padding: 20px 40px; }
+        .detail-ship-section .detail-ship__box-item.pick-room__item {
+          padding: 20px 25px; }
         .detail-ship-section .detail-ship__box-item .item__show-more-p.show::before {
           content: "";
           position: absolute;
@@ -4829,7 +4941,7 @@ button {
           font-family: "Nunito Sans", sans-serif;
           font-size: 16px;
           color: #616980;
-          font-weight: 600;
+          font-weight: 700;
           height: 40px;
           overflow: hidden;
           margin-bottom: 0.125rem;
@@ -4847,6 +4959,13 @@ button {
         position: relative;
         padding-left: 22px;
         margin: 4px 0; }
+        .detail-ship-section .detail-ship__box ul li.pick-room {
+          padding-left: 0; }
+          .detail-ship-section .detail-ship__box ul li.pick-room .pick-room__img {
+            width: 24px;
+            height: 24px; }
+          .detail-ship-section .detail-ship__box ul li.pick-room::after {
+            display: none; }
         .detail-ship-section .detail-ship__box ul li::after {
           content: "";
           position: absolute;
@@ -4872,11 +4991,16 @@ button {
           background-color: #fff;
           border: solid 1px #ebebeb;
           border-radius: 100%; }
+          .detail-ship-section .detail-ship__box-nav .nav__btn.pick-room__close {
+            padding: 0;
+            border: 0;
+            color: #545454;
+            font-weight: 700; }
       .detail-ship-section .detail-ship__box-label {
         margin-top: 20px;
         font-family: "Nunito Sans", sans-serif;
         font-size: 36px;
-        font-weight: 600;
+        font-weight: 700;
         color: #10284f; }
       .detail-ship-section .detail-ship__box-sale {
         display: inline-block;
@@ -4885,16 +5009,18 @@ button {
         border-radius: 4px;
         font-family: "Nunito Sans", sans-serif;
         font-size: 18px;
-        font-weight: 600;
+        font-weight: 700;
         color: #fff; }
       .detail-ship-section .detail-ship__box-serLabel {
         margin: 0 -40px 16px -40px;
         border-bottom: 1px solid #f2f7fb;
         padding: 0 40px 16px 40px; }
+        .detail-ship-section .detail-ship__box-serLabel.pick-room span {
+          font-size: 18px; }
         .detail-ship-section .detail-ship__box-serLabel span {
           font-family: "Nunito Sans", sans-serif;
           font-size: 24px;
-          font-weight: 600;
+          font-weight: 700;
           color: #10284f;
           margin: 23px 0 36px;
           margin-left: 14px; }
@@ -4907,6 +5033,16 @@ button {
           color: #505a6d;
           line-height: 1.88;
           padding-left: 5px; }
+          .detail-ship-section .detail-ship__box-serDetail .serDetail__item.pick-room__item {
+            list-style-type: none; }
+        .detail-ship-section .detail-ship__box-serDetail.pick-room__list {
+          padding-left: 0; }
+          .detail-ship-section .detail-ship__box-serDetail.pick-room__list li {
+            margin: 8px 0;
+            padding-left: 0; }
+            .detail-ship-section .detail-ship__box-serDetail.pick-room__list li .pick-room__img {
+              width: 24px;
+              height: 24px; }
       .detail-ship-section .detail-ship__box-book {
         padding-top: 35px;
         border-top: 1px solid #f2f7fb;
@@ -4939,8 +5075,9 @@ button {
           font-size: 24px;
           color: #fff; }
           .detail-ship-section .detail-ship__box-book .book__btn:hover {
-            background-color: #ff385c;
-            color: #ff722c; }
+            background-color: #c43f32; }
+          .detail-ship-section .detail-ship__box-book .book__btn.pick-room__btn {
+            background-color: #f54f3f; }
 
 .item__scrollbar::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
@@ -5527,6 +5664,8 @@ button {
   margin-top: 8px; }
   .detail-ship-mobile .detail-ship-section {
     padding: 40px 25px 20px 25px; }
+    .detail-ship-mobile .detail-ship-section.pick-room {
+      background-color: #fff; }
     .detail-ship-mobile .detail-ship-section .detail-ship__box {
       position: initial;
       padding: 0;
@@ -5534,7 +5673,7 @@ button {
       .detail-ship-mobile .detail-ship-section .detail-ship__box h3 {
         font-family: "Nunito Sans", sans-serif;
         font-size: 18px;
-        font-weight: 600;
+        font-weight: 700;
         line-height: 25px;
         margin: 17px 0px -8px 0px;
         color: #10284f; }
@@ -5552,9 +5691,15 @@ button {
         line-height: 1.6; }
   .detail-ship-mobile .detail-ship__box-serDetail {
     border: none; }
+    @media only screen and (max-width: 425px) {
+      .detail-ship-mobile .detail-ship__box-serDetail {
+        margin: 24px 0; } }
     .detail-ship-mobile .detail-ship__box-serDetail .serDetail__item {
       margin-left: 3px;
       line-height: 1.6; }
+      @media only screen and (max-width: 425px) {
+        .detail-ship-mobile .detail-ship__box-serDetail .serDetail__item::after {
+          display: none; } }
   .detail-ship-mobile .detail-ship__img {
     width: 100%; }
   .detail-ship-mobile .detail-ship__img-wrap {
@@ -6510,8 +6655,24 @@ button {
 .private-ship-route .happy__client__wrapper {
   margin-bottom: 50px; }
 
+.yacht-details__mb .yacht-mb {
+  margin-top: 24px; }
+  .yacht-details__mb .yacht-mb h2.title {
+    margin-bottom: 0; }
+  .yacht-details__mb .yacht-mb p {
+    line-height: 64px; }
+  .yacht-details__mb .yacht-mb .write {
+    display: flex;
+    justify-content: center; }
+    .yacht-details__mb .yacht-mb .write .btn-review {
+      width: 70% !important;
+      margin-bottom: 0 !important; }
+      @media only screen and (max-width: 425px) {
+        .yacht-details__mb .yacht-mb .write .btn-review {
+          font-size: 16px !important; } }
+
 .yacht-details__mb h2.title {
-  font-weight: 600;
+  font-weight: 700;
   font-size: 36px;
   line-height: 50px;
   font-family: "Nunito Sans", sans-serif;
@@ -6734,7 +6895,7 @@ button {
     transition: all 0.3s ease-in-out;
     border: 2px solid #f78b31; }
     .yacht-details__mb .yacht-details__wrap .recommend-section__wrap .recommend-content .text a.btn.btn-booking:hover {
-      background: #FF385C; }
+      background: #ff385c; }
   .yacht-details__mb .yacht-details__wrap .recommend-section__wrap .recommend-content .recommend-content__booking {
     display: flex;
     align-items: center;
@@ -6848,7 +7009,7 @@ button {
   color: #1c274e;
   font-family: "Nunito Sans", sans-serif;
   font-size: 48px;
-  font-weight: 600; }
+  font-weight: 700; }
   @media only screen and (max-width: 1245px) {
     .yach-details__section h2.title-section {
       font-size: 40px; } }
@@ -7010,6 +7171,8 @@ button {
     position: relative; }
     .yach-details__section .schedule-section .schedule-items:last-child {
       overflow: hidden; }
+    .yach-details__section .schedule-section .schedule-items.border {
+      border: 1px solid rgba(0, 0, 0, 0.5) !important; }
     .yach-details__section .schedule-section .schedule-items::before {
       content: "";
       display: block;
@@ -7051,16 +7214,15 @@ button {
     font-family: "Nunito Sans", sans-serif;
     display: block; }
   .yach-details__section .review-section p {
-    font-weight: 600;
+    font-weight: 700;
     font-size: 64px;
     color: #10284f;
     margin: 0;
     display: inline-block;
     line-height: 1.2; }
-  .yach-details__section .review-section .rated i {
-    color: #ffc107;
-    font-size: 21px;
-    padding-right: 2.5px; }
+  .yach-details__section .review-section .rated img {
+    padding-right: 2.5px;
+    margin-bottom: 10px; }
   .yach-details__section .review-section .review {
     background: #fff;
     border-radius: 10px;

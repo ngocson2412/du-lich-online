@@ -224,8 +224,11 @@ const customModal = {
 
             if (text && btnShowMore) {
                 text.removeClass("show-more");
-                showMoreDetailYatch.changeIcon(btnShowMore);
+                btnShowMore.html(
+                    '<i class="fas fa-angle-down mr-2"></i> Xem chi tiết '
+                );
                 btnShowMore.addClass("show");
+                btnShowMore.removeClass('active');
             }
         });
     },
@@ -1483,8 +1486,8 @@ const comment = {
     },
     comment() {
         const commentList = document.querySelector(".comment-list");
-        const isMobile = commentList.classList.contains("comment-list-mobile");
-        this.handleRateStar(isMobile);
+            const isMobile = commentList.classList.contains("comment-list-mobile");
+            this.handleRateStar(isMobile);
     },
 };
 
