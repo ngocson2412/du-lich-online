@@ -217,6 +217,16 @@ const customModal = {
         $(".closePopup").on("click", function () {
             $(".full-screen").addClass("hidden");
             $("body").css("overflow", "scroll");
+
+            const outerParent = $(this).parent().parent();
+            const text = outerParent.find(".item__paragraph");
+            const btnShowMore = outerParent.find(".item__show-more-p");
+
+            if (text && btnShowMore) {
+                text.removeClass("show-more");
+                showMoreDetailYatch.changeIcon(btnShowMore);
+                btnShowMore.addClass("show");
+            }
         });
     },
 };
@@ -761,7 +771,6 @@ const flatpickrDate = {
     flatpickrAZ: function () {
         var today = moment();
         $(".calendar-text").val(today.format("YYYY-MM-DD"));
-
         flatpickr("#calendar", {
             locale: "vn",
             // minDate: new Date(),
@@ -802,7 +811,7 @@ const flatpickrDate = {
             disableMobile: true,
             defaultDate: new Date(),
             altInput: true,
-            altFormat: "d/m/Y",
+            altFormat: "d F Y",
             appendTo: window.document.querySelector("#flatpickr-custom-1"),
         });
         flatpickr("#calendar-ja-to", {
@@ -818,10 +827,40 @@ const flatpickrDate = {
             disableMobile: true,
             defaultDate: new Date(),
             altInput: true,
-            altFormat: "d/m/Y",
+            altFormat: "d F Y",
             appendTo: window.document.querySelector("#flatpickr-custom-2"),
         });
         flatpickr("#calendar-ja-mb", {
+            locale: "vn",
+            // minDate: new Date(),
+            disable: [
+                "2021-04-30",
+                "2021-05-01",
+                "2025-03-08",
+                new Date(2025, 4, 9),
+            ],
+            dateFormat: "d/m/Y",
+            disableMobile: true,
+            defaultDate: new Date(),
+            altInput: true,
+            altFormat: "d/m/Y",
+        });
+        flatpickr("#calendar-ja-mb-from", {
+            locale: "vn",
+            // minDate: new Date(),
+            disable: [
+                "2021-04-30",
+                "2021-05-01",
+                "2025-03-08",
+                new Date(2025, 4, 9),
+            ],
+            dateFormat: "d/m/Y",
+            disableMobile: true,
+            defaultDate: new Date(),
+            altInput: true,
+            altFormat: "d/m/Y",
+        });
+        flatpickr("#calendar-ja-mb-to", {
             locale: "vn",
             // minDate: new Date(),
             disable: [
@@ -1185,11 +1224,12 @@ const showMoreDetailYatch = {
     showMoreText(item, btn) {
         $(btn).click(function (e) {
             e.preventDefault();
-            let txt = $(btn).parent().find(item);
+            let txt = $(this).parent().find(item);
             if ($(btn).hasClass("item__show-more-p")) {
                 $(this).toggleClass("show");
             }
             txt.toggleClass("show-more");
+
             showMoreDetailYatch.changeIcon(this);
         });
     },
@@ -1290,29 +1330,43 @@ const comment = {
         this.comment();
         this.validateForm();
     },
-    handleResetStars(stars) {
+    handleResetStars(stars, isMobile) {
         Array.from(stars).forEach((star, index) => {
             const img = star.querySelector("img");
-            if (index === 0) {
-                img.src = "../../assets/images/image-update/large-active.png";
+            if (isMobile) {
+                if (index === 0) {
+                    img.src = "../../assets/images/image-update/mb-large.png";
+                } else {
+                    img.src =
+                        "../../assets/images/image-update/mb-large-blur.png";
+                }
             } else {
-                img.src = "../../assets/images/image-update/large.png";
+                if (index === 0) {
+                    img.src =
+                        "../../assets/images/image-update/large-active.png";
+                } else {
+                    img.src = "../../assets/images/image-update/large.png";
+                }
             }
         });
     },
     handleInputStar(input, value) {
         input.value = value;
     },
-    pickActiveStars(nth, stars) {
+    pickActiveStars(nth, stars, isMobile) {
         for (let i = 0; i <= nth; ++i) {
             const a = Array.from(stars)[i];
             const img = a.querySelector("img");
-            img.src = "../../assets/images/image-update/large-active.png";
+            if (isMobile) {
+                img.src = "../../assets/images/image-update/mb-large.png";
+            } else {
+                img.src = "../../assets/images/image-update/large-active.png";
+            }
         }
         const input = document.querySelector('input[name="rate-stars"]');
         this.handleInputStar(input, nth + 1);
     },
-    handleRateStar() {
+    handleRateStar(isMobile) {
         const _this = this;
         const listStars = document.querySelectorAll(
             ".comment-box__rate-stars a"
@@ -1320,67 +1374,117 @@ const comment = {
         Array.from(listStars).forEach((star, index) => {
             star.addEventListener("click", (e) => {
                 e.preventDefault();
-                _this.handleResetStars(listStars);
-                _this.pickActiveStars(index, listStars);
+                _this.handleResetStars(listStars, isMobile);
+                _this.pickActiveStars(index, listStars, isMobile);
             });
         });
     },
     handleValueInput(input, result) {
         result[input.name] = input.value;
         if (input.name === "rate-stars") {
+            const commentList = document.querySelector(".comment-list");
+            const isMobile = commentList.classList.contains(
+                "comment-list-mobile"
+            );
             this.handleResetStars(
-                document.querySelectorAll(".comment-box__rate-stars a")
+                document.querySelectorAll(".comment-box__rate-stars a"),
+                isMobile
             );
             input.value = 1;
         } else {
             input.value = "";
         }
     },
-    handleStarSubmit(numStar) {
+    handleStarSubmit(numStar, isMobile) {
         const result = [];
         let addStar = true;
         for (let i = 0; i < 5; ++i) {
             if (addStar) {
                 for (let j = 0; j < numStar; ++j) {
-                    result.push(
-                        '<img src="../../assets/images/image-update/small-active.png" alt="">'
-                    );
+                    if (isMobile) {
+                        result.push(
+                            '<img src="../../assets/images/image-update/mb-small.png" alt="">'
+                        );
+                    } else {
+                        result.push(
+                            '<img src="../../assets/images/image-update/small-active.png" alt="">'
+                        );
+                    }
                     ++i;
                 }
                 addStar = false;
             }
             if (i < 5) {
-                result.push(
-                    '<img src="../../assets/images/image-update/small.png" alt="">'
-                );
+                if (isMobile) {
+                    result.push(
+                        '<img src="../../assets/images/image-update/small.png" alt="">'
+                    );
+                } else {
+                    result.push(
+                        '<img src="../../assets/images/image-update/small.png" alt="">'
+                    );
+                }
             }
         }
         return result.join("");
     },
     handleAddNewComment(objComment) {
-        const newComment = `
+        const commentList = document.querySelector(".comment-list");
+        const isMobile = commentList.classList.contains("comment-list-mobile");
+        let newComment;
+        if (isMobile) {
+            newComment = `
                             <li class="comment-list__item py-4">
-                                <h3 class="comment-list__item-name comment-list__item-text mb-3">${
+                                <h3 class="comment-list__item-name comment-list__item-text mb-0">${
                                     objComment.name
                                 }</h3>
-                                <div class="comment-list__item-rate mb-3">${this.handleStarSubmit(
-                                    objComment["rate-stars"]
+                                <div class="d-flex align-items-center">
+                                    <p class="comment-list__item-text comment-list__item-date mb-0">Thang 05, 2021</p>
+                                    <div class="comment-list__item-rate">${this.handleStarSubmit(
+                                        objComment["rate-stars"],
+                                        isMobile
+                                    )}</div>
+                                </div>
+                                <p class="comment-list__item-text reduce mb-0">${
+                                    objComment.feedback
+                                }</p>
+                            </li>
+            `;
+        } else {
+            newComment = `
+                            <li class="comment-list__item py-4">
+                                <h3 class="comment-list__item-name comment-list__item-text mb-0">${
+                                    objComment.name
+                                }</h3>
+                                <div class="comment-list__item-rate mb-2">${this.handleStarSubmit(
+                                    objComment["rate-stars"],
+                                    isMobile
                                 )}</div>
-                                    <div class="d-flex">
-                                    <div class="comment-list__item-text comment-list__item-date mr-4">Thang 05, 2021</div>
-                                    <div class="comment-list__item-text reduce">${
+                                <div class="d-flex">
+                                    <p class="comment-list__item-text comment-list__item-date mb-0 mr-4">Thang 05, 2021</p>
+                                    <p class="comment-list__item-text reduce mb-0">${
                                         objComment.feedback
-                                    }</div>
+                                    }</p>
                                 </div>
                             </li>
                             `;
-        const commentList = document.querySelector(".comment-list");
+        }
         const oldComment = commentList.innerHTML;
+        const countItem = document.querySelector(".comment-count h3");
+        if (countItem) {
+            const itemComments = document.querySelectorAll(
+                ".comment-list__item"
+            );
+            let numComment = itemComments.length + 1;
+            countItem.innerHTML = `${numComment} Bình luận `;
+        }
         const result = oldComment + newComment;
         commentList.innerHTML = result;
     },
     comment() {
-        this.handleRateStar();
+        const commentList = document.querySelector(".comment-list");
+        const isMobile = commentList.classList.contains("comment-list-mobile");
+        this.handleRateStar(isMobile);
     },
 };
 
