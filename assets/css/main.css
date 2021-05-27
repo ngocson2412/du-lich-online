@@ -744,7 +744,7 @@ button {
 @media (max-width: 768px) {
   #flatpickr-custom .flatpickr-calendar {
     top: 63px !important;
-    left: 25 !important; } }
+    left: 25px !important; } }
 
 #flatpickr-custom .disabled,
 #flatpickr-custom-1 .disabled,
@@ -772,17 +772,19 @@ button {
     top: 103px !important;
     left: -11px !important; } }
 
+.pick-room #flatpickr-custom-1 .flatpickr-calendar,
+.pick-room #flatpickr-custom-2 .flatpickr-calendar {
+  top: 71px !important;
+  left: 3px !important; }
+
 .banner-boat.pick-room {
   height: auto !important; }
   .banner-boat.pick-room form {
     margin: 20px 0;
     background-color: #fff;
-    padding: 10px 20px; }
+    padding: 15px; }
   .banner-boat.pick-room .cano-service-detail {
-    padding: 8px 0;
     border-bottom: 1px solid #d0e1e7; }
-  .banner-boat.pick-room .btn {
-    margin-top: 10px !important; }
 
 @media (max-width: 768px) {
   .banner-boat .cano-title {
@@ -1737,7 +1739,7 @@ button {
   color: #1c274e !important;
   font-family: "Nunito Sans", sans-serif;
   font-weight: 500; }
-  @media only screen and (max-width: 425px) {
+  @media only screen and (max-width: 768px) {
     .comment p,
     .comment input,
     .comment h3 {
@@ -1754,17 +1756,17 @@ button {
 .comment-box {
   background-color: #fff;
   border-radius: 8px; }
-  @media only screen and (max-width: 425px) {
+  @media only screen and (max-width: 768px) {
     .comment-box {
       margin: 0 !important; } }
-  @media only screen and (max-width: 425px) {
+  @media only screen and (max-width: 768px) {
     .comment-box__rate {
       display: block !important;
       margin-bottom: 10px !important; } }
   .comment-box__rate p {
     font-size: 18px !important;
     font-weight: 500 !important; }
-    @media only screen and (max-width: 425px) {
+    @media only screen and (max-width: 768px) {
       .comment-box__rate p {
         padding-left: 0;
         margin-bottom: 10px; } }
@@ -1773,7 +1775,7 @@ button {
     margin-right: 4px; }
   .comment-box__rate input {
     display: none; }
-  @media only screen and (max-width: 425px) {
+  @media only screen and (max-width: 768px) {
     .comment-box__rate-stars {
       margin-left: 0 !important; } }
   .comment-box__form .form-group input,
@@ -1795,7 +1797,7 @@ button {
     margin-bottom: 10px; }
   .comment-box__form .form-group .form-wrap:last-child input.active {
     margin-bottom: 8px; }
-  @media only screen and (max-width: 425px) {
+  @media only screen and (max-width: 768px) {
     .comment-box__form .form-group .form-wrap input {
       font-size: 14px;
       font-weight: 400;
@@ -1805,33 +1807,35 @@ button {
   .comment-box__form .form-group .form-wrap .form-msg {
     color: red;
     font-size: 14px; }
-  @media only screen and (max-width: 425px) {
+  @media only screen and (max-width: 768px) {
     .comment-box__form .form-group .form-wrap ::placeholder {
       font-size: 14px;
       font-weight: 400;
       color: #616980; } }
   .comment-box__form .flex-3 {
     flex: 3; }
-    @media only screen and (max-width: 425px) {
+    @media only screen and (max-width: 768px) {
       .comment-box__form .flex-3 {
         flex: auto;
         margin-right: 0 !important;
-        height: 160px; } }
+        height: 160px;
+        width: 100%; } }
     .comment-box__form .flex-3 textarea {
       height: 100%;
       width: 100%;
       text-align: start; }
   .comment-box__form .flex-2 {
     flex: 2; }
-    @media only screen and (max-width: 425px) {
+    @media only screen and (max-width: 768px) {
       .comment-box__form .flex-2 {
-        flex: auto; } }
-  @media only screen and (max-width: 425px) {
+        flex: auto;
+        width: 100%; } }
+  @media only screen and (max-width: 768px) {
     .comment-box .comment-list {
       padding: 0 40px !important; } }
   .comment-box .comment-list__item:not(:last-child) {
     border-bottom: 1px solid #d7d7d7; }
-  @media only screen and (max-width: 425px) {
+  @media only screen and (max-width: 768px) {
     .comment-box .comment-list__item:last-child {
       border-bottom: 1px solid #d7d7d7; } }
   .comment-box .comment-list__item-text {
@@ -1839,7 +1843,7 @@ button {
     font-size: 16px !important;
     font-weight: 500 !important;
     font-family: "Nunito Sans", sans-serif; }
-    @media only screen and (max-width: 425px) {
+    @media only screen and (max-width: 768px) {
       .comment-box .comment-list__item-text {
         font-size: 14px !important; } }
     .comment-box .comment-list__item-text.reduce {
@@ -1850,26 +1854,26 @@ button {
       -webkit-box-orient: vertical; }
   .comment-box .comment-list__item-name {
     font-weight: 700 !important; }
-    @media only screen and (max-width: 425px) {
+    @media only screen and (max-width: 768px) {
       .comment-box .comment-list__item-name {
         font-size: 18px !important; } }
   .comment-box .comment-list__item-date {
     min-width: 120px; }
-    @media only screen and (max-width: 425px) {
+    @media only screen and (max-width: 768px) {
       .comment-box .comment-list__item-date {
         font-size: 14px !important;
         color: #616980; } }
-  @media only screen and (max-width: 425px) {
+  @media only screen and (max-width: 768px) {
     .comment-box .comment-list__item-rate {
       margin-bottom: 4px; } }
 
-@media only screen and (max-width: 425px) {
+@media only screen and (max-width: 768px) {
   .comment-pagination {
     padding: 18px 40px;
     justify-content: start !important;
     background-color: #fff; } }
 
-@media only screen and (max-width: 425px) {
+@media only screen and (max-width: 768px) {
   .comment-pagination .pagination__list li.active {
     border-color: #10284f !important; }
     .comment-pagination .pagination__list li.active a {

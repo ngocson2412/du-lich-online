@@ -43,6 +43,7 @@ $(document).ready(function () {
     toastMessage.init();
     comment.init();
     reviewButtonClick.init();
+    setMinDate.init();
 });
 
 const fastnews = {
@@ -228,7 +229,7 @@ const customModal = {
                     '<i class="fas fa-angle-down mr-2"></i> Xem chi tiết '
                 );
                 btnShowMore.addClass("show");
-                btnShowMore.removeClass('active');
+                btnShowMore.removeClass("active");
             }
         });
     },
@@ -803,14 +804,14 @@ const flatpickrDate = {
         });
         flatpickr("#calendar-ja-from", {
             locale: "vn",
-            // minDate: new Date(),
+            minDate: new Date(), // set default value is today
             disable: [
                 "2021-04-30",
                 "2021-05-01",
                 "2025-03-08",
                 new Date(2025, 4, 9),
             ],
-            dateFormat: "d/m/Y",
+            dateFormat: "m/d/Y",
             disableMobile: true,
             defaultDate: new Date(),
             altInput: true,
@@ -819,14 +820,14 @@ const flatpickrDate = {
         });
         flatpickr("#calendar-ja-to", {
             locale: "vn",
-            // minDate: new Date(),
+            minDate: new Date(), // set default value is today
             disable: [
                 "2021-04-30",
                 "2021-05-01",
                 "2025-03-08",
                 new Date(2025, 4, 9),
             ],
-            dateFormat: "d/m/Y",
+            dateFormat: "m/d/Y",
             disableMobile: true,
             defaultDate: new Date(),
             altInput: true,
@@ -1486,8 +1487,8 @@ const comment = {
     },
     comment() {
         const commentList = document.querySelector(".comment-list");
-            const isMobile = commentList.classList.contains("comment-list-mobile");
-            this.handleRateStar(isMobile);
+        const isMobile = commentList.classList.contains("comment-list-mobile");
+        this.handleRateStar(isMobile);
     },
 };
 
@@ -1633,4 +1634,36 @@ Validator.isPhoneNumber = (selector) => {
                 : "Trường này số điện thoại";
         },
     };
+};
+
+const setMinDate = {
+    init() {
+        this.setMinDate();
+    },
+    setMinDate() {
+        const fromInput = document.querySelector("#calendar-ja-from");
+
+        fromInput.onchange = (e) => {
+            const fromInputValue = e.target.value;
+            const toInputValue =
+                document.querySelector("#calendar-ja-to").value;
+            const dateToInput = new Date(toInputValue);
+            const dateFromInput = new Date(fromInputValue);
+
+            if (dateFromInput > dateToInput) {
+                flatpickr("#calendar-ja-to", {
+                    locale: "vn",
+                    minDate: new Date(fromInputValue),
+                    dateFormat: "m/d/Y",
+                    disableMobile: true,
+                    defaultDate: new Date(fromInputValue),
+                    altInput: true,
+                    altFormat: "d F Y",
+                    appendTo: window.document.querySelector(
+                        "#flatpickr-custom-2"
+                    ),
+                });
+            }
+        };
+    },
 };
