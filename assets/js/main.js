@@ -44,6 +44,7 @@ $(document).ready(function () {
     comment.init();
     reviewButtonClick.init();
     setMinDate.init();
+    videoTauThamVinh.init();
 });
 
 const fastnews = {
@@ -1487,8 +1488,12 @@ const comment = {
     },
     comment() {
         const commentList = document.querySelector(".comment-list");
-        const isMobile = commentList.classList.contains("comment-list-mobile");
-        this.handleRateStar(isMobile);
+        if (commentList) {
+            const isMobile = commentList.classList.contains(
+                "comment-list-mobile"
+            );
+            this.handleRateStar(isMobile);
+        }
     },
 };
 
@@ -1642,28 +1647,76 @@ const setMinDate = {
     },
     setMinDate() {
         const fromInput = document.querySelector("#calendar-ja-from");
+        if (fromInput) {
+            fromInput.onchange = (e) => {
+                const fromInputValue = e.target.value;
+                const toInputValue =
+                    document.querySelector("#calendar-ja-to").value;
+                const dateToInput = new Date(toInputValue);
+                const dateFromInput = new Date(fromInputValue);
 
-        fromInput.onchange = (e) => {
-            const fromInputValue = e.target.value;
-            const toInputValue =
-                document.querySelector("#calendar-ja-to").value;
-            const dateToInput = new Date(toInputValue);
-            const dateFromInput = new Date(fromInputValue);
+                if (dateFromInput > dateToInput) {
+                    flatpickr("#calendar-ja-to", {
+                        locale: "vn",
+                        minDate: new Date(fromInputValue),
+                        dateFormat: "m/d/Y",
+                        disableMobile: true,
+                        defaultDate: new Date(fromInputValue),
+                        altInput: true,
+                        altFormat: "d F Y",
+                        appendTo: window.document.querySelector(
+                            "#flatpickr-custom-2"
+                        ),
+                    });
+                }
+            };
+        }
+    },
+};
 
-            if (dateFromInput > dateToInput) {
-                flatpickr("#calendar-ja-to", {
-                    locale: "vn",
-                    minDate: new Date(fromInputValue),
-                    dateFormat: "m/d/Y",
-                    disableMobile: true,
-                    defaultDate: new Date(fromInputValue),
-                    altInput: true,
-                    altFormat: "d F Y",
-                    appendTo: window.document.querySelector(
-                        "#flatpickr-custom-2"
-                    ),
-                });
+const videoTauThamVinh = {
+    init() {
+        this.videoTauThamVinh();
+    },
+    handleOwlChanged(owl, element, video) {
+        owl.on("changed.owl.carousel", () => {
+            element.classList.remove("playing");
+            owl.trigger("play.owl.autoplay", [1000]);
+
+            const index = video.src.search("autoplay=1");
+            if (index !== -1) {
+                video.src = video.src.slice(0, index - 1);
             }
-        };
+        });
+    },
+    handlePlayVideo(owl, element, video) {
+        const index = video.src.search("autoplay=1");
+
+        owl.trigger("stop.owl.autoplay");
+        element.classList.add("playing");
+
+        if (index === -1) {
+            video.src += "?autoplay=1";
+        }
+    },
+    videoTauThamVinh() {
+        const btns = document.querySelectorAll(".icon__wrap");
+        const owl = $(".box-discover-section__right.owl-carousel");
+        const _this = this;
+
+        if (btns) {
+            btns.forEach((btn) => {
+                btn.addEventListener("click", function () {
+                    const element =
+                        this.parentElement.parentElement.querySelector(
+                            ".video__wrap"
+                        );
+                    const video = element.querySelector("iframe");
+
+                    _this.handleOwlChanged(owl, element, video);
+                    _this.handlePlayVideo(owl, element, video);
+                });
+            });
+        }
     },
 };
