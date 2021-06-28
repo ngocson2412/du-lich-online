@@ -1340,17 +1340,15 @@ const comment = {
             const img = star.querySelector("img");
             if (isMobile) {
                 if (index === 0) {
-                    img.src = "../../assets/images/image-update/mb-large.png";
+                    img.src = "./assets/images/image-update/mb-large.png";
                 } else {
-                    img.src =
-                        "../../assets/images/image-update/mb-large-blur.png";
+                    img.src = "./assets/images/image-update/mb-large-blur.png";
                 }
             } else {
                 if (index === 0) {
-                    img.src =
-                        "../../assets/images/image-update/large-active.png";
+                    img.src = "./assets/images/image-update/large-active.png";
                 } else {
-                    img.src = "../../assets/images/image-update/large.png";
+                    img.src = "./assets/images/image-update/large.png";
                 }
             }
         });
@@ -1363,9 +1361,9 @@ const comment = {
             const a = Array.from(stars)[i];
             const img = a.querySelector("img");
             if (isMobile) {
-                img.src = "../../assets/images/image-update/mb-large.png";
+                img.src = "./assets/images/image-update/mb-large.png";
             } else {
-                img.src = "../../assets/images/image-update/large-active.png";
+                img.src = "./assets/images/image-update/large-active.png";
             }
         }
         const input = document.querySelector('input[name="rate-stars"]');
@@ -1408,11 +1406,11 @@ const comment = {
                 for (let j = 0; j < numStar; ++j) {
                     if (isMobile) {
                         result.push(
-                            '<img src="../../assets/images/image-update/mb-small.png" alt="">'
+                            '<img src="./assets/images/image-update/mb-small.png" alt="">'
                         );
                     } else {
                         result.push(
-                            '<img src="../../assets/images/image-update/small-active.png" alt="">'
+                            '<img src="./assets/images/image-update/small-active.png" alt="">'
                         );
                     }
                     ++i;
@@ -1422,11 +1420,11 @@ const comment = {
             if (i < 5) {
                 if (isMobile) {
                     result.push(
-                        '<img src="../../assets/images/image-update/small.png" alt="">'
+                        '<img src="./assets/images/image-update/small.png" alt="">'
                     );
                 } else {
                     result.push(
-                        '<img src="../../assets/images/image-update/small.png" alt="">'
+                        '<img src="./assets/images/image-update/small.png" alt="">'
                     );
                 }
             }
